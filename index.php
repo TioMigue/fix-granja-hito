@@ -33,7 +33,7 @@
                 <div class="contenido">
                     <form action="" method="POST">
                         <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home">
+                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Casa">
                             <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo">
                             <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales">
                             <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia">
