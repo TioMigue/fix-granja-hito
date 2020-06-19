@@ -29,7 +29,7 @@
                 <div class="anuncioI"></div>
                 <div class="anuncioI"></div>
             </div>
-            <div class="contenedor-medio-usuario">
+            <div class="contenedor-medio">
                 <div class="contenido">
                     <form action="" method="POST">
                         <div class="Menu-Medio">
@@ -42,7 +42,7 @@
                         </div>
                     </form>                  
                     <div class="Datos-Pag">
-                        
+
                     </div>
                 </div>
             </div>           
