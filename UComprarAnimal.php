@@ -62,7 +62,7 @@
                                                 <td class="tdDatosAnimal">Anadidos</td>
                                             </tr>
                                             <tr class="trDatosAnimal">
-                                                <td class="tdDatosAnimal">Metodo dxde pago</td>
+                                                <td class="tdDatosAnimal">Metodo de pago</td>
                                                 <td class="tdDatosAnimal"><select name="" id=""><option value="">Efectivo</option>
                                                                                                 <option value="">PayPal</option>
                                                                                                 <option value="">WebPay</option></select></td>
