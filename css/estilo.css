@@ -212,3 +212,41 @@ body{
         display: none;
     }
 }
+
+/*---------------------seccion*/
+.tablaComprarAnimal{
+    width: 80%;
+    height: 250px;
+    margin-top: 50px;
+    border: solid 1px red;
+}
+.trComprarAnimal{
+    border: solid 1px red;
+}
+.tdComprarAnimal{
+    border: solid 1px red;
+}
+.DatosAnimal{
+    width: 80%;
+    height: auto;
+    border: solid 1px blue;
+}
+.trDatosAnimal{
+    border: solid 1px blue;
+}
+.tdDatosAnimal{
+    
+    border: solid 1px blue;
+}
+.btn_ComprarAnimal{
+    width: 20%;
+    height: 50px;
+    margin-left: 60px;
+    border: none;
+    border-radius: 10px;
+    background: lightgreen;
+}
+.testImg{
+    width: 100px;
+    height: 280px;
+}

@@ -29,7 +29,7 @@
                 <div class="anuncioI"></div>
                 <div class="anuncioI"></div>
             </div>
-            <div class="contenedor-medio">
+            <div class="contenedor-medio-usuario">
                 <div class="contenido">
                     <form action="" method="POST">
                         <div class="Menu-Medio">
@@ -42,7 +42,43 @@
                         </div>
                     </form>                  
                     <div class="Datos-Pag">
-
+                        <form action="">
+                            <table class="tablaComprarAnimal">
+                                <tr class="trComprarAnimal">
+                                    <td class="tdComprarAnimal"><img class="testImg" src="img/gatofrente.jpg" alt=""></td>
+                                    <td class="tdComprarAnimal">
+                                        <table class="DatosAnimal">
+                                            <tr class="trDatosAnimal">
+                                                <td class="tdDatosAnimal">Tipo</td>
+                                                <td class="tdDatosAnimal">Nombre</td>
+                                                <td class="tdDatosAnimal">Edad</td>
+                                                <td class="tdDatosAnimal">Tamano</td>
+                                                <td class="tdDatosAnimal">Color</td>
+                                                <td class="tdDatosAnimal">Peso</td>
+                                            </tr>
+                                            <tr class="trDatosAnimal">
+                                                <td class="tdDatosAnimal"></td>
+                                                <td class="tdDatosAnimal">Precio</td>
+                                                <td class="tdDatosAnimal">Anadidos</td>
+                                            </tr>
+                                            <tr class="trDatosAnimal">
+                                                <td class="tdDatosAnimal">Metodo dxde pago</td>
+                                                <td class="tdDatosAnimal"><select name="" id=""><option value="">Efectivo</option>
+                                                                                                <option value="">PayPal</option>
+                                                                                                <option value="">WebPay</option></select></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr class="trComprarAnimal">
+                                    <td class="tdComprarAnimal">Descripcion animal</td>
+                                    <td class="tdComprarAnimal"><input class="btn_ComprarAnimal" type="submit" value="Volver"> <input class="btn_ComprarAnimal" type="submit" value="Comprar"></td>
+                                </tr>
+                            </table>
+                        
+                        
+                        
+                        </form>
                     </div>
                 </div>
             </div>           
