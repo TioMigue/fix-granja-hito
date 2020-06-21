@@ -41,38 +41,45 @@
                             <input type="submit" class="btn_Report" name="btn_Error" value="Error">   
                         </div>
                     </form>                  
-                    <div class="Datos-Pag">
+                    <div class="Datos-Pag2">
                         <form action="">
                             <table class="tablaComprarAnimal">
                                 <tr class="trComprarAnimal">
-                                    <td class="tdComprarAnimal"><img class="testImg" src="img/gatofrente.jpg" alt=""></td>
-                                    <td class="tdComprarAnimal">
-                                        <table class="DatosAnimal">
-                                            <tr class="trDatosAnimal">
-                                                <td class="tdDatosAnimal">Tipo</td>
-                                                <td class="tdDatosAnimal">Nombre</td>
-                                                <td class="tdDatosAnimal">Edad</td>
-                                                <td class="tdDatosAnimal">Tamano</td>
-                                                <td class="tdDatosAnimal">Color</td>
-                                                <td class="tdDatosAnimal">Peso</td>
+                                    <td class="tdImgComprarAnimal"><img class="testImg" src="img/gatofrente.jpg" alt=""></td>
+                                    <td class="tdDatosComprarAnimal">
+                                        <table class="tablaDatosAnimal">
+                                            <tr class="trComprarAnimal">
+                                                <td class="tdTipoComprarAnimal">
+                                                    <strong>Tipo/</strong>
+                                                    <strong>Nombre/</strong>
+                                                    <strong>Edad</strong>
+                                                    <strong>Edad/</strong>
+                                                    <strong>Color/</strong>
+                                                    <strong>Peso</strong>
+                                                </td>
                                             </tr>
-                                            <tr class="trDatosAnimal">
-                                                <td class="tdDatosAnimal"></td>
-                                                <td class="tdDatosAnimal">Precio</td>
-                                                <td class="tdDatosAnimal">Anadidos</td>
-                                            </tr>
-                                            <tr class="trDatosAnimal">
-                                                <td class="tdDatosAnimal">Metodo de pago</td>
-                                                <td class="tdDatosAnimal"><select name="" id=""><option value="">Efectivo</option>
-                                                                                                <option value="">PayPal</option>
-                                                                                                <option value="">WebPay</option></select></td>
-                                            </tr>
-                                        </table>
-                                    </td>
+                                            <tr class="trComprarAnimal">
+                                                <td class="tdPrecioComprarAnimal">
+                                                    <strong>Precio/</strong>
+                                                    <strong>Añadido</strong>
+                                                </td>
+                                            </tr> 
+                                            <tr class="trComprarAnimal">
+                                                <td class="tdPagoComprarAnimal">
+                                                    <strong>Metodo de pago</strong>
+                                                    <select class="selectComprarAnimal"name="" id="">
+                                                        <option value="">Efectivo</option>
+                                                        <option value="">WebPay</option>
+                                                        <option value="">PayPal</option>
+                                                    </select>
+                                                </td>
+                                            </tr>                                           
+                                        </table></td>
+                                    
                                 </tr>
                                 <tr class="trComprarAnimal">
-                                    <td class="tdComprarAnimal">Descripcion animal</td>
-                                    <td class="tdComprarAnimal"><input class="btn_ComprarAnimal" type="submit" value="Volver"> <input class="btn_ComprarAnimal" type="submit" value="Comprar"></td>
+                                    <td class="tdDescripcionComprarAnimal"><strong>Descripcion del animal</strong></td>
+                                    <td class="tdBotonesComprarAnimal"><input class="btn_ComprarAnimal" type="submit" value="Volver"> <input class="btn_ComprarAnimal" type="submit" value="Comprar"></td>
                                 </tr>
                             </table>
                         
