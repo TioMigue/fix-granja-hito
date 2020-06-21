@@ -43,43 +43,39 @@
                     </form>
                     <div class="Datos-Pag2">
                         <form action="">
-                            <table class="tablaComprar">
-                                <tr class="trComprar">
-                                    <td class="tdImgComprar"><img class="testImg" src="img/gatofrente.jpg" alt=""></td>
-                                    <td class="tdDatosComprar">
+                            <table class="tablaEstado">
+                                <tr class="trEstado">
+                                    <td class="tdImgEstado"><img class="testImg" src="img/gatofrente.jpg" alt=""></td>
+                                    <td class="tdDatosEstado">
                                         <table class="tablaDatos">
-                                            <tr class="trComprar">
-                                                <td class="tdTipoComprar">
-                                                    <strong>Tipo/</strong>
-                                                    <strong>Nombre/</strong>
-                                                    <strong>Edad/</strong>
-                                                    <strong>Tamaño/</strong>
-                                                    <strong>Color/</strong>
-                                                    <strong>Peso</strong>
-                                                </td>
-                                            </tr>
-                                            <tr class="trComprar">
-                                                <td class="tdPrecioComprar">
-                                                    <strong>Precio/</strong>
-                                                    <strong>Añadido</strong>
-                                                </td>
-                                            </tr>
-                                            <tr class="trComprar">
-                                                <td class="tdPagoComprar">
-                                                    <strong>Metodo de pago</strong>
-                                                    <select class="selectComprar"name="" id="">
+                                            <tr class="trEstado">
+                                                <td class="tdEstadoAlimento">
+                                                    <strong>Estado comida: </strong>
+                                                    <select class="selectComida"name="" id="">
                                                         <option value="">Efectivo</option>
                                                         <option value="">WebPay</option>
                                                         <option value="">PayPal</option>
                                                     </select>
                                                 </td>
                                             </tr>
-                                        </table></td>
+                                            <tr class="trEstado">
+                                                <td class="tdEstadoChequeo">
+                                                    <strong>Chequeos Medicos</strong>
+                                                </td>
+                                            </tr>
+                                            <tr class="trEstado">
+                                                <td class="tdEstadoChequeos">
+                                                    <div class="ChequeosMedicos">Algo</div>
 
+                                                </td>
+                                            </tr>
+                                        </table></td>
                                 </tr>
-                                <tr class="trComprar">
-                                    <td class="tdDescripcionComprar"><strong>Descripcion del animal</strong></td>
-                                    <td class="tdBotonesComprar"><input class="btn_Comprar" type="submit" value="Volver"> <input class="btn_Comprar" type="submit" value="Comprar"></td>
+                                <tr class="trEstado">
+                                    <td class="tdDescripcionEstado"><strong>Descripcion del animal</strong></td>
+                                </tr>
+                                <tr class="trEstado">
+                                    <td class="tdDescripcionLugar"><strong>Lugar</strong></td>
                                 </tr>
                             </table>
 
