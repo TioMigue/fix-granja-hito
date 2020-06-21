@@ -27,8 +27,8 @@ body{
     background-image: url(../img/xddd.png);
     background-repeat: no-repeat;
     background-size: contain;
-    margin: auto;   
-    
+    margin: auto;
+
 }
 .login{
     width: 20%;
@@ -87,22 +87,22 @@ body{
     position: absolute;
     top: 175px;
     display: flex;
-    justify-content: space-around;   
+    justify-content: space-around;
 }
 .btn_MenuUsuario{
     width: 12%;
-    height: 80px; 
+    height: 80px;
     margin-top: 30px;
     border: none;
     border-radius: 15px;
     font-size: 20px;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;   
+    font-family: Arial, Helvetica, sans-serif;
     background: lightgreen;
 }
 .btn_Report{
     width: 5.5%;
-    height: 50px; 
+    height: 50px;
     margin-top: 50px;
     border: none;
     color: transparent;
@@ -122,7 +122,7 @@ body{
     border-color: green;
     display: flex;
     justify-content: center;
-    
+
 }
 .Datos-Pag1{
     width: 90%;
@@ -155,18 +155,18 @@ body{
     margin-top: 50px;
     border-radius: 15px;
     background: white;
-    
+
 }
 .trFormulario{
     width: auto;
     height: 60px;
     margin-top: 20px;
-    float: left; 
+    float: left;
 }
 .tdForm{
     width: 140px;
-    
-    
+
+
 }
 .labelForm{
     font-family: Arial, Helvetica, sans-serif;
@@ -199,7 +199,7 @@ body{
 }
 .trAnimales{
     width: 100%;
-    margin: auto; 
+    margin: auto;
     float: left;
 }
 .tdAnimales{
@@ -224,42 +224,42 @@ body{
     }
 }
 
-/*ComprarAnimal*/
-.tablaComprarAnimal{
+/*Comprar*/
+.tablaComprar{
     width: 90%;
     height: 250px;
     margin: auto;
     margin-top: 50px;
 }
-.trComprarAnimal{
+.trComprar{
     display: flex;
 }
-.tdImgComprarAnimal{
+.tdImgComprar{
     width: 80%;
     height: 280px;
     background-color: white;
 }
-.tdDatosComprarAnimal{
+.tdDatosComprar{
     width: 100%;
     height: 100%;
 }
-.tdDescripcionComprarAnimal{
+.tdDescripcionComprar{
     width: 50%;
     height: 100%;
 }
-.tdBotonesComprarAnimal{
+.tdBotonesComprar{
     width: 60%;
     height: 100%;
     display: flex;
     justify-content: space-around;
 }
 /*Esta tabla tiene los datos del animal como el metodo de pago*/
-.tablaDatosAnimal{
+.tablaDatos{
     width: 100%;
     height: 100%;
     margin-top: 2%;
 }
-.tdTipoComprarAnimal{
+.tdTipoComprar{
     width: 100%;
     height: 100%;
     margin-top: 5%;
@@ -270,7 +270,7 @@ body{
     background: lightgreen;
     border-radius: 10px;
 }
-.tdPrecioComprarAnimal{
+.tdPrecioComprar{
     width: 100%;
     height: 100%;
     margin-top: 5%;
@@ -281,7 +281,7 @@ body{
     background: lightgreen;
     border-radius: 10px;
 }
-.tdPagoComprarAnimal{
+.tdPagoComprar{
     width: 100%;
     height: 50px;
     margin-top: 5%;
@@ -292,7 +292,7 @@ body{
     background: lightgreen;
     border-radius: 10px;
 }
-.selectComprarAnimal{
+.selectComprar{
     height: 50%;
     margin-top: 5px;
     margin-left: 15px;
@@ -301,7 +301,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn_ComprarAnimal{
+.btn_Comprar{
     width: 20%;
     height: 50px;
     border: none;

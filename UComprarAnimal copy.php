@@ -52,8 +52,8 @@
                                                 <td class="tdTipoComprar">
                                                     <strong>Tipo/</strong>
                                                     <strong>Nombre/</strong>
+                                                    <strong>Edad</strong>
                                                     <strong>Edad/</strong>
-                                                    <strong>Tamaño/</strong>
                                                     <strong>Color/</strong>
                                                     <strong>Peso</strong>
                                                 </td>
