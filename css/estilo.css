@@ -4,7 +4,7 @@ body{
     margin: auto;
     padding: auto;
 }
-/*Seccion arriba*/
+/*Seccion arriba----------------------------------------------------------------------------------*/
 
 .inputLogin{
     width: 200px;
@@ -38,7 +38,7 @@ body{
     float: right;
 }
 
-/*Seccion media*/
+/*Seccion media----------------------------------------------------------------------------------*/
 .medio{
     height: 700px;
     background: green;
@@ -107,6 +107,19 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background: lightgreen;
 }
+
+.btn_MenuAdmin{
+    width: 12%;
+    height: 80px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    background: lightgreen;
+}
+
 .btn_Report{
     width: 5.5%;
     height: 50px;
@@ -163,23 +176,62 @@ body{
     border-radius: 15px;
     background: white;
 }
+.tablaAdmin{
+    width: 90%;
+    height: 250px;
+    margin-top: 50px;
+    border-radius: 15px;
+    background: white;
+}
 .trFormulario{
     width: auto;
     height: 60px;
     margin-top: 20px;
     float: left;
 }
+.trFormularioAdmin{
+    width: auto;
+    height: 55px;
+    margin-top: 5px;
+    float: left;
+}
 .tdForm{
     width: 140px;
-
-
 }
+.tdFormAdmin{
+    width: 140px;
+}
+
+.formAdmin{
+    float: left;
+    margin-left: 80px;
+    align-items: center;
+}
+
+.contenidoAdmin{
+    align-items: center;
+}
+
 .labelForm{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 20px;
 }
 .inputForm{
+    float: left;
+    width: 200px;
+    height: 30px;
+    border: solid;
+    border-color: lightgreen;
+    border-radius: 10px;
+    margin-right: 25px;
+}
+.labelFormAdmin{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+.inputFormAdmin{
     float: left;
     width: 200px;
     height: 30px;
@@ -219,7 +271,7 @@ body{
     border-color: lightgreen;
     border-style: solid;
 }
-/*Comprar animal o alimento*/
+/*Comprar animal o alimento----------------------------------------------------------------------------------*/
 .testImg{
     width: 100%;
     height: 280px;
@@ -252,7 +304,10 @@ body{
     display: flex;
     justify-content: space-around;
 }
-/*Esta tabla tiene los datos del animal/alimento*/
+
+
+
+/*Esta tabla tiene los datos del animal/alimento----------------------------------------------------------------------------------*/
 .tablaDatos{
     width: 100%;
     height: 100%;
@@ -314,7 +369,7 @@ body{
     border-radius: 10px;
     background: lightgreen;
 }
-/*Seccion EstadoAnimal*/
+/*Seccion EstadoAnimal----------------------------------------------------------------------------------*/
 .tablaEstado{
     width: 90%;
     height: 250px;
@@ -382,7 +437,7 @@ body{
     height: 100%;
 }
 
-/*RetirarAnimal*/
+/*RetirarAnimal----------------------------------------------------------------------------------*/
 .tablaRetirarAnimal{
     width: 90%;
     height: 250px;
@@ -451,7 +506,7 @@ body{
     background: lightgreen;
 }
 
-/*Seccion Gestion granja administrador*/
+/*Seccion Gestion granja administrador----------------------------------------------------------------------------------*/
 .tablaGestionGranjas{
     width: 90%;
     height: 250px;
@@ -483,7 +538,7 @@ body{
 .inputDatosGranjas{
     margin-left: 10px;
 }
-/*Table de empleados*/
+/*Table de empleados----------------------------------------------------------------------------------*/
 .tablaEmpleadosGranja{
     width: 100%;
     height: 100px;

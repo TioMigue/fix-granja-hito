@@ -46,23 +46,24 @@
                 <div class="anuncioI"></div>
             </div>
             <div class="contenedor-medio-administrador">
-                <div class="contenido">
+                <div class="contenidoAdmin">
                     <form action="" method="POST">
                         <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Home" value="Home">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Catalogo" value="Catalogo">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Animales">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Multimedia" value="Multimedia">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Historial">
                             <input type="submit" class="btn_Report" name="btn_Error" value="Error">   
                         </div>
                         
                     </form>                  
                     <div class="Datos-Pag2">   
-                        <form action="" method="POST">
-                            <table class="tabla">
-                                <tr class="trFormulario">
-                                    <td class="tdForm">
+                        <form class="formAdmin" action="" method="POST">
+                            <table class="tablaAdmin">
+                                <tr class="trFormularioAdmin">
+                                <td class="tdFormAdmin"> <label class="labelForm" for="">Granja: </label></td>
+                                    <td class="tdFormAdmin">
                                         <select name="granja[]" id="">
                                         <?php
                                             $sql = "SELECT * FROM granja";
@@ -76,41 +77,42 @@
                                                     </select>';
                                                 }
                                             }
-                                        ?>    
+                                        ?>
+                                    </td>
                                 </tr>
-                                <tr class="trFormulario">
-                                    <td class="tdForm"> <label class="labelForm" for="">Nombre: </label></td>
-                                    <td class="tdForm"> <input class="inputForm" type="text" name="txtNombre" ></td>
-                                    <td class="tdForm"> <label class="labelForm" for="">Apellido: </label>  </td>
-                                    <td class="tdForm"> <input class="inputForm" type="text" name="txtApellido" ></td>
+                                <tr class="trFormularioAdmin">
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Nombre: </label></td>
+                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtNombre" ></td>
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Apellido: </label>  </td>
+                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtApellido" ></td>
                                     
                                 </tr>
-                                <tr class="trFormulario">
-                                    <td class="tdForm"> <label class="labelForm" for="">Rut: </label>  </td>
-                                    <td class="tdForm"> <input class="inputForm" type="text" name="txtRut" ></td>
-                                    <td class="tdForm"> <label class="labelForm" for="">Edad: </label> </td>
-                                    <td class="tdForm"> <input class="inputForm"  type="text" name="txtEdad" ></td>
+                                <tr class="trFormularioAdmin">
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Rut: </label>  </td>
+                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtRut" ></td>
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Edad: </label> </td>
+                                    <td class="tdFormAdmin"> <input class="inputForm"  type="text" name="txtEdad" ></td>
                                     
                                 </tr>
-                                <tr class="trFormulario"> 
-                                    <td class="tdForm"> <label class="labelForm" for="">Telefono: </label>  </td>
-                                    <td class="tdForm"> <input class="inputForm" type="text" name="txtTelefono" ></td>
-                                    <td class="tdForm"> <label class="labelForm" for="">Direccion: </label> </td>
-                                    <td class="tdForm"> <input class="inputForm" type="text" name="txtDireccion" ></td>
+                                <tr class="trFormularioAdmin"> 
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Telefono: </label>  </td>
+                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtTelefono" ></td>
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Direccion: </label> </td>
+                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtDireccion" ></td>
                                 
                                 </tr>
-                                <tr class="trFormulario">
-                                    <td class="tdForm"> <label class="labelForm" for="">Contraseña: </label>  </td>
-                                    <td class="tdForm"> <input class="inputForm" type="password" name="txtContrasena" ></td>
-                                    <td class="tdForm"> <label class="labelForm" for="">Repetir Contraseña: </label> </td>
-                                    <td class="tdForm"> <input class="inputForm" type="password" name="txtContrasena" ></td>
+                                <tr class="trFormularioAdmin">
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Contraseña: </label>  </td>
+                                    <td class="tdFormAdmin"> <input class="inputForm" type="password" name="txtContrasena" ></td>
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Repetir Contraseña: </label> </td>
+                                    <td class="tdFormAdmin"> <input class="inputForm" type="password" name="txtContrasena" ></td>
                                 
                                 </tr>
-                                <tr class="trFormulario">
-                                    <td class="tdForm">  </td>
-                                    <td class="tdForm"> <input class="btnAcciones" type="submit" value="Volver"></td>
-                                    <td class="tdForm">  </td>
-                                    <td class="tdForm"> <input class="btnAcciones" type="submit" name="registrarGranjero" value="Registrar"></td>                              
+                                <tr class="trFormularioAdmin">
+                                    <td class="tdFormAdmin">  </td>
+                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" value="Volver"></td>
+                                    <td class="tdFormAdmin">  </td>
+                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" name="registrarGranjero" value="Registrar"></td>                              
                                 </tr>
                             </table>
                         </form>  
