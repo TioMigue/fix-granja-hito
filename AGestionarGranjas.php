@@ -1,4 +1,6 @@
-
+<?php
+    require 'conexion.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,18 +44,50 @@
                         </div>
                     </form>
                     <div class="Datos-Pag2">
+                        <form action="">
+
+                        </form>
                         <table class="tablaGestionGranjas">
                             <tr class="trGestionGranjas">
-                                <td class="tdGestionGranjas"><strong>Nombre</strong><input class="inputDatosGranjas" type="text"></td>
-                                <td class="tdGestionGranjas"><strong>Direccion</strong><input class="inputDatosGranjas" type="text"></td>
-                                <td class="tdGestionGranjas"><strong>RUN</strong><input class="inputDatosGranjas" type="text"></td>
+                                <form action="" method="POST">
+                                <td class="tdGestionGranjas"><strong>Nombre</strong><input class="inputDatosGranjas" name="txtNombre" type="text"></td>
+                                <td class="tdGestionGranjas"><strong>Direccion</strong><input class="inputDatosGranjas" name="txtDireccion" type="text"></td>
+                                <td class="tdGestionGranjas"><strong>RUN</strong><input class="inputDatosGranjas" name="txtRUN" type="text"></td>
+                                <td class="tdGestionGranjas"><strong>Descripcion</strong><input class="inputDatosGranjas" name="txtDescripcion" type="text"></td>
+                                <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="AgregarGranja" type="submit"></td>
+                                </form>
+                                <?php
+                                    if(isset($_POST['AgregarGranja'])){
+                                        $nombre = $_POST['txtNombre'];
+                                        $direccion = $_POST['txtDireccion'];
+                                        $RUN = $_POST['txtRUN'];
+                                        $descripcion = $_POST['txtDescripcion'];
+
+                                        $sql = "INSERT INTO granja (Nombre, Direccion, RUN, Descripcion) VALUES ('".$nombre."','".$direccion."','".$RUN."','".$descripcion."')";
+                                        if (mysqli_query($conn, $sql)){
+                                            echo '<script type="text/javascript">alert("Granja registrada correctamente")</script>';
+                                            mysqli_close($conn);
+                                            }else{
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                            }
+                                    }
+                                ?>
                             </tr>
                             <tr class="trTablaGestionGranjas">
                                 <td class="tdTablaGestionGranjas">
                                     <table class="tablaEmpleadosGranja">
                                         <tr class="trEmpleadosGranja">
-                                            <td class="tdEmpleadosGranja"><strong>Granjero</strong><input type="submit" class="btnAgregar"></td>
-                                            <td class="tdEmpleadosGranja"><strong>Veterinario</strong><input type="submit" class="btnAgregar"></td>
+                                            <form action="" method="POST">
+                                                <td class="tdEmpleadosGranja"><strong>Granjero</strong><input type="submit" name="agregarGranjero"class="btnAgregar"></td>
+                                                <td class="tdEmpleadosGranja"><strong>Veterinario</strong><input type="submit" name="agregarVeterinario" class="btnAgregar"></td>
+                                            </form>
+                                            <?php
+                                                if(isset($_POST['agregarGranjero'])){
+                                                    echo '<script>alert("btn granjero")</script>';
+                                                }else if(isset($_POST['agregarVeterinario'])){
+                                                    echo '<script>alert("btn veterinario")</script>';
+                                                }
+                                            ?>
                                         </tr>
                                         <tr class="trEmpleadosGranja">
                                             <td class="tdEmpleadosGranja"><strong>Granjero: </strong>
