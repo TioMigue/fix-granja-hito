@@ -35,11 +35,11 @@
                 <div class="contenido">
                     <form action="" method="POST">
                         <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Home" value="Home">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Catalogo" value="Catalogo">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Animales">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Multimedia" value="Multimedia">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Historial">
                             <input type="submit" class="btn_Report" name="btn_Error" value="Error">
                         </div>
                     </form>
