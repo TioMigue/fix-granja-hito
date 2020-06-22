@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="contenedor">
+<div class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
