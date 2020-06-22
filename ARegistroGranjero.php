@@ -1,5 +1,6 @@
 <?php
     require 'conexion.php';
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +71,7 @@
                                                 while($row = $result -> fetch_assoc()){
                                                     echo '<strong>'.$row['Nombre'].'</strong>';
                                                     echo '
-                                                        <option value='.$row['Nombre'].'>'.$row['Nombre'].'</option>
+                                                        <option value='.$row['idGranja'].'>'.$row['Nombre'].'</option>
                                                         <option value="granja2">granja2</option>
                                                     </select>';
                                                 }
@@ -94,8 +95,8 @@
                                 <tr class="trFormulario"> 
                                     <td class="tdForm"> <label class="labelForm" for="">Telefono: </label>  </td>
                                     <td class="tdForm"> <input class="inputForm" type="text" name="txtTelefono" ></td>
-                                    <td class="tdForm"> <label class="labelForm" for="">Correo: </label> </td>
-                                    <td class="tdForm"> <input class="inputForm" type="text" name="txtCorreo" ></td>
+                                    <td class="tdForm"> <label class="labelForm" for="">Direccion: </label> </td>
+                                    <td class="tdForm"> <input class="inputForm" type="text" name="txtDireccion" ></td>
                                 
                                 </tr>
                                 <tr class="trFormulario">
@@ -119,14 +120,24 @@
                                 $apellido = $_POST['txtApellido'];
                                 $rut = $_POST['txtRut'];
                                 $edad = $_POST['txtEdad'];
+                                $direccion = $_POST['txtDireccion'];
                                 $telefono = $_POST['txtTelefono'];
-                                $correo = $_POST['txtCorreo'];
                                 
                                 $granja = $_POST['granja'];
 
                                 for ($i=0; $i <count($granja); $i++) { 
                                     echo "<br> Granja" . $i . ": ". $granja[$i];
+                                    $granjaS = $granja[$i];
                                 }
+
+                                $sql = "INSERT INTO granjero (Nombre, Apellido, Rut, Edad, Direccion, Telefono, Granja_idGranja) VALUES ('".$nombre."','".$apellido."','".$rut."','".$edad."','".$direccion."','".$telefono."','".$granjaS."')";
+                                if (mysqli_query($conn, $sql)) {
+                                    echo '<script type="text/javascript">alert("Granjero ingresado correctamente")</script>';
+                                    mysqli_close($conn);
+                                    }else{
+                                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                    }
+                                echo "granja: ".$granjaS;
                                 //$sql = "INSERT INTO granja (Nombre, Direccion, RUN, Descripcion) VALUES ('".$nombre."','".$direccion."','".$RUN."','".$descripcion."')";
                             }
                         ?>                
