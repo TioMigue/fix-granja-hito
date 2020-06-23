@@ -1,5 +1,7 @@
-
-
+<?php
+//require 'conexion.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +15,22 @@
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
+                <table>
+                    <tr>
+                        
+                        <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario"></td>
+                    </tr>
 
+                    <tr>
+                        <td><input class="inputLogin"  type="text" name="Contraseña" placeholder="Contraseña"></td>
+                    </tr>
+                    <tr>
+                        <td> Registrarse Aqui</td>
+                        
+                    </tr>
+                </table>
             </div>
+            
             <div class="contenedor-arriba">
 
             </div>
@@ -45,7 +61,10 @@
                         <form action="">
                             <table class="tablaComprar">
                                 <tr class="trComprar">
-                                    <td class="tdImgComprar"><img class="testImg" src="img/gatofrente.jpg" alt=""></td>
+                                    <?php
+                                        echo "<td class='tdImgComprar'><img class='testImg' src='img/".$_SESSION['animal'].".jpg' alt=''></td>";
+                                    ?>
+                                    
                                     <td class="tdDatosComprar">
                                         <table class="tablaDatos">
                                             <tr class="trComprar">

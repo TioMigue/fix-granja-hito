@@ -70,14 +70,12 @@
                                             $result = $conn->query($sql);
                                             if($result ->num_rows > 0){
                                                 while($row = $result -> fetch_assoc()){
-                                                    echo '<strong>'.$row['Nombre'].'</strong>';
                                                     echo '
-                                                        <option value='.$row['idGranja'].'>'.$row['Nombre'].'</option>
-                                                        <option value="granja2">granja2</option>
-                                                    </select>';
+                                                        <option value='.$row['idGranja'].'>'.$row['Nombre'].'</option>';
                                                 }
                                             }
                                         ?>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr class="trFormularioAdmin">

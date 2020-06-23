@@ -210,7 +210,7 @@ body{
     background: white;
 }
 .trFormulario{
-    width: auto;
+    width: 100%;
     height: 60px;
     margin-top: 20px;
     float: left;
@@ -219,13 +219,16 @@ body{
     width: auto;
     height: 55px;
     margin-top: 5px;
-    float: left;
 }
 .tdForm{
     width: 140px;
 }
 .tdFormAdmin{
+    width: 80px;
+}
+.tdFormAdminCBX{
     width: 140px;
+    margin-left: 200px;
 }
 
 .formAdmin{
@@ -253,6 +256,7 @@ body{
     margin-right: 25px;
 }
 .labelFormAdmin{
+    width: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 20px;
@@ -296,6 +300,11 @@ body{
     border-radius: 10px;
     border-color: lightgreen;
     border-style: solid;
+}
+.filtrarTipo{
+    width: 67%;
+    margin: auto;
+    float: right;
 }
 /*Comprar animal o alimento----------------------------------------------------------------------------------*/
 .testImg{

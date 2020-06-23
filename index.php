@@ -13,13 +13,24 @@
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
-                <input class="textLogin" type="text" name="usuario.txt" placeholder="Usuario" >
-                <input class="textLogin" type="text" name="usuario.txt" placeholder="Usuario" >
-                <img class="imglogin" src="img/login.png" alt="" width="50px" height="50px">
-                <a class="alogin" href="URegistroUsuario.php"> Registrarse</a>
+                <table>
+                    <tr>
+                        
+                        <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="inputLogin"  type="text" name="Contraseña" placeholder="Contraseña"></td>
+                    </tr>
+                    <tr>
+                        <td> Registrarse Aqui</td>
+                        
+                    </tr>
+                </table>
             </div>
-            <div class="contenedor-arriba">
             
+            <div class="contenedor-arriba">
+
             </div>
         </div>
         <!-- Seccion media -->

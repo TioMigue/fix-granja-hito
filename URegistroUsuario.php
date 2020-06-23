@@ -55,35 +55,34 @@
                         </div>
                         
                     </form>                  
-                    <div class="Datos-Pag">
-                        
+                    <div class="Datos-Pag">                       
                         <table class="tabla">
                             <tr class="trFormulario">
                                 <td class="tdForm"> <label class="labelForm" for="">Nombre: </label></td>
-                                <td class="tdForm"> <input class="inputForm" type="text" name="NombreUsuario" ></td>
+                                <td class="tdForm"> <input class="inputForm" type="text" name="txtNombre" ></td>
                                 <td class="tdForm"> <label class="labelForm" for="">Apellido: </label>  </td>
-                                <td class="tdForm"> <input class="inputForm" type="text" name="NombreUsuario" ></td>
+                                <td class="tdForm"> <input class="inputForm" type="text" name="txtApellido" ></td>
                                 
                             </tr>
                             <tr class="trFormulario">
                                 <td class="tdForm"> <label class="labelForm" for="">Rut: </label>  </td>
-                                <td class="tdForm"> <input class="inputForm" type="text" name="NombreUsuario" ></td>
+                                <td class="tdForm"> <input class="inputForm" type="text" name="txtRut" ></td>
                                 <td class="tdForm"> <label class="labelForm" for="">Edad: </label> </td>
-                                <td class="tdForm"> <input class="inputForm"  type="text" name="NombreUsuario" ></td>
+                                <td class="tdForm"> <input class="inputForm"  type="text" name="txtEdad" ></td>
                                 
                             </tr>
                             <tr class="trFormulario"> 
                                 <td class="tdForm"> <label class="labelForm" for="">Telefono: </label>  </td>
-                                <td class="tdForm"> <input class="inputForm" type="text" name="NombreUsuario" ></td>
+                                <td class="tdForm"> <input class="inputForm" type="text" name="txtTelefono" ></td>
                                 <td class="tdForm"> <label class="labelForm" for="">Correo: </label> </td>
-                                <td class="tdForm"> <input class="inputForm" type="text" name="NombreUsuario" ></td>
+                                <td class="tdForm"> <input class="inputForm" type="text" name="txtCorreo" ></td>
                                
                             </tr>
                             <tr class="trFormulario">
                                 <td class="tdForm"> <label class="labelForm" for="">Contraseña: </label>  </td>
-                                <td class="tdForm"> <input class="inputForm" type="password" name="NombreUsuario" ></td>
+                                <td class="tdForm"> <input class="inputForm" type="password" name="txtContrasena" ></td>
                                 <td class="tdForm"> <label class="labelForm" for="">Repetir Contraseña: </label> </td>
-                                <td class="tdForm"> <input class="inputForm" type="password" name="NombreUsuario" ></td>
+                                <td class="tdForm"> <input class="inputForm" type="password" name="txtRContrasena" ></td>
                                
                             </tr>
                             <tr class="trFormulario">

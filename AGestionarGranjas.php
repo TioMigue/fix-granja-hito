@@ -15,8 +15,22 @@
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
+                <table>
+                    <tr>
+                        
+                        <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario"></td>
+                    </tr>
 
+                    <tr>
+                        <td><input class="inputLogin"  type="text" name="Contraseña" placeholder="Contraseña"></td>
+                    </tr>
+                    <tr>
+                        <td> Registrarse Aqui</td>
+                        
+                    </tr>
+                </table>
             </div>
+            
             <div class="contenedor-arriba">
 
             </div>
@@ -50,10 +64,10 @@
                         <table class="tablaGestionGranjas">
                             <tr class="trGestionGranjas">
                                 <form action="" method="POST">
-                                <td class="tdGestionGranjas"><strong>Nombre</strong><input class="inputDatosGranjas" name="txtNombre" type="text"></td>
-                                <td class="tdGestionGranjas"><strong>Direccion</strong><input class="inputDatosGranjas" name="txtDireccion" type="text"></td>
-                                <td class="tdGestionGranjas"><strong>RUN</strong><input class="inputDatosGranjas" name="txtRUN" type="text"></td>
-                                <td class="tdGestionGranjas"><strong>Descripcion</strong><input class="inputDatosGranjas" name="txtDescripcion" type="text"></td>
+                                <td class="tdGestionGranjas"><strong>Nombre</strong><input class="inputDatosGranjas" name="txtNombre" type="text" require></td>
+                                <td class="tdGestionGranjas"><strong>Direccion</strong><input class="inputDatosGranjas" name="txtDireccion" type="text" require></td>
+                                <td class="tdGestionGranjas"><strong>RUN</strong><input class="inputDatosGranjas" name="txtRUN" type="text" require></td>
+                                <td class="tdGestionGranjas"><strong>Descripcion</strong><input class="inputDatosGranjas" name="txtDescripcion" type="text" require></td>
                                 <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="AgregarGranja" type="submit"></td>
                                 </form>
                                 <?php
@@ -93,11 +107,30 @@
                                             <td class="tdEmpleadosGranja"><strong>Granjero: </strong>
                                                 <select name="" id="">
                                                 <option value="">Granjero 1 </option>
-                                            </select></td>
+                                                <?php
+                                                    $sql = "SELECT * FROM granjero WHERE Granja_idGranja = 1";
+                                                    $result = $conn->query($sql);
+                                                    if($result ->num_rows > 0){
+                                                        while($row = $result -> fetch_assoc()){
+                                                            echo "<option value=''>".$row['Nombre']." </option>";                                                     
+                                                        }
+                                                    }
+                                                ?>
+                                                </select></td>
+                                                
                                             <td class="tdEmpleadosGranja"><strong>Veterinario: </strong>
                                                 <select name="" id="">
                                                 <option value="">Veterinario 1</option>
-                                            </select></td>
+                                                <?php
+                                                    $sql = "SELECT * FROM veterinario WHERE Granja_idGranja = 1";
+                                                    $result = $conn->query($sql);
+                                                    if($result ->num_rows > 0){
+                                                        while($row = $result -> fetch_assoc()){
+                                                            echo "<option value=''>".$row['Nombre']." </option>";                                                     
+                                                        }
+                                                    }
+                                                ?>
+                                                </select></td>
                                         </tr>
                                     </table>
                                 </td>
