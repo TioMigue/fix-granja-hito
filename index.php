@@ -13,10 +13,24 @@
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
+                <table>
+                    <tr>
+                        
+                        <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario"></td>
+                    </tr>
 
+                    <tr>
+                        <td><input class="inputLogin"  type="text" name="Contraseña" placeholder="Contraseña"></td>
+                    </tr>
+                    <tr>
+                        <td> Registrarse Aqui</td>
+                        
+                    </tr>
+                </table>
             </div>
-            <div class="contenedor-arriba">
             
+            <div class="contenedor-arriba">
+
             </div>
         </div>
         <!-- Seccion media -->

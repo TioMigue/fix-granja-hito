@@ -15,8 +15,22 @@
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
+                <table>
+                    <tr>
+                        
+                        <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario"></td>
+                    </tr>
 
+                    <tr>
+                        <td><input class="inputLogin"  type="text" name="Contraseña" placeholder="Contraseña"></td>
+                    </tr>
+                    <tr>
+                        <td> Registrarse Aqui</td>
+                        
+                    </tr>
+                </table>
             </div>
+            
             <div class="contenedor-arriba">
 
             </div>
@@ -50,27 +64,31 @@
                         <table class="tablaGestionGranjas">
                             <tr class="trGestionGranjas">
                                 <form action="" method="POST">
-                                <td class="tdGestionGranjas"><strong>Nombre</strong><input class="inputDatosGranjas" name="txtNombre" type="text"></td>
-                                <td class="tdGestionGranjas"><strong>Direccion</strong><input class="inputDatosGranjas" name="txtDireccion" type="text"></td>
-                                <td class="tdGestionGranjas"><strong>RUN</strong><input class="inputDatosGranjas" name="txtRUN" type="text"></td>
-                                <td class="tdGestionGranjas"><strong>Descripcion</strong><input class="inputDatosGranjas" name="txtDescripcion" type="text"></td>
-                                <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="AgregarGranja" type="submit"></td>
+                                <td class="tdGestionGranjas"><strong>Granjas</strong></td>
+                                <td class="tdGestionGranjas"><strong>Filtrar Granja</strong>
+                                <select name="granja[]" id="">
+                                    <option value="todo">Selecionar granja</option>
+                                    <?php
+                                    $sql = "SELECT * FROM granja";
+                                    $result = $conn->query($sql);
+                                    if($result ->num_rows > 0){
+                                    while($row = $result -> fetch_assoc()){
+                                        echo "<option value=".$row['idGranja'].">".$row['Nombre']."</option>";                                                     
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                                </td>
+
+                                <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="verGranja" value="Ver granja"type="submit"></td>
                                 </form>
                                 <?php
-                                    if(isset($_POST['AgregarGranja'])){
-                                        $nombre = $_POST['txtNombre'];
-                                        $direccion = $_POST['txtDireccion'];
-                                        $RUN = $_POST['txtRUN'];
-                                        $descripcion = $_POST['txtDescripcion'];
-
-                                        $sql = "INSERT INTO granja (Nombre, Direccion, RUN, Descripcion) VALUES ('".$nombre."','".$direccion."','".$RUN."','".$descripcion."')";
-                                        if (mysqli_query($conn, $sql)){
-                                            echo '<script type="text/javascript">alert("Granja registrada correctamente")</script>';
-                                            mysqli_close($conn);
-                                            }else{
-                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                                            }
-                                    }
+                                   if(isset($_POST['verGranja'])){
+                                        $granja = $_POST['granja'];
+                                        for ($i=0; $i <count($granja); $i++) { 
+                                            $granjaS = $granja[$i];
+                                        }
+                                   }
                                 ?>
                             </tr>
                             <tr class="trTablaGestionGranjas">
@@ -78,36 +96,39 @@
                                     <table class="tablaEmpleadosGranja">
                                         <tr class="trEmpleadosGranja">
                                             <form action="" method="POST">
-                                                <td class="tdEmpleadosGranja"><strong>Granjero</strong><input type="submit" name="agregarGranjero"class="btnAgregar"></td>
-                                                <td class="tdEmpleadosGranja"><strong>Veterinario</strong><input type="submit" name="agregarVeterinario" class="btnAgregar"></td>
-                                            </form>
-                                            <?php
-                                                if(isset($_POST['agregarGranjero'])){
-                                                    echo '<script>alert("btn granjero")</script>';
-                                                }else if(isset($_POST['agregarVeterinario'])){
-                                                    echo '<script>alert("btn veterinario")</script>';
-                                                }
-                                            ?>
-                                        </tr>
-                                        <tr class="trEmpleadosGranja">
-                                            <td class="tdEmpleadosGranja"><strong>Granjero: </strong>
-                                                <select name="" id="">
-                                                <option value="">Granjero 1 </option>
+                                                <td class="tdEmpleadosGranja">
                                                 <?php
-                                                    $sql = "SELECT * FROM granjero WHERE Granja_idGranja = 1";
-                                                    $result = $conn->query($sql);
-                                                    if($result ->num_rows > 0){
+                                                    if(!isset($_POST['verGranja'])){
+                                                        $sql = "SELECT * FROM granja";
+                                                        $result = $conn->query($sql);
+                                                        if($result ->num_rows > 0){
                                                         while($row = $result -> fetch_assoc()){
-                                                            echo "<option value=''>".$row['Nombre']." </option>";                                                     
+                                                                echo "<strong>Nombre: ".$row['Nombre']." -- Direccion: ".$row['Direccion']." -- RUN: ".$row['RUN']." -- Descripcion".$row['Descripcion']."</strong> <br>";                                                     
+                                                            }
                                                         }
+                                                    }if(isset($_POST['verGranja'])){
+                                                        if($granjaS == 'todo'){
+                                                            $sql = "SELECT * FROM granja";
+                                                            $result = $conn->query($sql);
+                                                            if($result ->num_rows > 0){
+                                                            while($row = $result -> fetch_assoc()){
+                                                                echo "<strong>Nombre: ".$row['Nombre']." -- Direccion: ".$row['Direccion']." -- RUN: ".$row['RUN']." -- Descripcion".$row['Descripcion']."</strong> <br>";                                                     
+                                                            }
+                                                        }
+                                                        }else{
+                                                            $sql = "SELECT * FROM granja WHERE idGranja ='".$granjaS."'";
+                                                            $result = $conn->query($sql);
+                                                            if($result ->num_rows > 0){
+                                                            while($row = $result -> fetch_assoc()){
+                                                                echo "<strong>Nombre: ".$row['Nombre']." -- Direccion: ".$row['Direccion']." -- RUN: ".$row['RUN']." -- Descripcion".$row['Descripcion']."</strong>";                                                  
+                                                            }
+                                                        }
+                                                        }
+                                                        
                                                     }
                                                 ?>
-                                                </select></td>
-                                                
-                                            <td class="tdEmpleadosGranja"><strong>Veterinario: </strong>
-                                                <select name="" id="">
-                                                <option value="">Veterinario 1</option>
-                                            </select></td>
+                                                </td>
+                                            </form>
                                         </tr>
                                     </table>
                                 </td>

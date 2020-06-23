@@ -31,7 +31,6 @@
                     </tr>
                 </table>
             </div>
-            <div class="contenedor-arriba">
             
             </div>
         </div>
@@ -71,8 +70,7 @@
                                             if($result ->num_rows > 0){
                                                 while($row = $result -> fetch_assoc()){
                                                     echo '
-                                                        <option value='.$row['idGranja'].'>'.$row['Nombre'].'</option>
-                                                    ';
+                                                        <option value='.$row['idGranja'].'>'.$row['Nombre'].'</option>';
                                                 }
                                             }
                                         ?>
@@ -80,65 +78,76 @@
                                     </td>
                                 </tr>
                                 <tr class="trFormularioAdmin">
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Nombre: </label></td>
+                                    <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Tipo: </label></td>
+                                    <td class="tdFormAdmin">
+                                        <select name="tipo[]" id="">
+                                            <?php
+                                                $sql = "SELECT * FROM tipos";
+                                                $result = $conn->query($sql);
+                                                if($result ->num_rows > 0){
+                                                    while($row = $result -> fetch_assoc()){
+                                                        echo '
+                                                            <option value='.$row['idTipo'].'>'.$row['Tipo'].'</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </td>
+                                    <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Nombre: </label>  </td>
                                     <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtNombre" ></td>
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Apellido: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtApellido" ></td>
                                     
                                 </tr>
                                 <tr class="trFormularioAdmin">
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Rut: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtRut" ></td>
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Edad: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm"  type="text" name="txtEdad" ></td>
+                                    <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Edad: </label>  </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtEdad" ></td>
+                                    <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Tamaño: </label> </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin"  type="text" name="txtTamano" ></td>
                                     
                                 </tr>
                                 <tr class="trFormularioAdmin"> 
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Telefono: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtTelefono" ></td>
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Direccion: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtDireccion" ></td>
+                                    <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Color: </label>  </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtColor" ></td>
+                                    <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Peso: </label> </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtPeso" ></td>
                                 
                                 </tr>
                                 <tr class="trFormularioAdmin">
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Contraseña: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="password" name="txtContrasena" ></td>
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Repetir Contraseña: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="password" name="txtContrasena" ></td>
-                                
+                                    <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Precio: </label>  </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtPrecio"></td>                                
                                 </tr>
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin">  </td>
                                     <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" value="Volver"></td>
                                     <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" name="registrarVeterinario" value="Registrar"></td>                              
+                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" name="registrarAnimal" value="Registrar"></td>                              
                                 </tr>
                             </table>
                         </form>  
                         <?php
-                            if(isset($_POST['registrarVeterinario'])){
+                            if(isset($_POST['registrarAnimal'])){
                                 $nombre = $_POST['txtNombre'];
-                                $apellido = $_POST['txtApellido'];
-                                $rut = $_POST['txtRut'];
                                 $edad = $_POST['txtEdad'];
-                                $direccion = $_POST['txtDireccion'];
-                                $telefono = $_POST['txtTelefono'];
+                                $tamano = $_POST['txtTamano'];
+                                $color = $_POST['txtColor'];
+                                $peso = $_POST['txtPeso'];
+                                $precio = $_POST['txtPrecio'];
                                 
                                 $granja = $_POST['granja'];
-
-                                for ($i=0; $i <count($granja); $i++) { 
-                                   
+                                $tipo = $_POST['tipo'];
+                                for ($i=0; $i <count($tipo); $i++) { 
+                                    $tipoS = $tipo[$i];
+                                }
+                                for ($i=0; $i <count($granja); $i++) {  
                                     $granjaS = $granja[$i];
                                 }
 
-                                $sql = "INSERT INTO veterinario (Nombre, Apellido, Rut, Edad, Direccion, Telefono, Granja_idGranja) VALUES ('".$nombre."','".$apellido."','".$rut."','".$edad."','".$direccion."','".$telefono."','".$granjaS."')";
+                                $sql = "INSERT INTO animal (Nombre, Edad, Tamanio, Color, Peso, Precio, Granja_idGranja, idTipo) VALUES ('".$nombre."','".$edad."','".$tamano."','".$color."','".$peso."','".$precio."','".$granjaS."','".$tipoS."')";
                                 if (mysqli_query($conn, $sql)) {
-                                    echo '<script type="text/javascript">alert("Granjero ingresado correctamente")</script>';
+                                    echo '<script type="text/javascript">alert("Animal ingresado correctamente")</script>';
                                     mysqli_close($conn);
                                     }else{
                                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                                     }
-                                echo "granja: ".$granjaS;
                                 //$sql = "INSERT INTO granja (Nombre, Direccion, RUN, Descripcion) VALUES ('".$nombre."','".$direccion."','".$RUN."','".$descripcion."')";
                             }
                         ?>                
