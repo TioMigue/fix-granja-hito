@@ -43,7 +43,16 @@
                         </div>
                     </form>                  
                     <div class="Datos-Pag">
+                        <div class="AnimalBuscarU">
+                            <input class="FormuAnimalesUsuario" type="text" name="" id="">
+                            <input class="FormuAnimalesUsuario" type="submit" name="" value="Buscar">
+                            <input type="submit" value="Multimedia">
+
+                        </div>
                         
+                        <div class="AnimalesUser">
+
+                        </div>
                     </div>
                 </div>
             </div>           

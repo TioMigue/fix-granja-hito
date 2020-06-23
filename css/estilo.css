@@ -531,6 +531,29 @@ body{
     border-radius: 10px;
     background: lightgreen;
 }
+/*Seccion Animales Usuario-----------------------------------------------------------------------------------------------*/
+.AnimalBuscarU
+{
+    width: 100%;
+    height: 10%;
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    background: black;
+}
+.AnimalesUser
+{
+    
+    width: 99%;
+    height: 90%;
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    background: brown;
+}
+
 
 /*Seccion Gestion granja administrador----------------------------------------------------------------------------------*/
 .tablaGestionGranjas{
