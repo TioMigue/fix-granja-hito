@@ -47,7 +47,6 @@
                             <input class="FormuAnimalesUsuario" type="text" name="" id="">
                             <input class="FormuAnimalesUsuario" type="submit" name="" value="Buscar">
                             <input type="submit" value="Multimedia">
-
                         </div>
                         
                         <div class="AnimalesUser">

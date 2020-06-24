@@ -7,7 +7,7 @@ body{
 /*Seccion arriba----------------------------------------------------------------------------------*/
 
 .inputLogin{
-    width: 200px;
+    width: 150px;
     margin-top: 10px;
     margin-left: 10px;
     border-radius: 10%;
@@ -518,7 +518,6 @@ body{
     background: lightgreen;
     border-radius: 10px;
 }
-
 .imgRetirarAnimal{
     width: 100%;
     height: 280px;
@@ -555,7 +554,7 @@ body{
 {
     
     width: 99%;
-    height: 90%;
+    height: 80%;
     margin-top: 1px;
     margin-left: 1px;
     margin-right: 1px;
