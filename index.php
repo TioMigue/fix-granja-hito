@@ -4,7 +4,7 @@
 ?>
 <script>
   function login(){
-    window.location = "UAnimalesUsuario.php";
+    window.location = "";
   }
   function error(){
     alert("Correo o contraseña incorrecta");
@@ -13,6 +13,9 @@
 
   function comprarAnimal(){
     window.location = "ComprarAnimal.php";
+  }
+  function refresh(){
+      window.location = "";
   }
 </script>
 <!DOCTYPE html>
@@ -78,6 +81,7 @@
                     
                     if(isset($_POST['btnCerrarSesion'])){
                         session_destroy();
+                        echo '<script>refresh()</script>';
                     }
                 ?>        
             </div>          
@@ -99,14 +103,19 @@
                 <div class="contenido">
                     <form action="" method="POST">
                         <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial">
-                            <input type="submit" class="btn_Report" name="btn_Error" value="Error">   
+                            <input type="submit" id="btn_Menu" class="btn_MenuUsuario" name="btn_Menu" value="Home">
+                            <input type="submit" id="btn_Menu" class="btn_MenuUsuario" name="btn_Menu" value="Catalogo">
+                            <input type="submit" id="btn_Menu" class="btn_MenuUsuario" name="btn_Menu" value="Animales">
+                            <input type="submit" id="btn_Menu" class="btn_MenuUsuario" name="btn_Menu" value="Multimedia">
+                            <input type="submit" id="btn_Menu" class="btn_MenuUsuario" name="btn_Menu" value="Historial">
+                            <input type="submit" id="btn_Menu" class="btn_Report" name="btn_Menu" value="Error">   
                         </div>
-                    </form>                  
+                    </form>
+                    <?php
+                        if(isset($_POST['btn_Menu'])){
+                            echo '<script>selecion()</script>';
+                        }
+                    ?>                  
                     <div class="Datos-Pag">
                         
                     </div>
