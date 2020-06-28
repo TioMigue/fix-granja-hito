@@ -1,11 +1,10 @@
 <?php
     require 'conexion.php';
-?>
-<script>
-    function verGranja(){
-        window.location = "ADatosGranja.php";
+    if(isset($_GET['Granja 1'])){
+        
     }
-</script>
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,9 +68,9 @@
                             <tr class="trGestionGranjas">
                                 <form action="" method="POST">
                                 <td class="tdGestionGranjas"><strong>Granjas</strong></td>
-                                <td class="tdGestionGranjas"><strong>Filtrar Granja</strong>
+                                <td class="tdGestionGranjas"><strong>Filtros</strong>
                                 <select name="granja[]" id="">
-                                    <option value="todo">Selecionar granja</option>
+                                    <option value="todo">Selecionar opcion</option>
                                     <?php
                                     $sql = "SELECT * FROM granja";
                                     $result = $conn->query($sql);
@@ -106,22 +105,24 @@
                                                         $sql = "SELECT * FROM granja";
                                                         $result = $conn->query($sql);
                                                         if($result ->num_rows > 0){
-                                                        while($row = $result -> fetch_assoc()){
-                                                            echo "<label name='".$row['Nombre']."'> Nombre: ".$row['Nombre']." ---- </label>";
-                                                            echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
-                                                            echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
-                                                            echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>"; 
-                                                            echo "<input type='submit' name='irGranja' value='Ver granja'>";                                                
+                                                        while($row = $result -> fetch_assoc()){  
+                                                                echo "<label name='".$row['Nombre']."'> Nombre: ".$row['Nombre']." ---- </label>";
+                                                                echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
+                                                                echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
+                                                                echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>";    
+                                                                                                    
                                                             }
                                                         }
-                                                        
                                                     }if(isset($_POST['verGranja'])){
                                                         if($granjaS == 'todo'){
                                                             $sql = "SELECT * FROM granja";
                                                             $result = $conn->query($sql);
                                                             if($result ->num_rows > 0){
                                                             while($row = $result -> fetch_assoc()){
-                                                                echo "<strong>Nombre: ".$row['Nombre']." -- Direccion: ".$row['Direccion']." -- RUN: ".$row['RUN']." -- Descripcion: ".$row['Descripcion']."</strong> <br>";                                                     
+                                                                echo "<label name='".$row['Nombre']."'> Nombre: ".$row['Nombre']." ---- </label>";
+                                                                echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
+                                                                echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
+                                                                echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>";                                                     
                                                             }
                                                         }
                                                         }else{
@@ -129,18 +130,17 @@
                                                             $result = $conn->query($sql);
                                                             if($result ->num_rows > 0){
                                                             while($row = $result -> fetch_assoc()){
-                                                                echo "<strong>Nombre: ".$row['Nombre']." -- Direccion: ".$row['Direccion']." -- RUN: ".$row['RUN']." -- Descripcion: ".$row['Descripcion']."</strong>";                                                  
+                                                                echo "<label name='".$row['Nombre']."'> Nombre: ".$row['Nombre']." ---- </label>";
+                                                                echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
+                                                                echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
+                                                                echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>";                                                  
                                                             }
                                                         }
                                                         }
                                                         
                                                     }
                                                 ?>
-                                                <?php
-                                                    if(isset($_POST['irGranja'])){
-                                                        echo "<script>verGranja()</script>";
-                                                    }
-                                                ?>
+                                                
                                                 </td>
                                             </form>
                                         </tr>
@@ -154,7 +154,12 @@
                             </td>
                             </tr>
                         </table>
-                        
+                        <?php
+                            if(isset($_POST['irGranja'])){
+                                
+                            }
+                                                    
+                        ?>
                     </div>
                 </div>
             </div>
@@ -163,4 +168,3 @@
     </div>
 </body>
 </html>
-

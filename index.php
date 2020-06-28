@@ -101,21 +101,14 @@
             </div>
             <div class="contenedor-medio-usuario">
                 <div class="contenido">
-                    <form action="" method="POST">
-                        <div class="Menu-Medio">
-                            <input type="submit" id="btn_Menu" class="btn_MenuUsuario" name="btn_Menu" value="Home">
-                            <input type="submit" id="btn_Menu" class="btn_MenuUsuario" name="btn_Menu" value="Catalogo">
-                            <input type="submit" id="btn_Menu" class="btn_MenuUsuario" name="btn_Menu" value="Animales">
-                            <input type="submit" id="btn_Menu" class="btn_MenuUsuario" name="btn_Menu" value="Multimedia">
-                            <input type="submit" id="btn_Menu" class="btn_MenuUsuario" name="btn_Menu" value="Historial">
-                            <input type="submit" id="btn_Menu" class="btn_Report" name="btn_Menu" value="Error">   
-                        </div>
-                    </form>
-                    <?php
-                        if(isset($_POST['btn_Menu'])){
-                            echo '<script>selecion()</script>';
-                        }
-                    ?>                  
+                    <div class="Menu-Medio">
+                        <input type="submit" id="1" class="btn_MenuUsuario" name="btn_Menu" value="Home" onclick="redireccionar();">
+                        <input type="submit" id="2" class="btn_MenuUsuario" name="btn_Menu" value="Catalogo" onclick="redireccionar();">
+                        <input type="submit" id="3" class="btn_MenuUsuario" name="btn_Menu" value="Animales" onclick="redireccionar();">
+                        <input type="submit" id="4" class="btn_MenuUsuario" name="btn_Menu" value="Multimedia" onclick="redireccionar();">
+                        <input type="submit" id="5" class="btn_MenuUsuario" name="btn_Menu" value="Historial" onclick="redireccionar();">
+                        <input type="submit" id="6" class="btn_Report" name="btn_Menu" value="Error">        
+                    </div>                
                     <div class="Datos-Pag">
                         
                     </div>
