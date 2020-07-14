@@ -98,38 +98,40 @@ session_start();
                         </div>
                     </form>
                     <div class="Datos-Pag2">
-                    <table>
+                    <table class="tablaErrores">
                     
-                        <tr>
+                        <tr class="trTablaErrores">
                         
-                            <td>Tipo De Error</td>
-                            <td> <Select name="TipoError" id="error">
-                                <option value="Error 1">Error 1</option>
-                                <option value="Error 2">Error 2</option>
-                                <option value="Error 3">Error 3</option>
-                                <option value="Error 4">Error 4</option>
-                                <option value="Error 5">Error 5</option>
-                                <option value="Error 6">Error 6</option>
+                            <td class="tdTablaErrores"><label class="labelErrores">Tipo de error : </label><Select name="TipoError" id="error">
+                                    <option value="Error 1">Error 1</option>
+                                    <option value="Error 2">Error 2</option>
+                                    <option value="Error 3">Error 3</option>
+                                    <option value="Error 4">Error 4</option>
+                                    <option value="Error 5">Error 5</option>
+                                    <option value="Error 6">Error 6</option>
 
-                            </Select> </td>
-                            <td>Asunto</td>
-                            <td> <input type="text" id="asunto" name="asunto"><br></td>
+                                </Select></td>
+                            
+                            <td class="tdTablaErrores"><label class="labelErrores">Asunto :</label><input type="text" id="asunto" name="asunto"></td>
 
                         </tr>
-                        <tr>
+                        <tr class="trTablaErrores">
                         
-                            <td>Descripcion</td>
+                            <td class="tdTablaErrores"><label class="labelErrores">Descripcion : </label></td>
+
+                        </tr > 
+                        <tr class="trTablaErrores">
+                        
+                            <td class="tdTablaErrores"><textarea class="areaErrores"name="" id="" cols="60" rows="15"></textarea></td>   
 
                         </tr>
-
+                        <tr class="trTablaErrores">
+                        
+                            <td class="tdTablaErrores"><button class="btn_Errores" type="button" name="Volver">Volver</button> <button class="btn_Errores" type="button" name="Enviar" >Enviar Errores</button></td>
+                        
+                        </tr>
                     </table>
-                    <table>
-                        <tr>
-                        
-                            <td><textarea name="" id="" cols="50" rows="15"></textarea></td>   
-
-                        </tr>
-                    </table>
+                    
                         
                     </div>
                 </div>

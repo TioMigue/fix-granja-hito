@@ -118,7 +118,7 @@ function refresh() {
                             onclick="window.location.href='UAnimalesUsuario.php'">
                         <input type="submit" id="4" class="btn_MenuUsuario" name="btn_Menu" value="Multimedia">
                         <input type="submit" id="5" class="btn_MenuUsuario" name="btn_Menu" value="Historial">
-                        <input type="submit" id="6" class="btn_Report" name="btn_Menu" value="Error">
+                        <input type="submit" id="6" class="btn_Report" name="btn_Menu" value="Error" onclick="window.location.href='UInformarError.php'">
                     </div>
                     <div class="Datos-Pag">
 

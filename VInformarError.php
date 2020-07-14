@@ -98,12 +98,11 @@ session_start();
                         </div>
                     </form>
                     <div class="Datos-Pag2">
-                    <table>
+                    <table class="tablaErrores">
                     
-                        <tr>
-                        
-                            <td>Tipo De Error</td>
-                            <td> <Select name="TipoError" id="error">
+                    <tr class="trTablaErrores">
+                    
+                        <td class="tdTablaErrores">Tipo De Error : <Select name="TipoError" id="error">
                                 <option value="Error 1">Error 1</option>
                                 <option value="Error 2">Error 2</option>
                                 <option value="Error 3">Error 3</option>
@@ -111,25 +110,27 @@ session_start();
                                 <option value="Error 5">Error 5</option>
                                 <option value="Error 6">Error 6</option>
 
-                            </Select> </td>
-                            <td>Asunto</td>
-                            <td> <input type="text" id="asunto" name="asunto"><br></td>
-
-                        </tr>
-                        <tr>
+                            </Select></td>
                         
-                            <td>Descripcion</td>
+                        <td class="tdTablaErrores">Asunto : <input type="text" id="asunto" name="asunto"></td>
 
-                        </tr>
+                    </tr>
+                    <tr class="trTablaErrores">
+                    
+                        <td class="tdTablaErrores">Descripcion : </td>
 
-                    </table>
-                    <table>
-                        <tr>
-                        
-                            <td><textarea name="" id="" cols="50" rows="15"></textarea></td>   
+                    </tr > 
+                    <tr class="trTablaErrores">
+                    
+                        <td class="tdTablaErrores"><textarea class="areaErrores"name="" id="" cols="60" rows="15"></textarea></td>   
 
-                        </tr>
-                    </table>
+                    </tr>
+                    <tr class="trTablaErrores">
+                    
+                        <td class="tdTablaErrores"><button type="button" class="btn btn-blocks">Enviar Errores</button></td>
+                    
+                    </tr>
+                </table>
                         
                     </div>
                 </div>
