@@ -66,7 +66,7 @@
 
                         </form>
                         <table class="tablaGestionGranjas">
-                            <tr class="trGestionGranjas">
+                            <tr class="trEmpleadosGranjas">
                                 <form action="" method="POST">
                                 <td class="tdGestionGranjas"><strong>Granjas</strong></td>
                                 <td class="tdGestionGranjas"><strong>Filtrar Granja</strong>
@@ -100,7 +100,7 @@
                                     <table class="tablaEmpleadosGranja">
                                         <tr class="trEmpleadosGranja">
                                             <form action="" method="POST">
-                                                <td class="tdEmpleadosGranja">
+                                                <td class="tdEmpleadosGranjaCont">
                                                 <?php
                                                     if(!isset($_POST['verGranja'])){
                                                         $sql = "SELECT * FROM granja";
@@ -111,17 +111,22 @@
                                                             echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
                                                             echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
                                                             echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>"; 
-                                                            echo "<input type='submit' name='irGranja' value='Ver granja' style='margin-left: 150px;'>";                                                
+                                                            echo "<input type='submit' name='irGranja' value='Ver granja' style='margin-left: 20px;' onclick='window.location.href='ADatosGranja.php?granja=".$row['RUN']."''>"; 
+                                                            echo "<br>";                                               
                                                             }
-                                                        }
-                                                        
+                                                        }   
                                                     }if(isset($_POST['verGranja'])){
                                                         if($granjaS == 'todo'){
                                                             $sql = "SELECT * FROM granja";
                                                             $result = $conn->query($sql);
                                                             if($result ->num_rows > 0){
                                                             while($row = $result -> fetch_assoc()){
-                                                                echo "<strong>Nombre: ".$row['Nombre']." -- Direccion: ".$row['Direccion']." -- RUN: ".$row['RUN']." -- Descripcion: ".$row['Descripcion']."</strong> <br>";                                                     
+                                                                echo "<label name='".$row['Nombre']."'> Nombre: ".$row['Nombre']." ---- </label>";
+                                                            echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
+                                                            echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
+                                                            echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>"; 
+                                                            echo "<input type='submit' name='irGranja' value='Ver granja' style='margin-left: 20px;' onclick='window.location.href='ADatosGranja.php?granja=".$row['RUN']."''>"; 
+                                                            echo "<br>";                                                     
                                                             }
                                                         }
                                                         }else{
@@ -129,16 +134,16 @@
                                                             $result = $conn->query($sql);
                                                             if($result ->num_rows > 0){
                                                             while($row = $result -> fetch_assoc()){
-                                                                echo "<strong>Nombre: ".$row['Nombre']." -- Direccion: ".$row['Direccion']." -- RUN: ".$row['RUN']." -- Descripcion: ".$row['Descripcion']."</strong>";                                                  
+                                                                echo "<label name='".$row['Nombre']."'> Nombre: ".$row['Nombre']." ---- </label>";
+                                                                echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
+                                                                echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
+                                                                echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>"; 
+                                                                echo "<input type='submit' name='irGranja' value='Ver granja' style='margin-left: 20px;' onclick='window.location.href='ADatosGranja.php?granja=".$row['RUN']."''>"; 
+                                                                echo "<br>";                                                   
                                                             }
                                                         }
                                                         }
                                                         
-                                                    }
-                                                ?>
-                                                <?php
-                                                    if(isset($_POST['irGranja'])){
-                                                        echo "<script>verGranja()</script>";
                                                     }
                                                 ?>
                                                 </td>

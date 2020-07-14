@@ -140,8 +140,8 @@
                                 for ($i=0; $i <count($granja); $i++) {  
                                     $granjaS = $granja[$i];
                                 }
-
-                                $sql = "INSERT INTO animal (Nombre, Edad, Tamanio, Color, Peso, Precio, Granja_idGranja, idTipo) VALUES ('".$nombre."','".$edad."','".$tamano."','".$color."','".$peso."','".$precio."','".$granjaS."','".$tipoS."')";
+                                $estado = 'noVendido';
+                                $sql = "INSERT INTO animal (Nombre, Edad, Tamanio, Color, Peso, Precio, Estado, Granja_idGranja, idTipo) VALUES ('".$nombre."','".$edad."','".$tamano."','".$color."','".$peso."','".$precio."','".$estado."','".$granjaS."','".$tipoS."')";
                                 if (mysqli_query($conn, $sql)) {
                                     echo '<script type="text/javascript">alert("Animal ingresado correctamente")</script>';
                                     mysqli_close($conn);

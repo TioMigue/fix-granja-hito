@@ -70,7 +70,7 @@
                                 <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="AgregarGranja" value="Agregar" type="submit" style="background-color: lightblue; border: 1px; width: 150px;  height: 30px; margin-top: 15px;"></td>
                                 <tr class="trGestionGranjasDesc">
                                     <td class="tdGestionGranjasDesc"><strong>Descripcion</strong>
-                                    <textarea class="inputDatosGranjasDesc" name="txtDescripcion" cols="25" rows="3" required></textarea>
+                                    <textarea class="inputDatosGranjasDesc" name="txtDescripcion" cols="45" rows="3" required></textarea>
                                     <!--<input class="inputDatosGranjasDesc" name="txtDescripcion" type="text" required></td>-->
                                 </tr>
                                 
@@ -140,7 +140,7 @@
                             </tr>
                             <tr class="trGestionGranjas">
                                 <td class="tdBtnsGestionGranjas"><input type="submit" value="Volver" class="btn_AccionesGestion">
-                                                            <input type="submit" value="Ver granjas" class="btn_AccionesGestion">
+                                                            <input type="submit" value="Ver granjas" class="btn_AccionesGestion" onclick="window.location.href='AVerGranjas.php'">
                                                             <input type="submit" value="Ingresar" class="btn_AccionesGestion">
                             </td>
                             </tr>

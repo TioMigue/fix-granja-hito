@@ -1,5 +1,7 @@
-
-
+<?php
+require 'conexion.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
-                <form action="index.php" method="POST">
+            <form action="index.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["usuario"])){
@@ -45,7 +47,7 @@
                     if(isset($_POST['btnLogin'])){
                         $usuario = $_POST['Usuario'];
                         $contrasena = $_POST['Contrasena'];
-                        $sql = "SELECT * FROM usuario WHERE Nombre = '".$usuario."'";
+                        $sql = "SELECT * FROM usuario";
                         $result = $conn->query($sql);
                         if($result ->num_rows > 0){
                             while($row = $result -> fetch_assoc()){
@@ -54,15 +56,12 @@
                             }
                             mysqli_close($conn);
                         }        
-                        
-                        
                         if($usuario == $usuarioB && $contrasena == $contrasenaB){
                             $_SESSION["usuario"] = $usuario;
                             echo '<script>login()</script>';
                         }else{
                             echo '<script>alert("Usuario o contraseña incorrectos")</script>';
                         }
-                        
                     }
                     
                     if(isset($_POST['btnCerrarSesion'])){
@@ -90,7 +89,7 @@
                 <div class="contenido">
                     <form action="" method="POST">
                         <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home">
+                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home" onclick>
                             <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo">
                             <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales">
                             <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia">
@@ -99,28 +98,39 @@
                         </div>
                     </form>
                     <div class="Datos-Pag2">
-                        <form action="">
-                            <table class="tablaRetirarAnimal">
-                                <tr class="trRetirarAnimal">
-                                    <td class="tdImgRetirarAnimal"><img class="imgRetirarAnimal" src="img/gatofrente.jpg" alt=""></td>
-                                    <td class="tdDatosRetirarAnimal">
-                                        <table class="tablaDatosRetirarAnimal">
-                                            <tr class="trRetirarAnimal">
-                                                <td class="tdSueldoRetirarAnimal"><strong>Subir Archivos de sueldo</strong><input type="file"></td>
-                                            </tr>
-                                            <tr class="trRetirarAnimal">
-                                                <td class="tdHabitadRetirarAnimal"><strong>Subir Archivos de habitad</strong><input type="file"></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr class="trRetirarAnimal">
-                                    <td class="tdNotaRetirarAnimal"><strong>Nota: Segun el estado financiero y las condiciones que ofrece para tener al animal en una habitad aceptable, se le enviara una confirmacion a su correo</strong></td>
-                                    <td class="tdBtnsRetirarAnimal"><input class="btn_RetirarAnimal" type="submit" value="Volver"><input class="btn_RetirarAnimal" type="submit" value="Retirar"></td>
-                                </tr>
-                            </table>
-                            
-                        </form>
+                    <table>
+                    
+                        <tr>
+                        
+                            <td>Tipo De Error</td>
+                            <td> <Select name="TipoError" id="error">
+                                <option value="Error 1">Error 1</option>
+                                <option value="Error 2">Error 2</option>
+                                <option value="Error 3">Error 3</option>
+                                <option value="Error 4">Error 4</option>
+                                <option value="Error 5">Error 5</option>
+                                <option value="Error 6">Error 6</option>
+
+                            </Select> </td>
+                            <td>Asunto</td>
+                            <td> <input type="text" id="asunto" name="asunto"><br></td>
+
+                        </tr>
+                        <tr>
+                        
+                            <td>Descripcion</td>
+
+                        </tr>
+
+                    </table>
+                    <table>
+                        <tr>
+                        
+                            <td><textarea name="" id="" cols="50" rows="15"></textarea></td>   
+
+                        </tr>
+                    </table>
+                        
                     </div>
                 </div>
             </div>

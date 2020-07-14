@@ -4,33 +4,77 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
-                <table>
-                    <tr>
-                        
-                        <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario"></td>
-                    </tr>
+                <form action="index.php" method="POST">
+                    <table>
+                        <?php
+                        if(isset($_SESSION["usuario"])){
+                            echo
+                            '<tr>
+                                <td><label>'.$_SESSION["usuario"].'</label></td>
+                                <td><input type="submit" value="Cerrar Sesion" name="btnCerrarSesion"></td>
+                            </tr>';
+                        }else{
+                            echo '
+                                <tr>
+                                    
+                                    <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario" required></td>
+                                </tr>
 
-                    <tr>
-                        <td><input class="inputLogin"  type="text" name="Contraseña" placeholder="Contraseña"></td>
-                    </tr>
-                    <tr>
-                        <td> Registrarse Aqui</td>
+                                <tr>
+                                    <td><input class="inputLogin"  type="text" name="Contrasena" placeholder="Contraseña" required></td>
+                                    <td><input class="btnLogin"type="submit" value="Login" name="btnLogin"></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="URegistroUsuario.php">Registrate Aqui</a></td>                         
+                                </tr>
+                            ';
+                        }
+                    ?>
+                    </table>
+                </form>
+                <?php
+                    if(isset($_POST['btnLogin'])){
+                        $usuario = $_POST['Usuario'];
+                        $contrasena = $_POST['Contrasena'];
+                        $sql = "SELECT * FROM usuario WHERE Nombre = '".$usuario."'";
+                        $result = $conn->query($sql);
+                        if($result ->num_rows > 0){
+                            while($row = $result -> fetch_assoc()){
+                                $contrasenaB = $row["Contrasena"];
+                                $usuarioB = $row["Nombre"];
+                            }
+                            mysqli_close($conn);
+                        }        
                         
-                    </tr>
-                </table>
+                        
+                        if($usuario == $usuarioB && $contrasena == $contrasenaB){
+                            $_SESSION["usuario"] = $usuario;
+                            echo '<script>login()</script>';
+                        }else{
+                            echo '<script>alert("Usuario o contraseña incorrectos")</script>';
+                        }
+                        
+                    }
+                    
+                    if(isset($_POST['btnCerrarSesion'])){
+                        session_destroy();
+                        echo '<script>refresh()</script>';
+                    }
+                ?>
             </div>
-            
             <div class="contenedor-arriba">
 
             </div>
@@ -47,23 +91,26 @@
             </div>
             <div class="contenedor-medio-vete">
                 <div class="contenido">
-                    <form action="" method="POST">
-                        <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuVete" name="btn_Home" value="Home">
-                            <input type="submit" class="btn_MenuVete" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuVete" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuVete" name="btn_Checar" value="Chequear Animales">
-                            <input type="submit" class="btn_Report" name="btn_Error" value="Error">  
-                        </div>
-                    </form>                  
+                    <div class="Menu-Medio">
+                        <input type="submit" class="btn_MenuVete" name="btn_Home" value="Home"
+                            onclick="window.location.href='VCatalogo.php'">
+                        <input type="submit" class="btn_MenuVete" name="btn_Catalogo" value="Catalogo"
+                            onclick="window.location.href='VCatalogo.php'">
+                        <input type="submit" class="btn_MenuVete" name="btn_Animales" value="Chequear Animales"
+                            onclick="window.location.href='VChequearAnimales.php'" style=" width: 200px; ">
+                        <input type="submit" class="btn_MenuVete" name="btn_Checar" value="Informar"
+                            onclick="window.location.href='VInformar.php'">
+                        <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                            onclick="window.location.href='VCatalogo.php'">
+                    </div>
                     <div class="Datos-Pag1">
-                    <form action="" method="POST">
-                        <table class="Animales">
+                        <form action="" method="POST">
+                            <table class="Animales">
                                 <tr class="trAnimales">
                                     <td class="filtrarTipo"><strong>Tipo de animal</strong>
-                                    <select name="tipo[]" id="">
-                                    <option value="nada">Seleciona tipo</option>
-                                        <?php
+                                        <select name="tipo[]" id="">
+                                            <option value="nada">Seleciona tipo</option>
+                                            <?php
                                             $sql = "SELECT * FROM tipos";
                                             $result = $conn->query($sql);
                                             if($result ->num_rows > 0){
@@ -73,12 +120,12 @@
                                                 }
                                             }
                                         ?>
-                                    </select>
-                                    <input type="submit" name="filtrarTipos" value="Filtrar">
+                                        </select>
+                                        <input type="submit" name="filtrarTipos" value="Filtrar">
                                     </td>
                                 </tr>
                                 <tr class="trAnimales">
-                                <?php
+                                    <?php
                                 if(!isset($_POST['filtrarTipos'])){
                                     $sql = "SELECT * FROM animal";
                                     $result = $conn->query($sql);
@@ -132,10 +179,10 @@
                                 
                                 ?>
                                 </tr>
-                        </table>
-                    </form>
-                        
-                            <?php
+                            </table>
+                        </form>
+
+                        <?php
                                 if(isset($_POST["animal"])){
                                     $animal = $_POST["animal"];
                                     $_SESSION["animal"] = $animal;
@@ -143,14 +190,15 @@
 
                                 }
                             ?>
-                            </tr>
+                        </tr>
                         </table>
 
                     </div>
                 </div>
-            </div>           
+            </div>
         </div>
         <!-- Seccion abajo -->
     </div>
 </body>
+
 </html>

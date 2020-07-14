@@ -1,3 +1,7 @@
+<?php
+    require 'conexion.php';
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +17,7 @@
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
-            <form action="index.php" method="POST">
+                <form action="index.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["usuario"])){
@@ -100,16 +104,53 @@
                             onclick="window.location.href='index.php'">
                         <input type="submit" class="btn_Report" name="btn_Error" value="Error">
                     </div>
-                    <div class="Datos-Pag">
-                        <div class="AnimalBuscarU">
-                            <input class="FormuAnimalesUsuario" type="text" name="" id="">
-                            <input class="FormuAnimalesUsuario" type="submit" name="" value="Buscar">
-                            <input type="submit" value="Multimedia">
-                        </div>
+                    <div class="Datos-Pag1">
+                        <form action="" method="POST">
+                            <table class="Animales">
+                                <tr class="trAnimales">
+                                    <?php
+                                    $idusuario;
+                                    $sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
+                                    $result = $conn->query($sql);
+                                    if($result ->num_rows > 0){
+                                        while($row = $result -> fetch_assoc()){
+                                            $idusuario = $row['idUsuario'];   
+                                        }
+                                    }  
+                                    
+                                    $sql = "SELECT * FROM animal WHERE Usuario_idUsuario ='".$idusuario."'";;
+                                    $result = $conn->query($sql);
+                                    if($result ->num_rows > 0){
+                                    while($row = $result -> fetch_assoc()){
+                                        echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['idAnimal']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";                                                                                        
+                                        }
+                                    }
 
-                        <div class="AnimalesUser">
+                                    /*
+                                    if(!isset($_POST['filtrarTipos'])){
+                                    $sql = "SELECT * FROM animal";
+                                    $result = $conn->query($sql);
+                                    if($result ->num_rows > 0){
+                                    while($row = $result -> fetch_assoc()){
+                                        //echo "<strong> Animal: ".$row['nombre']."</strong>";
+                                        echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['Nombre']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";
+                                    }
+                                    } 
+                                    */ 
+                                                                
+                                ?>
+                                </tr>
+                            </table>
+                        </form>
+                        <?php
+                                if(isset($_POST["animal"])){
+                                    $animal = $_POST["animal"];
+                                echo "<script type='text/javascript'> window.location = 'UComprarAnimal.php?animal=".$animal."'</script>";
+                                }
+                            ?>
+                        </tr>
+                        </table>
 
-                        </div>
                     </div>
                 </div>
             </div>

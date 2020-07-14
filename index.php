@@ -67,7 +67,7 @@ function refresh() {
                     if(isset($_POST['btnLogin'])){
                         $usuario = $_POST['Usuario'];
                         $contrasena = $_POST['Contrasena'];
-                        $sql = "SELECT * FROM usuario";
+                        $sql = "SELECT * FROM usuario WHERE Nombre = '".$usuario."'";
                         $result = $conn->query($sql);
                         if($result ->num_rows > 0){
                             while($row = $result -> fetch_assoc()){
@@ -112,7 +112,7 @@ function refresh() {
                     <div class="Menu-Medio">
                         <input type="submit" id="1" class="btn_MenuUsuario" name="btn_Menu" value="Home"
                             onclick="window.location.href='index.php'">
-                        <input type="submit" id="2" class="btn_MenuUsuario" name="btn_Menu" value="Catalogo"
+                        <input type="submit" id="2" class="btn_MenuUsuario" name="btn_Menu" value="Catalogo"+
                             onclick="window.location.href='UCatalogo.php'">
                         <input type="submit" id="3" class="btn_MenuUsuario" name="btn_Menu" value="Animales"
                             onclick="window.location.href='UAnimalesUsuario.php'">

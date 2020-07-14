@@ -123,12 +123,11 @@
                                 <tr class="trAnimales">
                                     <?php
                                 if(!isset($_POST['filtrarTipos'])){
-                                    $sql = "SELECT * FROM animal";
+                                    $sql = "SELECT * FROM animal WHERE Estado = 'noVendido'";
                                     $result = $conn->query($sql);
                                     if($result ->num_rows > 0){
                                     while($row = $result -> fetch_assoc()){
-                                        echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['Nombre']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";     
-                                                                                        
+                                        echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['idAnimal']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";                                                                                        
                                         }
                                     }
 
@@ -151,11 +150,11 @@
                                     }
 
                                     if($tipoS == 'todo'){
-                                        $sql = "SELECT * FROM animal";
+                                        $sql = "SELECT * FROM animal WHERE Estado = 'noVendido'";
                                         $result = $conn->query($sql);
                                         if($result ->num_rows > 0){
                                         while($row = $result -> fetch_assoc()){
-                                            echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['Nombre']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";       
+                                            echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['idAnimal']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";       
                                                                                      
                                         }
                                     }
@@ -164,7 +163,7 @@
                                         $result = $conn->query($sql);
                                         if($result ->num_rows > 0){
                                         while($row = $result -> fetch_assoc()){
-                                            echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['Nombre']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";      
+                                            echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['idAnimal']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";      
                                                                                  
                                         }
                                     }
@@ -177,13 +176,10 @@
                                 </tr>
                             </table>
                         </form>
-
                         <?php
                                 if(isset($_POST["animal"])){
                                     $animal = $_POST["animal"];
-                                    $_SESSION["animal"] = $animal;
-                                echo "<script type='text/javascript'> window.location = 'UComprarAnimal.php '</script>";
-
+                                echo "<script type='text/javascript'> window.location = 'UComprarAnimal.php?animal=".$animal."'</script>";
                                 }
                             ?>
                         </tr>

@@ -100,91 +100,88 @@ session_start();
                         <input type="submit" class="btn_Report" name="btn_Error" value="Error">
                     </div>
                     <div class="Datos-Pag2">
-                        <form action="" method="POST">
+                        <form action="">
                             <table class="tablaComprar">
                                 <tr class="trComprar">
                                     <?php
+                                        
                                         $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
                                         $result = $conn->query($sql);
                                         if($result ->num_rows > 0){
                                             while($row = $result -> fetch_assoc()){
-                                                echo "<td class='tdImgComprar'><img class='testImg' src='img/".$row['Nombre'].".jpg' alt=''></td>";                                             
+                                                echo "<td class='tdImgComprar'><img class='testImg' src='img/".$row['Nombre'].".jpg' alt=''></td>";                                            
                                             }
-                                        }    
+                                        }
+                                        
                                     ?>
                                     <td class="tdDatosComprar">
                                         <table class="tablaDatos">
                                             <tr class="trComprar">
                                                 <td class="tdTipoComprar">
+                                                    <strong>strong</strong>
                                                     <?php
+                                                        $idmetodo = $_GET["metodo"];
+                                                        $idanimalComprar;
+                                                        $idusuario;
+                                                        $monto;
+
+                                                        $sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
+                                                        $result = $conn->query($sql);
+                                                        if($result ->num_rows > 0){
+                                                            while($row = $result -> fetch_assoc()){
+                                                                $idusuario = $row['idUsuario'];   
+                                                            }
+                                                        }
                                                         $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
                                                         $result = $conn->query($sql);
                                                         if($result ->num_rows > 0){
                                                             while($row = $result -> fetch_assoc()){
-                                                                echo '<input type="hidden" name="animal" value="'.$row['idAnimal'].'"/>';
-                                                                echo "<label value='".$row['Nombre']."'>Nombre: ".$row['Nombre']." / </label>";
-                                                                echo "<label value='".$row['Edad']."'>Edad: ".$row['Edad']." / </label>";
-                                                                echo "<label value='".$row['Tamanio']."'>Tamaño: ".$row['Tamanio']."/ </label>";
-                                                                echo "<label value='".$row['Peso']."'>Peso: ".$row['Peso']."</label>";                                                     
+                                                                $idanimalComprar = $row['idAnimal']; 
+                                                                $monto = $row['Precio'];
                                                             }
                                                         }
+                                                        $sql = "INSERT INTO compra (Monto, MetodoPago_idMetodoPago, Usuario_idUsuario, Animal_idAnimal) VALUES ('".$monto."','".$idmetodo."','".$idusuario."','".$idanimalComprar."')";
+                                                        if (mysqli_query($conn, $sql)) {
+                                                        echo '<script type="text/javascript">alert("Animal Comprado exitosamente")</script>';
+                                                        }else{
+                                                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                                        }
+                                                        $sql = "UPDATE animal SET Usuario_idUsuario ='".$idusuario."' WHERE idAnimal = '".$idanimalComprar."'";
+                                                        $sql2 = "UPDATE animal SET Estado ='Vendido' WHERE idAnimal = '".$idanimalComprar."'";
+                                                        if (mysqli_query($conn, $sql2)) {
+                                                        }else{
+                                                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                                        }
+                                                        if (mysqli_query($conn, $sql)) {
+                                                            mysqli_close($conn);
+                                                            }else{
+                                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                                            }
+                                                        
+                                                        
+
                                                     ?>
                                                 </td>
                                             </tr>
                                             <tr class="trComprar">
                                                 <td class="tdPrecioComprar">
-                                                    <?php
-                                                        $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
-                                                        $result = $conn->query($sql);
-                                                        if($result ->num_rows > 0){
-                                                            while($row = $result -> fetch_assoc()){
-                                                                echo "<label value='".$row['Nombre']."'>Precio: ".$row['Precio']."</label>";                                                    
-                                                            }
-                                                        }
-                                                    ?>
-                                                </td>
-                                            </tr>
-                                            <tr class="trComprar">
-                                                <td class="tdPagoComprar">
-                                                    <strong>Metodo de pago</strong>
-                                                    <select class="selectComprar" name="metodo" id="metodo">
-                                                        <?php
-                                                       $sql = "SELECT * FROM metodopago";
-                                                       $result = $conn->query($sql);
-                                                       if($result ->num_rows > 0){
-                                                           while($row = $result -> fetch_assoc()){
-                                                               echo "<option value=".$row['idMetodoPago'].">".$row['Tipo']."</option>";                                                   
-                                                           }
-                                                        } 
-                                                    ?>
-                                                    </select>
+                                                    <strong>Izi pizi</strong>
                                                 </td>
                                             </tr>
                                         </table>
                                     </td>
 
                                 </tr>
-                                <tr class="trComprar">
-                                    <td class="tdDescripcionComprar"><strong>Descripcion del animal</strong></td>
-                                    <td class="tdBotonesComprar"><input class="btn_Comprar" type="submit"
-                                            value="Volver"> <input class="btn_Comprar" type="submit" name="Comprar" value="Comprar">
-                                    </td>
-                                </tr>
                         </form>
-                            <?php
-                                if(isset($_POST["Comprar"])){
-                                    $animal = $_POST["animal"];
-                                    $metodo = $_REQUEST["metodo"];
-                                    if($_SESSION["usuario"] == null){
-                                        echo "<script>window.location = 'index.php'</script>";
-                                    }else{
-                                        echo "<script type='text/javascript'> window.location = 'UCompraExitosa.php?animal=".$animal."&metodo=".$metodo."'</script>";
-                                    }
-                                    
-                                }
-                            ?>
+                        <tr class="trComprar">
+                            <td class="tdDescripcionComprar"><strong>Descripcion del animal</strong></td>
+                            <td class="tdBotonesComprar"><input class="btn_Comprar" type="submit" value="Volver"> <input
+                                    class="btn_Comprar" type="submit" value="Comprar"></td>
+                        </tr>
                         </table>
-                        
+                        <?php
+                                
+                            ?>
                     </div>
                 </div>
             </div>

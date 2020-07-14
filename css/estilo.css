@@ -626,9 +626,15 @@ body{
     background-color: white;
     border-radius: 5px; 
 }
-
+.btn_AccionesGestion{
+    margin-top: 10px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid lightblue;
+    border-radius: 10px; 
+}
 .tdGestionGranjasDesc{
-    width: 30%;
+    width: 50%;
     height: 90%;
     border: solid 1px lightblue;
     background-color: white;
@@ -658,14 +664,28 @@ body{
     width: 100%;
     height: 100px;
 }
+.trEmpleadosGranjas{
+    height: 60px;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    justify-content: space-between; 
+}
 .trEmpleadosGranja{
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-.tdEmpleadosGranja{
+.tdEmpleadosGranjaCont{
+    height: 250px;
+    margin: 0px 10px 0px 10px;
+    border: solid 1px white; 
+    background-color: white;
+    overflow-y: scroll;
+}
+.tdEmpleadosGranjaIndi{
     margin: 0px 50px 0px 50px;
-    border: solid 1px purple; 
+    border: solid 1px white; 
     background-color: white;
 }
 .tdBtnsGestionGranjas{
@@ -676,7 +696,9 @@ body{
 .btnAgregar{
     margin-left: 10px;
 }
-
+/*.labelGranjas{
+    border: 1px solid black;
+}*/
 
 /*MEDIA*/
 @media (max-width: 1200px){
