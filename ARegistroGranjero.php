@@ -5,34 +5,36 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo.css">
     <title>Document</title>
 </head>
+
 <body>
-    <div id="arribaUsuario"  class="contenedor">
+    <div id="arribaUsuario" class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
                 <table>
                     <tr>
-                        
-                        <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario"></td>
+
+                        <td><input class="inputLogin" type="text" name="Usuario" placeholder="Usuario"></td>
                     </tr>
 
                     <tr>
-                        <td><input class="inputLogin"  type="text" name="Contraseña" placeholder="Contraseña"></td>
+                        <td><input class="inputLogin" type="text" name="Contraseña" placeholder="Contraseña"></td>
                     </tr>
                     <tr>
                         <td> Registrarse Aqui</td>
-                        
+
                     </tr>
                 </table>
             </div>
             <div class="contenedor-arriba">
-            
+
             </div>
         </div>
         <!-- Seccion media -->
@@ -47,25 +49,22 @@
             </div>
             <div class="contenedor-medio-administrador">
                 <div class="contenidoAdmin">
-                    <form action="" method="POST">
-                        <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Home" value="Home">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Multimedia" value="Multimedia">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Historial">
-                            <input type="submit" class="btn_Report" name="btn_Error" value="Error">   
-                        </div>
-                        
-                    </form>                  
-                    <div class="Datos-Pag2">   
+                    <div class="Menu-Medio">
+                        <input type="submit" class="btn_MenuAdmin" name="btn_Home" value="Home" onclick="window.location.href='index.php'">
+                        <input type="submit" class="btn_MenuAdmin" name="btn_Catalogo" value="Catalogo" onclick="window.location.href='UCatalogo.php'">
+                        <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Animales" onclick="window.location.href='UAnimalesUsuario.php'">
+                        <input type="submit" class="btn_MenuAdmin" name="btn_Multimedia" value="Multimedia" onclick="window.location.href=''">
+                        <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Historial" onclick="window.location.href=''">
+                        <input type="submit" class="btn_Report" name="btn_Error" value="Error" onclick="window.location.href=''">
+                    </div>
+                    <div class="Datos-Pag2">
                         <form class="formAdmin" action="" method="POST">
                             <table class="tablaAdmin">
                                 <tr class="trFormularioAdmin">
-                                <td class="tdFormAdmin"> <label class="labelForm" for="">Granja: </label></td>
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Granja: </label></td>
                                     <td class="tdFormAdmin">
                                         <select name="granja[]" id="">
-                                        <?php
+                                            <?php
                                             $sql = "SELECT * FROM granja";
                                             $result = $conn->query($sql);
                                             if($result ->num_rows > 0){
@@ -80,40 +79,51 @@
                                 </tr>
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Nombre: </label></td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtNombre" ></td>
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Apellido: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtApellido" ></td>
-                                    
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtNombre" required>
+                                    </td>
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Apellido: </label> </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text"
+                                            name="txtApellido" required></td>
+
                                 </tr>
                                 <tr class="trFormularioAdmin">
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Rut: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtRut" ></td>
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Rut: </label> </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtRut" required>
+                                    </td>
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Edad: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm"  type="text" name="txtEdad" ></td>
-                                    
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtEdad" required>
+                                    </td>
+
                                 </tr>
-                                <tr class="trFormularioAdmin"> 
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Telefono: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtTelefono" ></td>
+                                <tr class="trFormularioAdmin">
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Telefono: </label> </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text"
+                                            name="txtTelefono" required></td>
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Direccion: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtDireccion" ></td>
-                                
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text"
+                                            name="txtDireccion" required></td>
+
                                 </tr>
                                 <tr class="trFormularioAdmin">
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Contraseña: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="password" name="txtContrasena" ></td>
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Repetir Contraseña: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="password" name="txtContrasena" ></td>
-                                
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Contraseña: </label> </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="password"
+                                            name="txtContrasena" required></td>
+                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Repetir Contraseña:
+                                        </label> </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="password"
+                                            name="txtContrasena" required></td>
+
                                 </tr>
                                 <tr class="trFormularioAdmin">
-                                    <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" value="Volver"></td>
-                                    <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" name="registrarGranjero" value="Registrar"></td>                              
+                                    <td class="tdFormAdmin"> </td>
+                                    <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit"
+                                            value="Volver" onclick="window.location.href='AGestionarGranjas.php'"></td>
+                                    <td class="tdFormAdmin"> </td>
+                                    <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit"
+                                            name="registrarGranjero" value="Registrar"></td>
                                 </tr>
                             </table>
-                        </form>  
+                        </form>
                         <?php
                             if(isset($_POST['registrarGranjero'])){
                                 $nombre = $_POST['txtNombre'];
@@ -140,12 +150,13 @@
                                 echo "granja: ".$granjaS;
                                 //$sql = "INSERT INTO granja (Nombre, Direccion, RUN, Descripcion) VALUES ('".$nombre."','".$direccion."','".$RUN."','".$descripcion."')";
                             }
-                        ?>                
+                        ?>
                     </div>
                 </div>
-            </div>           
+            </div>
         </div>
         <!-- Seccion abajo -->
     </div>
 </body>
+
 </html>

@@ -605,8 +605,15 @@ body{
     background-color: lightblue;
 }
 .trGestionGranjas{
+    height: 60px;
     display: flex;
-    margin-top: 20px;
+    margin-top: 5px;
+    justify-content: space-between; 
+}
+.trGestionGranjasDesc{
+    height: 100px;
+    display: flex;
+    margin-top: 5px;
     justify-content: space-between; 
 }
 .trTablaGestionGranjas{
@@ -614,10 +621,19 @@ body{
 }
 .tdGestionGranjas{
     width: 30%;
+    height: 100%;
+    border: solid 1px lightblue;
+    background-color: white;
+    border-radius: 5px; 
+}
+
+.tdGestionGranjasDesc{
+    width: 30%;
+    height: 90%;
     border: solid 1px lightblue;
     background-color: white;
     border-radius: 5px;
-    
+    float: left; 
 }
 .tdTablaGestionGranjas{
     width: 100%;
@@ -631,6 +647,11 @@ body{
 .inputDatosGranjas{
     margin-top: 5px;
     margin-left: 10px;
+}
+.inputDatosGranjasDesc{
+    margin-top: 5px;
+    margin-left: 10px;
+    resize: none;
 }
 /*Table de empleados----------------------------------------------------------------------------------*/
 .tablaEmpleadosGranja{

@@ -64,11 +64,16 @@
                         <table class="tablaGestionGranjas">
                             <tr class="trGestionGranjas">
                                 <form action="" method="POST">
-                                <td class="tdGestionGranjas"><strong>Nombre</strong><input class="inputDatosGranjas" name="txtNombre" type="text" require></td>
-                                <td class="tdGestionGranjas"><strong>Direccion</strong><input class="inputDatosGranjas" name="txtDireccion" type="text" require></td>
-                                <td class="tdGestionGranjas"><strong>RUN</strong><input class="inputDatosGranjas" name="txtRUN" type="text" require></td>
-                                <td class="tdGestionGranjas"><strong>Descripcion</strong><input class="inputDatosGranjas" name="txtDescripcion" type="text" require></td>
-                                <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="AgregarGranja" type="submit"></td>
+                                <td class="tdGestionGranjas"><strong>Nombre</strong><input class="inputDatosGranjas" name="txtNombre" type="text" required></td>
+                                <td class="tdGestionGranjas"><strong>Direccion</strong><input class="inputDatosGranjas" name="txtDireccion" type="text" required></td>
+                                <td class="tdGestionGranjas"><strong>RUN</strong><input class="inputDatosGranjas" name="txtRUN" type="text" required></td>
+                                <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="AgregarGranja" value="Agregar" type="submit" style="background-color: lightblue; border: 1px; width: 150px;  height: 30px; margin-top: 15px;"></td>
+                                <tr class="trGestionGranjasDesc">
+                                    <td class="tdGestionGranjasDesc"><strong>Descripcion</strong>
+                                    <textarea class="inputDatosGranjasDesc" name="txtDescripcion" cols="25" rows="3" required></textarea>
+                                    <!--<input class="inputDatosGranjasDesc" name="txtDescripcion" type="text" required></td>-->
+                                </tr>
+                                
                                 </form>
                                 <?php
                                     if(isset($_POST['AgregarGranja'])){
@@ -91,8 +96,8 @@
                                 <td class="tdTablaGestionGranjas">
                                     <table class="tablaEmpleadosGranja">
                                         <tr class="trEmpleadosGranja">
-                                                <td class="tdEmpleadosGranja"><strong>Granjero</strong><input type="submit" name="agregarGranjero"class="btnAgregar" onclick="window.location.href='ARegistroGranjero.php'"></td>
-                                                <td class="tdEmpleadosGranja"><strong>Veterinario</strong><input type="submit" name="agregarVeterinario" class="btnAgregar"></td>
+                                                <td class="tdEmpleadosGranja"><strong>Granjero</strong><input type="submit" name="agregarGranjero"class="btnAgregar" value="Agregar Granjero" onclick="window.location.href='ARegistroGranjero.php'"></td>
+                                                <td class="tdEmpleadosGranja"><strong>Veterinario</strong><input type="submit" name="agregarVeterinario" class="btnAgregar" value="Agregar Veterinario" onclick="window.location.href='ARegistroVeterinario.php'"></td>
                                             <?php
                                                 if(isset($_POST['agregarGranjero'])){
                                                     echo '<script>alert("btn granjero")</script>';

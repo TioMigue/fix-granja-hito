@@ -111,7 +111,7 @@
                                                             echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
                                                             echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
                                                             echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>"; 
-                                                            echo "<input type='submit' name='irGranja' value='Ver granja'>";                                                
+                                                            echo "<input type='submit' name='irGranja' value='Ver granja' style='margin-left: 150px;'>";                                                
                                                             }
                                                         }
                                                         

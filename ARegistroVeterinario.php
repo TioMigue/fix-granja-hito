@@ -81,37 +81,37 @@
                                 </tr>
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Nombre: </label></td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtNombre" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtNombre" required></td>
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Apellido: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtApellido" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtApellido" required></td>
                                     
                                 </tr>
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Rut: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtRut" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtRut" required></td>
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Edad: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm"  type="text" name="txtEdad" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin"  type="text" name="txtEdad" required></td>
                                     
                                 </tr>
                                 <tr class="trFormularioAdmin"> 
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Telefono: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtTelefono" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtTelefono" required></td>
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Direccion: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtDireccion" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtDireccion" required></td>
                                 
                                 </tr>
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Contraseña: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="password" name="txtContrasena" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="password" name="txtContrasena" required></td>
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Repetir Contraseña: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="password" name="txtContrasena" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="password" name="txtContrasena" required></td>
                                 
                                 </tr>
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" value="Volver"></td>
+                                    <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" value="Volver" onclick="window.location.href='AGestionarGranjas.php'"></td>
                                     <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" name="registrarVeterinario" value="Registrar"></td>                              
+                                    <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" name="registrarVeterinario" value="Registrar"></td>                              
                                 </tr>
                             </table>
                         </form>  
