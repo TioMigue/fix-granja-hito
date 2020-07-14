@@ -287,7 +287,7 @@ body{
     width: 200px;
     height: 30px;
     border: solid;
-    border-color: lightgreen;
+    border-color: lightblue;
     border-radius: 10px;
     margin-right: 25px;
 }
@@ -298,6 +298,16 @@ body{
     font-size: 20px;
     font-weight: bold;
     background: lightgreen;
+    border: none;
+    border-radius: 15px;
+}
+.btnAccionesAdmin{
+    width: 150px;
+    height: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    background: lightblue;
     border: none;
     border-radius: 15px;
 }
@@ -590,10 +600,11 @@ body{
     height: 250px;
     margin: auto;
     margin-top: 50px;
-    border: solid 1px red; 
+    border: solid 2px lightblue; 
+    border-radius: 5px;
+    background-color: lightblue;
 }
 .trGestionGranjas{
-    border: solid 1px blue; 
     display: flex;
     margin-top: 20px;
     justify-content: space-between; 
@@ -603,34 +614,38 @@ body{
 }
 .tdGestionGranjas{
     width: 30%;
-    border: solid 1px greenyellow;
+    border: solid 1px lightblue;
+    background-color: white;
+    border-radius: 5px;
     
 }
 .tdTablaGestionGranjas{
     width: 100%;
     display: flex;
     justify-content: center;
-    border: solid 1px greenyellow;
+    border: solid 1px lightblue;
+    border-radius: 5px;
+    background-color: white;
     
 }
 .inputDatosGranjas{
+    margin-top: 5px;
     margin-left: 10px;
 }
 /*Table de empleados----------------------------------------------------------------------------------*/
 .tablaEmpleadosGranja{
     width: 100%;
     height: 100px;
-    border: solid 1px red;
 }
 .trEmpleadosGranja{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border: solid 1px purple;
 }
 .tdEmpleadosGranja{
     margin: 0px 50px 0px 50px;
-    border: solid 1px purple;
+    border: solid 1px purple; 
+    background-color: white;
 }
 .tdBtnsGestionGranjas{
     width: 100%;
@@ -649,3 +664,9 @@ body{
     }
 }
 
+/*Login y LogOut*/
+
+.btnLogin{
+    width: 50px;
+    height: 30px;
+}

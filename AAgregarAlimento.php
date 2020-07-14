@@ -16,20 +16,59 @@
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
-                <table>
-                    <tr>
-                        
-                        <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario"></td>
-                    </tr>
+            <form action="index.php" method="POST">
+                    <table>
+                        <?php
+                        if(isset($_SESSION["usuario"])){
+                            echo
+                            '<tr>
+                                <td><label>'.$_SESSION["usuario"].'</label></td>
+                                <td><input type="submit" value="Cerrar Sesion" name="btnCerrarSesion"></td>
+                            </tr>';
+                        }else{
+                            echo '
+                                <tr>
+                                    
+                                    <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario" required></td>
+                                </tr>
 
-                    <tr>
-                        <td><input class="inputLogin"  type="text" name="Contraseña" placeholder="Contraseña"></td>
-                    </tr>
-                    <tr>
-                        <td> Registrarse Aqui</td>
-                        
-                    </tr>
-                </table>
+                                <tr>
+                                    <td><input class="inputLogin"  type="text" name="Contrasena" placeholder="Contraseña" required></td>
+                                    <td><input class="btnLogin"type="submit" value="Login" name="btnLogin"></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="URegistroUsuario.php">Registrate Aqui</a></td>                         
+                                </tr>
+                            ';
+                        }
+                    ?>
+                    </table>
+                </form>
+                <?php
+                    if(isset($_POST['btnLogin'])){
+                        $usuario = $_POST['Usuario'];
+                        $contrasena = $_POST['Contrasena'];
+                        $sql = "SELECT * FROM usuario";
+                        $result = $conn->query($sql);
+                        if($result ->num_rows > 0){
+                            while($row = $result -> fetch_assoc()){
+                                $contrasenaB = $row["Contrasena"];
+                                $usuarioB = $row["Nombre"];
+                            }
+                            mysqli_close($conn);
+                        }         
+                        if($usuario == $usuarioB && $contrasena == $contrasenaB){
+                            $_SESSION["usuario"] = $usuario;
+                            echo '<script>login()</script>';
+                        }else{
+                            echo '<script>alert("Usuario o contraseña incorrectos")</script>';
+                        }
+                    }
+                    if(isset($_POST['btnCerrarSesion'])){
+                        session_destroy();
+                        echo '<script>refresh()</script>';
+                    }
+                ?>
             </div>
             
             </div>
@@ -62,7 +101,7 @@
                             <table class="tablaAdmin">
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Nombre: </label></td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtNombre" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtNombre" ></td>
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Comida Para: </label>  </td>
                                     <td class="tdFormAdmin"><select name="tipo[]" id="">
                                     <?php
@@ -79,17 +118,17 @@
                                     
                                 </tr>
                                 <tr class="trFormularioAdmin">
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Precio: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtPrecio" ></td>
+                                    <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Precio: </label>  </td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtPrecio" ></td>
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Peso: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm"  type="text" name="txtPeso" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin"  type="text" name="txtPeso" ></td>
                                     
                                 </tr>
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" value="Volver"></td>
+                                    <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" value="Volver"></td>
                                     <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" name="registrarAlimento" value="Registrar"></td>                              
+                                    <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" name="registrarAlimento" value="Registrar"></td>                              
                                 </tr>
                             </table>
                         </form>  

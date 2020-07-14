@@ -91,10 +91,8 @@
                                 <td class="tdTablaGestionGranjas">
                                     <table class="tablaEmpleadosGranja">
                                         <tr class="trEmpleadosGranja">
-                                            <form action="" method="POST">
-                                                <td class="tdEmpleadosGranja"><strong>Granjero</strong><input type="submit" name="agregarGranjero"class="btnAgregar"></td>
+                                                <td class="tdEmpleadosGranja"><strong>Granjero</strong><input type="submit" name="agregarGranjero"class="btnAgregar" onclick="window.location.href='ARegistroGranjero.php'"></td>
                                                 <td class="tdEmpleadosGranja"><strong>Veterinario</strong><input type="submit" name="agregarVeterinario" class="btnAgregar"></td>
-                                            </form>
                                             <?php
                                                 if(isset($_POST['agregarGranjero'])){
                                                     echo '<script>alert("btn granjero")</script>';

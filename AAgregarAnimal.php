@@ -94,7 +94,7 @@
                                         </select>
                                     </td>
                                     <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Nombre: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputForm" type="text" name="txtNombre" ></td>
+                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtNombre" ></td>
                                     
                                 </tr>
                                 <tr class="trFormularioAdmin">
@@ -117,9 +117,9 @@
                                 </tr>
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" value="Volver"></td>
+                                    <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" value="Volver"></td>
                                     <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAcciones" type="submit" name="registrarAnimal" value="Registrar"></td>                              
+                                    <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" name="registrarAnimal" value="Registrar"></td>                              
                                 </tr>
                             </table>
                         </form>  
