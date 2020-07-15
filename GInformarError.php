@@ -14,7 +14,7 @@ session_start();
     <div class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
-            <div class="login">
+        <div class="login">
             <form action="index.php" method="POST">
                     <table>
                         <?php
@@ -27,6 +27,7 @@ session_start();
                         }else{
                             echo '
                                 <tr>
+                                    
                                     <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario" required></td>
                                 </tr>
 
@@ -97,39 +98,67 @@ session_start();
                         </div>
                     </form>
                     <div class="Datos-Pag2">
+                    <form action="" method="POST">
                     <table class="tablaErrores">
                     
-                    <tr class="trTablaErrores">
-                    
-                        <td class="tdTablaErrores">Tipo De Error : <Select name="TipoError" id="error">
-                                <option value="Error 1">Error 1</option>
-                                <option value="Error 2">Error 2</option>
-                                <option value="Error 3">Error 3</option>
-                                <option value="Error 4">Error 4</option>
-                                <option value="Error 5">Error 5</option>
-                                <option value="Error 6">Error 6</option>
-
-                            </Select></td>
+                        <tr class="trTablaErrores">
                         
-                        <td class="tdTablaErrores">Asunto : <input type="text" id="asunto" name="asunto"></td>
+                            <td class="tdTablaErrores"><label class="labelErrores">Tipo de error : </label><Select name="tipoError" id="error" required>
+                                    <option value="Error 1">Error 1</option>
+                                    <option value="Error 2">Error 2</option>
+                                    <option value="Error 3">Error 3</option>
+                                    <option value="Error 4">Error 4</option>
+                                    <option value="Error 5">Error 5</option>
+                                    <option value="Error 6">Error 6</option>
 
-                    </tr>
-                    <tr class="trTablaErrores">
-                    
-                        <td class="tdTablaErrores">Descripcion : </td>
+                                </Select></td>
+                            
+                            <td class="tdTablaErrores"><label class="labelErrores">Asunto :</label><input type="text" name="asunto" required></td>
 
-                    </tr > 
-                    <tr class="trTablaErrores">
-                    
-                        <td class="tdTablaErrores"><textarea class="areaErrores"name="" id="" cols="60" rows="15"></textarea></td>   
+                        </tr>
+                        <tr class="trTablaErrores">
+                        
+                            <td class="tdTablaErrores"><label class="labelErrores">Descripcion : </label></td>
 
-                    </tr>
-                    <tr class="trTablaErrores">
-                    
-                        <td class="tdTablaErrores"><button type="button" class="btn btn-blocks">Enviar Errores</button></td>
-                    
-                    </tr>
-                </table>
+                        </tr > 
+                        <tr class="trTablaErrores">
+                        
+                            <td class="tdTablaErrores"><textarea class="areaErrores" name="Desc" id="" cols="60" rows="15" required></textarea></td>   
+
+                        </tr>
+                        <tr class="trTablaErrores">
+                        
+                            <td class="tdTablaErrores"><input class="btn_Errores" type="submit" name="Volver" value="Volver"> <input class="btn_Errores" type="submit" name="Enviar" value="Enviar"></td>
+                        
+                        </tr>
+                    </table>
+                    </form> 
+                    <?php
+                        if(isset($_POST['Enviar']))
+                        {
+                            $usuario = $_SESSION["usuario"];
+                            $idUsuario;
+                            $sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
+                            $result = $conn->query($sql);
+                            if($result ->num_rows > 0){
+                                while($row = $result -> fetch_assoc()){
+                                    $idUsuario = $row["idUsuario"];
+                                }
+                            }    
+                                
+                            $tipo = $_POST['tipoError'];
+                            $asunto = $_POST['asunto'];
+                            $desc = $_POST['Desc'];
+
+                            $sql2 = "INSERT INTO reporteerrores (tipoError,asunto,descripcionError,usuario_idUsuario) VALUES ('".$tipo."','".$asunto."','".$desc."','".$idUsuario."')";
+                            if (mysqli_query($conn, $sql2)) {
+                                echo '<script type="text/javascript">alert("Error registrado")</script>';
+                                mysqli_close($conn);
+                                }else{
+                                echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
+                                }
+                        }
+                    ?>     
                         
                     </div>
                 </div>

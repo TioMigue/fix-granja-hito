@@ -49,19 +49,21 @@
                     if(isset($_POST['btnLogin'])){
                         $usuario = $_POST['Usuario'];
                         $contrasena = $_POST['Contrasena'];
-                        $sql = "SELECT * FROM usuario";
+                        $idUser;
+                        $sql = "SELECT * FROM usuario WHERE Nombre = '".$usuario."'";
                         $result = $conn->query($sql);
                         if($result ->num_rows > 0){
                             while($row = $result -> fetch_assoc()){
                                 $contrasenaB = $row["Contrasena"];
                                 $usuarioB = $row["Nombre"];
+                                $idUser = $row["idUsuario"]
                             }
                             mysqli_close($conn);
                         }        
                         
                         
                         if($usuario == $usuarioB && $contrasena == $contrasenaB){
-                            $_SESSION["usuario"] = $usuario;
+                            $_SESSION["usuario"] = $idUser;
                             echo '<script>login()</script>';
                         }else{
                             echo '<script>alert("Usuario o contraseña incorrectos")</script>';
@@ -109,16 +111,16 @@
                             <table class="Animales">
                                 <tr class="trAnimales">
                                     <?php
-                                    $idusuario;
+                                    /*$idusuario;
                                     $sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
                                     $result = $conn->query($sql);
                                     if($result ->num_rows > 0){
                                         while($row = $result -> fetch_assoc()){
                                             $idusuario = $row['idUsuario'];   
                                         }
-                                    }  
+                                    }*/
                                     
-                                    $sql = "SELECT * FROM animal WHERE Usuario_idUsuario ='".$idusuario."'";;
+                                    $sql = "SELECT * FROM animal WHERE Usuario_idUsuario ='".$idUser."'";;
                                     $result = $conn->query($sql);
                                     if($result ->num_rows > 0){
                                     while($row = $result -> fetch_assoc()){

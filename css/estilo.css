@@ -718,19 +718,42 @@ body{
 .tablaErrores{
     width: 90%; 
     margin: auto;
-    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 25px;
+    background-color: lightgreen;
 }
+
+.tablaErroresVete{
+    width: 90%; 
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 25px;
+    background-color: orangered;
+}
+
 .areaErrores{
     resize: none; 
 }
 .trTablaErrores{
     width: 100%; 
-    background-color: red;
+    background-color: lightgreen;
+}
+.trTablaErroresVete{
+    width: 100%; 
+    background-color: orangered;
 }
 .tdTablaErrores{
     margin-top: 10px;
     margin-left: 100px;  
-    border: 1px solid yellow;
+    background: lightgreen;
+    border-radius: 5px;
+    float: left;
+}
+.tdTablaErroresVete{
+    margin-top: 10px;
+    margin-left: 100px;  
+    background: orangered;
+    border-radius: 5px;
     float: left;
 }
 .labelErrores{
@@ -739,7 +762,7 @@ body{
 }
 .btn_Errores{
     margin-left: 110px;
-    background-color: lightgreen;
+    background-color: white;
     border: 3px solid lightgreen;
     border-radius: 10px;
     width: 130px;

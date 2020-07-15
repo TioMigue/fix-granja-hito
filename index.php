@@ -67,19 +67,21 @@ function refresh() {
                     if(isset($_POST['btnLogin'])){
                         $usuario = $_POST['Usuario'];
                         $contrasena = $_POST['Contrasena'];
+                        $idUser;
                         $sql = "SELECT * FROM usuario WHERE Nombre = '".$usuario."'";
                         $result = $conn->query($sql);
                         if($result ->num_rows > 0){
                             while($row = $result -> fetch_assoc()){
                                 $contrasenaB = $row["Contrasena"];
                                 $usuarioB = $row["Nombre"];
+                                $idUser = $row["idUsuario"]
                             }
                             mysqli_close($conn);
                         }        
                         
                         
                         if($usuario == $usuarioB && $contrasena == $contrasenaB){
-                            $_SESSION["usuario"] = $usuario;
+                            $_SESSION["usuario"] = $idUser;
                             echo '<script>login()</script>';
                         }else{
                             echo '<script>alert("Usuario o contraseña incorrectos")</script>';

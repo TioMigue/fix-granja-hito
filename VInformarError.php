@@ -85,52 +85,84 @@ session_start();
                 <div class="anuncioI"></div>
                 <div class="anuncioI"></div>
             </div>
-            <div class="contenedor-medio-usuario">
+            <div class="contenedor-medio-vete">
                 <div class="contenido">
                     <form action="" method="POST">
-                        <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home" onclick>
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial">
-                            <input type="submit" class="btn_Report" name="btn_Error" value="Error">
-                        </div>
+                    <div class="Menu-Medio">
+                        <input type="submit" class="btn_MenuVete" name="btn_Home" value="Home"
+                            onclick="window.location.href='VCatalogo.php'">
+                        <input type="submit" class="btn_MenuVete" name="btn_Catalogo" value="Catalogo"
+                            onclick="window.location.href='VCatalogo.php'">
+                        <input type="submit" class="btn_MenuVete" name="btn_Animales" value="Chequear Animales"
+                            onclick="window.location.href='VChequearAnimales.php'" style=" width: 200px; ">
+                        <input type="submit" class="btn_MenuVete" name="btn_Checar" value="Informar"
+                            onclick="window.location.href='VInformar.php'">
+                        <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                            onclick="window.location.href='VCatalogo.php'">
+                    </div>
                     </form>
                     <div class="Datos-Pag2">
-                    <table class="tablaErrores">
+                    <form action="" method="POST">
+                    <table class="tablaErroresVete">
                     
-                    <tr class="trTablaErrores">
-                    
-                        <td class="tdTablaErrores">Tipo De Error : <Select name="TipoError" id="error">
-                                <option value="Error 1">Error 1</option>
-                                <option value="Error 2">Error 2</option>
-                                <option value="Error 3">Error 3</option>
-                                <option value="Error 4">Error 4</option>
-                                <option value="Error 5">Error 5</option>
-                                <option value="Error 6">Error 6</option>
-
-                            </Select></td>
+                        <tr class="trTablaErroresVete">
                         
-                        <td class="tdTablaErrores">Asunto : <input type="text" id="asunto" name="asunto"></td>
+                            <td class="tdTablaErroresVete"><label class="labelErrores">Tipo de error : </label><Select name="tipoError" id="error" required>
+                                    <option value="Error 1">Error 1</option>
+                                    <option value="Error 2">Error 2</option>
+                                    <option value="Error 3">Error 3</option>
+                                    <option value="Error 4">Error 4</option>
+                                    <option value="Error 5">Error 5</option>
+                                    <option value="Error 6">Error 6</option>
 
-                    </tr>
-                    <tr class="trTablaErrores">
-                    
-                        <td class="tdTablaErrores">Descripcion : </td>
+                                </Select></td>
+                            
+                            <td class="tdTablaErroresVete"><label class="labelErrores">Asunto :</label><input type="text" name="asunto" required></td>
 
-                    </tr > 
-                    <tr class="trTablaErrores">
-                    
-                        <td class="tdTablaErrores"><textarea class="areaErrores"name="" id="" cols="60" rows="15"></textarea></td>   
+                        </tr>
+                        <tr class="trTablaErroresVete">
+                        
+                            <td class="tdTablaErroresVete"><label class="labelErrores">Descripcion : </label></td>
 
-                    </tr>
-                    <tr class="trTablaErrores">
-                    
-                        <td class="tdTablaErrores"><button type="button" class="btn btn-blocks">Enviar Errores</button></td>
-                    
-                    </tr>
-                </table>
+                        </tr > 
+                        <tr class="trTablaErroresVete">
+                        
+                            <td class="tdTablaErroresVete"><textarea class="areaErrores" name="Desc" id="" cols="60" rows="15" required></textarea></td>   
+
+                        </tr>
+                        <tr class="trTablaErroresVete">
+                        
+                            <td class="tdTablaErroresVete"><input class="btn_Errores" type="submit" name="Volver" value="Volver"> <input class="btn_Errores" type="submit" name="Enviar" value="Enviar"></td>
+                        
+                        </tr>
+                    </table>
+                    </form> 
+                    <?php
+                        if(isset($_POST['Enviar']))
+                        {
+                            $usuario = $_SESSION["usuario"];
+                            $idUsuario;
+                            $sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
+                            $result = $conn->query($sql);
+                            if($result ->num_rows > 0){
+                                while($row = $result -> fetch_assoc()){
+                                    $idUsuario = $row["idUsuario"];
+                                }
+                            }    
+                                
+                            $tipo = $_POST['tipoError'];
+                            $asunto = $_POST['asunto'];
+                            $desc = $_POST['Desc'];
+
+                            $sql2 = "INSERT INTO reporteerrores (tipoError,asunto,descripcionError,usuario_idUsuario) VALUES ('".$tipo."','".$asunto."','".$desc."','".$idUsuario."')";
+                            if (mysqli_query($conn, $sql2)) {
+                                echo '<script type="text/javascript">alert("Error registrado")</script>';
+                                mysqli_close($conn);
+                                }else{
+                                echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
+                                }
+                        }
+                    ?>     
                         
                     </div>
                 </div>

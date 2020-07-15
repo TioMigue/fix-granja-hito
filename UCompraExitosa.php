@@ -49,21 +49,26 @@ session_start();
                     if(isset($_POST['btnLogin'])){
                         $usuario = $_POST['Usuario'];
                         $contrasena = $_POST['Contrasena'];
-                        $sql = "SELECT * FROM usuario";
+                        $idUser;
+                        $sql = "SELECT * FROM usuario WHERE Nombre = '".$usuario."'";
                         $result = $conn->query($sql);
                         if($result ->num_rows > 0){
                             while($row = $result -> fetch_assoc()){
                                 $contrasenaB = $row["Contrasena"];
                                 $usuarioB = $row["Nombre"];
+                                $idUser = $row["idUsuario"]
                             }
                             mysqli_close($conn);
                         }        
+                        
+                        
                         if($usuario == $usuarioB && $contrasena == $contrasenaB){
-                            $_SESSION["usuario"] = $usuario;
+                            $_SESSION["usuario"] = $idUser;
                             echo '<script>login()</script>';
                         }else{
                             echo '<script>alert("Usuario o contraseña incorrectos")</script>';
                         }
+                        
                     }
                     
                     if(isset($_POST['btnCerrarSesion'])){
@@ -124,14 +129,16 @@ session_start();
                                                         $idanimalComprar;
                                                         $idusuario;
                                                         $monto;
-
-                                                        $sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
+                                                        $idCompra;
+                                                        //Buscar id del usuario por sesion
+                                                        /*$sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
                                                         $result = $conn->query($sql);
                                                         if($result ->num_rows > 0){
                                                             while($row = $result -> fetch_assoc()){
                                                                 $idusuario = $row['idUsuario'];   
                                                             }
-                                                        }
+                                                        }*/
+                                                        //Buscar id del animal
                                                         $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
                                                         $result = $conn->query($sql);
                                                         if($result ->num_rows > 0){
@@ -140,24 +147,41 @@ session_start();
                                                                 $monto = $row['Precio'];
                                                             }
                                                         }
-                                                        $sql = "INSERT INTO compra (Monto, MetodoPago_idMetodoPago, Usuario_idUsuario, Animal_idAnimal) VALUES ('".$monto."','".$idmetodo."','".$idusuario."','".$idanimalComprar."')";
+                                                        //Insertar la compra
+                                                        $sql = "INSERT INTO compra (Monto, MetodoPago_idMetodoPago, Usuario_idUsuario, Animal_idAnimal) VALUES ('".$monto."','".$idmetodo."','".$idUser."','".$idanimalComprar."')";
                                                         if (mysqli_query($conn, $sql)) {
                                                         echo '<script type="text/javascript">alert("Animal Comprado exitosamente")</script>';
                                                         }else{
                                                         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                                                         }
-                                                        $sql = "UPDATE animal SET Usuario_idUsuario ='".$idusuario."' WHERE idAnimal = '".$idanimalComprar."'";
+                                                        //Update del animal para ponerlo con dueño y cambiar estado a vendido
+                                                        $sql = "UPDATE animal SET Usuario_idUsuario ='".$idUser."' WHERE idAnimal = '".$idanimalComprar."'";
                                                         $sql2 = "UPDATE animal SET Estado ='Vendido' WHERE idAnimal = '".$idanimalComprar."'";
                                                         if (mysqli_query($conn, $sql2)) {
                                                         }else{
                                                         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                                                         }
                                                         if (mysqli_query($conn, $sql)) {
-                                                            mysqli_close($conn);
-                                                            }else{
-                                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                                        }else
+                                                        {
+                                                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                                        }
+                                                        //Buscar id de compra
+                                                        $sql = "SELECT * FROM compra WHERE Usuario_idUsuario ='".$idUser."'";
+                                                        $result = $conn->query($sql);
+                                                        if($result ->num_rows > 0)
+                                                        {
+                                                            while($row = $result -> fetch_assoc()){
+                                                                $idCompra = $row["idCompra"];
                                                             }
-                                                        
+                                                        }    
+                                                        //Insertar compra en el historial del usuario
+                                                        $sql3 = "INSERT INTO historialusuario (usuario_idusuario, compra_idCompra) VALUES ('".$idUser."','".$idCompra."')";
+                                                        if (mysqli_query($conn, $sql3)) {
+                                                        mysqli_close($conn);
+                                                        }else{
+                                                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                                        }
                                                         
 
                                                     ?>
