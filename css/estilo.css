@@ -98,6 +98,10 @@ body{
     height: 700px;
     background: green;
 }
+.medio-admin{
+    height: 700px;
+    background: #d8edf3;
+}
 .contenedor-medio-usuario{
     width: 70%;
     height: 700px;
@@ -117,7 +121,7 @@ body{
 .contenedor-medio-administrador{
     width: 70%;
     height: 700px;
-    background: lightblue;
+    background: #d8edf3;
     margin: auto;
     float: right;
 }
@@ -164,7 +168,7 @@ body{
 .Menu-Medio-Admin{
     width: 70%;
     height: 150px;
-    background: lightblue;
+    background: #b1d9e7;
     position: absolute;
     top: 175px;
     display: flex;
@@ -204,7 +208,7 @@ body{
     font-size: 20px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    background: rgb(110, 163, 241);
+    background: #65b4ce;
 }
 
 .btn_Report{
@@ -254,7 +258,7 @@ body{
     background: white;
     border: solid 1px;
     border-radius: 15px;
-    border-color: green;
+    border-color: blue;
 }
 .tabla{
     width: 90%;

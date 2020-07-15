@@ -15,18 +15,20 @@ function refresh() {
 </script>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo.css">
     <title>Document</title>
 </head>
+
 <body>
-    <div id="arribaUsuario"  class="contenedor">
+    <div id="arribaUsuario" class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login2">
-            <form action="AAgregarAlimento.php" method="POST">
+                <form action="AAgregarAlimento.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["admini"])){
@@ -82,40 +84,44 @@ function refresh() {
                     }
                 ?>
             </div>
-            
-            </div>
+            <div class="contenedor-arriba">
+
+            </div>        
         </div>
-        <!-- Seccion media -->
-        <div class="medio">
-            <div class="anunciosD">
-                <div class="anuncioD"></div>
-                <div class="anuncioD"></div>
-            </div>
-            <div class="anunciosI">
-                <div class="anuncioI"></div>
-                <div class="anuncioI"></div>
-            </div>
-            <div class="contenedor-medio-administrador">
-                <div class="contenidoAdmin">
-                    <form action="" method="POST">
-                        <div class="Menu-Medio-Admin">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Ingresar Animales">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Multimedia" value="Ingresar Alimento">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Gestionar Granjas">
-                            <input type="submit" class="btn_Report" name="btn_Error" value="Error">   
-                        </div>
-                        
-                    </form>                  
-                    <div class="Datos-Pag2">   
-                        <form class="formAdmin" action="" method="POST">
-                            <table class="tablaAdmin">
-                                <tr class="trFormularioAdmin">
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Nombre: </label></td>
-                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtNombre" ></td>
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Comida Para: </label>  </td>
-                                    <td class="tdFormAdmin"><select name="tipo[]" id="">
-                                    <?php
+    </div>
+    <!-- Seccion media -->
+    <div class="medio-admin">
+        <div class="anunciosD">
+            <div class="anuncioD"></div>
+            <div class="anuncioD"></div>
+        </div>
+        <div class="anunciosI">
+            <div class="anuncioI"></div>
+            <div class="anuncioI"></div>
+        </div>
+        <div class="contenedor-medio-administrador">
+            <div class="contenidoAdmin">
+
+                <div class="Menu-Medio-Admin">
+                    <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Ingresar Animales"
+                        onclick="window.location.href='AAgregarAnimal.php'">
+                    <input type="submit" class="btn_MenuAdmin" name="btn_Alimento" value="Ingresar Alimento"
+                        onclick="window.location.href='AAgregarAlimento.php'">
+                    <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Gestionar Granjas"
+                        onclick="window.location.href='AGestionarGranjas.php'">
+                    <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                        onclick="window.location.href='UInformarError.php'">
+                </div>
+                <div class="Datos-Pag2">
+                    <form class="formAdmin" action="" method="POST">
+                        <table class="tablaAdmin">
+                            <tr class="trFormularioAdmin">
+                                <td class="tdFormAdmin"> <label class="labelForm" for="">Nombre: </label></td>
+                                <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtNombre">
+                                </td>
+                                <td class="tdFormAdmin"> <label class="labelForm" for="">Comida Para: </label> </td>
+                                <td class="tdFormAdmin"><select name="tipo[]" id="">
+                                        <?php
                                         $sql = "SELECT * FROM tipos";
                                         $result = $conn->query($sql);
                                         if($result ->num_rows > 0){
@@ -126,24 +132,27 @@ function refresh() {
                                         }
                                     ?>
                                     </select></td>
-                                    
-                                </tr>
-                                <tr class="trFormularioAdmin">
-                                    <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Precio: </label>  </td>
-                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtPrecio" ></td>
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Peso: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputFormAdmin"  type="text" name="txtPeso" ></td>
-                                    
-                                </tr>
-                                <tr class="trFormularioAdmin">
-                                    <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" value="Volver"></td>
-                                    <td class="tdFormAdmin">  </td>
-                                    <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" name="registrarAlimento" value="Registrar"></td>                              
-                                </tr>
-                            </table>
-                        </form>  
-                        <?php
+
+                            </tr>
+                            <tr class="trFormularioAdmin">
+                                <td class="tdFormAdmin"> <label class="labelFormAdmin" for="">Precio: </label> </td>
+                                <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtPrecio">
+                                </td>
+                                <td class="tdFormAdmin"> <label class="labelForm" for="">Peso: </label> </td>
+                                <td class="tdFormAdmin"> <input class="inputFormAdmin" type="text" name="txtPeso"></td>
+
+                            </tr>
+                            <tr class="trFormularioAdmin">
+                                <td class="tdFormAdmin"> </td>
+                                <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" value="Volver">
+                                </td>
+                                <td class="tdFormAdmin"> </td>
+                                <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit"
+                                        name="registrarAlimento" value="Registrar"></td>
+                            </tr>
+                        </table>
+                    </form>
+                    <?php
                             if(isset($_POST['registrarAlimento'])){
                                 $nombre = $_POST['txtNombre'];
                                 $precio = $_POST['txtPrecio'];
@@ -163,12 +172,13 @@ function refresh() {
                                     }
                                 //$sql = "INSERT INTO granja (Nombre, Direccion, RUN, Descripcion) VALUES ('".$nombre."','".$direccion."','".$RUN."','".$descripcion."')";
                             }
-                        ?>                
-                    </div>
+                        ?>
                 </div>
-            </div>           
+            </div>
         </div>
-        <!-- Seccion abajo -->
+    </div>
+    <!-- Seccion abajo -->
     </div>
 </body>
+
 </html>

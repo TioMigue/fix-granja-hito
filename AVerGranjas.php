@@ -92,7 +92,7 @@ function verGranja() {
             </div>
         </div>
         <!-- Seccion media -->
-        <div class="medio">
+        <div class="medio-admin">
             <div class="anunciosD">
                 <div class="anuncioD"></div>
                 <div class="anuncioD"></div>
@@ -103,16 +103,16 @@ function verGranja() {
             </div>
             <div class="contenedor-medio-administrador">
                 <div class="contenido">
-                    <form action="" method="POST">
-                        <div class="Menu-Medio-Admin">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Home" value="Home">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Multimedia" value="Multimedia">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Historial">
-                            <input type="submit" class="btn_Report" name="btn_Error" value="Error">
+                <div class="Menu-Medio-Admin">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Ingresar Animales" 
+                                onclick="window.location.href='AAgregarAnimal.php'">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Alimento" value="Ingresar Alimento"
+                            onclick="window.location.href='AAgregarAlimento.php'">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Gestionar Granjas"
+                            onclick="window.location.href='AGestionarGranjas.php'">
+                            <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                                onclick="window.location.href='UInformarError.php'">   
                         </div>
-                    </form>
                     <div class="Datos-Pag2">
                         <form action="">
 

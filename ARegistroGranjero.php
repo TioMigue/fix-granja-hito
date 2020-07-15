@@ -6,6 +6,7 @@
 function login() {
     window.location = "";
 }
+
 function refresh() {
     window.location = "";
 }
@@ -80,14 +81,14 @@ function refresh() {
                         echo '<script>refresh()</script>';
                     }
                 ?>
-            <div class="contenedor-arriba">
+                <div class="contenedor-arriba">
 
-            </div>
+                </div>
             </div>
         </div>
     </div>
     <!-- Seccion media -->
-    <div class="medio">
+    <div class="medio-admin">
         <div class="anunciosD">
             <div class="anuncioD"></div>
             <div class="anuncioD"></div>
@@ -99,18 +100,14 @@ function refresh() {
         <div class="contenedor-medio-administrador">
             <div class="contenidoAdmin">
                 <div class="Menu-Medio-Admin">
-                    <input type="submit" class="btn_MenuAdmin" name="btn_Home" value="Home"
-                        onclick="window.location.href='index.php'">
-                    <input type="submit" class="btn_MenuAdmin" name="btn_Catalogo" value="Catalogo"
-                        onclick="window.location.href='UCatalogo.php'">
-                    <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Animales"
-                        onclick="window.location.href='UAnimalesUsuario.php'">
-                    <input type="submit" class="btn_MenuAdmin" name="btn_Multimedia" value="Multimedia"
-                        onclick="window.location.href=''">
-                    <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Historial"
-                        onclick="window.location.href=''">
+                    <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Ingresar Animales"
+                        onclick="window.location.href='AAgregarAnimal.php'">
+                    <input type="submit" class="btn_MenuAdmin" name="btn_Alimento" value="Ingresar Alimento"
+                        onclick="window.location.href='AAgregarAlimento.php'">
+                    <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Gestionar Granjas"
+                        onclick="window.location.href='AGestionarGranjas.php'">
                     <input type="submit" class="btn_Report" name="btn_Error" value="Error"
-                        onclick="window.location.href=''">
+                        onclick="window.location.href='UInformarError.php'">
                 </div>
                 <div class="Datos-Pag2">
                     <form class="formAdmin" action="" method="POST">
