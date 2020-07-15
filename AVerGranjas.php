@@ -6,6 +6,7 @@
 function login() {
     window.location = "";
 }
+
 function refresh() {
     window.location = "";
 }
@@ -94,25 +95,25 @@ function verGranja() {
         <!-- Seccion media -->
         <div class="medio-admin">
             <div class="anunciosD">
-                <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio3.jpg" alt=""></div>
-                <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio4.jpg" alt=""></div>
+                <div class="anuncioD"><img class="imgAnuncios" src="img/anuncio3.jpg" alt=""></div>
+                <div class="anuncioD"><img class="imgAnuncios" src="img/anuncio4.jpg" alt=""></div>
             </div>
             <div class="anunciosI">
-                <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio2.png" alt=""></div>
-                <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio1.png" alt=""></div>
+                <div class="anuncioI"><img class="imgAnuncios" src="img/anuncio2.png" alt=""></div>
+                <div class="anuncioI"><img class="imgAnuncios" src="img/anuncio1.png" alt=""></div>
             </div>
             <div class="contenedor-medio-administrador">
                 <div class="contenido">
-                <div class="Menu-Medio-Admin">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Ingresar Animales" 
-                                onclick="window.location.href='AAgregarAnimal.php'">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Alimento" value="Ingresar Alimento"
+                    <div class="Menu-Medio-Admin">
+                        <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Ingresar Animales"
+                            onclick="window.location.href='AAgregarAnimal.php'">
+                        <input type="submit" class="btn_MenuAdmin" name="btn_Alimento" value="Ingresar Alimento"
                             onclick="window.location.href='AAgregarAlimento.php'">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Gestionar Granjas"
+                        <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Gestionar Granjas"
                             onclick="window.location.href='AGestionarGranjas.php'">
-                            <input type="submit" class="btn_Report" name="btn_Error" value="Error"
-                                onclick="window.location.href='UInformarError.php'">   
-                        </div>
+                        <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                            onclick="window.location.href='UInformarError.php'">
+                    </div>
                     <div class="Datos-Pag2">
                         <form action="">
 
@@ -164,7 +165,7 @@ function verGranja() {
                                                             echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
                                                             echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
                                                             echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>"; 
-                                                            echo "<input type='submit' name='irGranja' value='Ver granja' style='margin-left: 20px;' onclick='window.location.href='ADatosGranja.php?granja=".$row['RUN']."''>"; 
+                                                            echo "<input type='submit' name='irGranja' value='".$row["RUN"]."' style='margin-left: 20px; color:transparent; ' onclick='alert('asdasd')'>"; 
                                                             echo "<br>";                                               
                                                             }
                                                         }   
@@ -178,7 +179,7 @@ function verGranja() {
                                                             echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
                                                             echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
                                                             echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>"; 
-                                                            echo "<input type='submit' name='irGranja' value='Ver granja' style='margin-left: 20px;' onclick='window.location.href='ADatosGranja.php?granja=".$row['RUN']."''>"; 
+                                                            echo "<input type='submit' name='irGranja' value='".$row["RUN"]."' style='margin-left: 20px; color:transparent; ' onclick='window.location.href='ADatosGranja.php?granja=".$row['RUN']."''>"; 
                                                             echo "<br>";                                                     
                                                             }
                                                         }
@@ -191,7 +192,7 @@ function verGranja() {
                                                                 echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
                                                                 echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
                                                                 echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>"; 
-                                                                echo "<input type='submit' name='irGranja' value='Ver granja' style='margin-left: 20px;' onclick='window.location.href='ADatosGranja.php?granja=".$row['RUN']."''>"; 
+                                                                echo "<input type='submit' name='irGranja' value='".$row["RUN"]."' style='margin-left: 20px; color:transparent; ' onclick='window.location.href='ADatosGranja.php?granja=".$row['RUN']."''>"; 
                                                                 echo "<br>";                                                   
                                                             }
                                                         }
@@ -201,6 +202,12 @@ function verGranja() {
                                                 ?>
                                                 </td>
                                             </form>
+                                            <?php
+                                if(isset($_POST["irGranja"])){
+                                    $granja = $_POST["irGranja"];
+                                echo "<script type='text/javascript'> window.location = 'ADatosGranja.php?granja=".$granja."'</script>";
+                                }
+                            ?>
                                         </tr>
                                     </table>
                                 </td>

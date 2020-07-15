@@ -113,31 +113,8 @@ function refresh() {
                             <tr class="trGestionGranjas">
                                 <form action="" method="POST">
                                 <td class="tdGestionGranjas"><strong>Granjas</strong></td>
-                                <td class="tdGestionGranjas"><strong>Filtros</strong>
-                                <select name="granja[]" id="">
-                                    <option value="todo">Selecionar opcion</option>
-                                    <?php
-                                    $sql = "SELECT * FROM granja";
-                                    $result = $conn->query($sql);
-                                    if($result ->num_rows > 0){
-                                    while($row = $result -> fetch_assoc()){
-                                        echo "<option value=".$row['idGranja'].">".$row['Nombre']."</option>";                                                     
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                                </td>
-
-                                <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="verGranja" value="Filtrar"type="submit"></td>
                                 </form>
-                                <?php
-                                   if(isset($_POST['verGranja'])){
-                                        $granja = $_POST['granja'];
-                                        for ($i=0; $i <count($granja); $i++) { 
-                                            $granjaS = $granja[$i];
-                                        }
-                                   }
-                                ?>
+                                
                             </tr>
                             <tr class="trTablaGestionGranjas">
                                 <td class="tdTablaGestionGranjas">
@@ -147,42 +124,40 @@ function refresh() {
                                                 <td class="tdEmpleadosGranja">
                                                 <?php
                                                     if(!isset($_POST['verGranja'])){
-                                                        $sql = "SELECT * FROM granja";
+
+                                                        $RUN = $_GET["granja"];
+                                                        $sql = "SELECT * FROM granja WHERE RUN = '".$RUN."'";
                                                         $result = $conn->query($sql);
+                                                        
                                                         if($result ->num_rows > 0){
-                                                        while($row = $result -> fetch_assoc()){  
+                                                            while($row = $result -> fetch_assoc()){  
                                                                 echo "<label name='".$row['Nombre']."'> Nombre: ".$row['Nombre']." ---- </label>";
                                                                 echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
                                                                 echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
                                                                 echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>";    
-                                                                                                    
+                                                                $granjaid = $row['idGranja'];
+                                                                $sql2 = "SELECT * FROM granjero WHERE Granja_idGranja = '".$granjaid."'";
+                                                                $result2 = $conn->query($sql2);
+                                                                if($result2 ->num_rows > 0){
+                                                                while($row = $result2 -> fetch_assoc()){  
+                                                                    echo "<label name='".$row['Nombre']."'> Nombre Granjero: ".$row['Nombre']."  </label>"; 
+                                                                    }
+                                                                }
+                                                                $sql3 = "SELECT * FROM veterinario WHERE Granja_idGranja = '".$granjaid."'";
+                                                                $result3 = $conn->query($sql3);
+                                                                if($result3 ->num_rows > 0){
+                                                                    while($row = $result3 -> fetch_assoc()){  
+                                                                        echo "<label name='".$row['Nombre']."'> Nombre Veterinario: ".$row['Nombre']."  </label>";
+                  
+                                                                    }
+
+                                                                }
+                                                                
                                                             }
+                                                                
+                                                            
+                                                            mysqli_close($conn);
                                                         }
-                                                    }if(isset($_POST['verGranja'])){
-                                                        if($granjaS == 'todo'){
-                                                            $sql = "SELECT * FROM granja";
-                                                            $result = $conn->query($sql);
-                                                            if($result ->num_rows > 0){
-                                                            while($row = $result -> fetch_assoc()){
-                                                                echo "<label name='".$row['Nombre']."'> Nombre: ".$row['Nombre']." ---- </label>";
-                                                                echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
-                                                                echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
-                                                                echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>";                                                     
-                                                            }
-                                                        }
-                                                        }else{
-                                                            $sql = "SELECT * FROM granja WHERE idGranja ='".$granjaS."'";
-                                                            $result = $conn->query($sql);
-                                                            if($result ->num_rows > 0){
-                                                            while($row = $result -> fetch_assoc()){
-                                                                echo "<label name='".$row['Nombre']."'> Nombre: ".$row['Nombre']." ---- </label>";
-                                                                echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
-                                                                echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
-                                                                echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>";                                                  
-                                                            }
-                                                        }
-                                                        }
-                                                        
                                                     }
                                                 ?>
                                                 

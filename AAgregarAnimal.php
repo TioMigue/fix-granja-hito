@@ -175,7 +175,7 @@ function refresh() {
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin"> </td>
                                     <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit"
-                                            value="Volver"></td>
+                                            value="Volver" onclick="javascript:history.go(-1)" ></td>
                                     <td class="tdFormAdmin"> </td>
                                     <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit"
                                             name="registrarAnimal" value="Registrar"></td>
