@@ -122,7 +122,7 @@ function refresh() {
                                 <td class="tdGestionGranjas"><strong>RUN</strong><input class="inputDatosGranjas" name="txtRUN" type="text" required></td>
                                 <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="AgregarGranja" value="Agregar" type="submit" style="background-color: lightblue; border: 1px; width: 150px;  height: 30px; margin-top: 15px;"></td>
                                 <tr class="trGestionGranjasDesc">
-                                    <td class="tdGestionGranjasDesc"><strong>Descripcion</strong>
+                                    <td class="tdGestionGranjasDesc" style="margin-left:230px;"><strong>Descripcion</strong>
                                     <textarea class="inputDatosGranjasDesc" name="txtDescripcion" cols="45" rows="3" required></textarea>
                                     <!--<input class="inputDatosGranjasDesc" name="txtDescripcion" type="text" required></td>-->
                                 </tr>
