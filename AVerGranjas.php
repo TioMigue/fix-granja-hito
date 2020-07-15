@@ -137,8 +137,12 @@ function verGranja() {
                                         </select>
                                     </td>
 
-                                    <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="verGranja"
-                                            value="Filtrar" type="submit"></td>
+                                    <td class="tdGestionGranjas">
+                                        <input class="inputDatosGranjas" name="verGranja"
+                                            value="Filtrar" type="submit">
+                                            <input class="inputDatosGranjas" name="eliminar"
+                                            value="Eliminar Granja" type="submit">
+                                    </td>
                                 </form>
                                 <?php
                                    if(isset($_POST['verGranja'])){
@@ -147,6 +151,21 @@ function verGranja() {
                                             $granjaS = $granja[$i];
                                         }
                                    }
+                                   if(isset($_POST['eliminar'])){
+                                        $granja = $_POST['granja'];
+                                        for ($i=0; $i <count($granja); $i++) { 
+                                            $granjaS = $granja[$i];
+                                        }
+                                        $sql = "DELETE FROM granja WHERE idGranja = '$granjaS'";
+                                        if (mysqli_query($conn, $sql)) {
+                                            echo '<script type="text/javascript">alert("Se ha Eliminado la granja")</script>';
+                                            mysqli_close($conn);
+                                            }else{
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                            }
+                                    }
+                                    
+                               
                                 ?>
                             </tr>
                             <tr class="trTablaGestionGranjas">

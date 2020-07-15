@@ -134,7 +134,7 @@ function refresh() {
                                                                 echo "<label name='".$row['Nombre']."'> Nombre: ".$row['Nombre']." ---- </label>";
                                                                 echo "<label name='".$row['Direccion']."'> Direccion: ".$row['Direccion']." ---- </label>";
                                                                 echo "<label name='".$row['RUN']."'> RUN: ".$row['RUN']." ---- </label>";
-                                                                echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label>";    
+                                                                echo "<label name='".$row['Descripcion']."'> Descripcion: ".$row['Descripcion']."</label><br>";    
                                                                 $granjaid = $row['idGranja'];
                                                                 $sql2 = "SELECT * FROM granjero WHERE Granja_idGranja = '".$granjaid."'";
                                                                 $result2 = $conn->query($sql2);
