@@ -24,14 +24,14 @@ function refresh() {
     <div class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
-            <div class="login">
-                <form action="UVerAnimal.php" method="POST">
+        <div class="login3">
+                <form action="VInformarError.php" method="POST">
                     <table>
                         <?php
-                        if(isset($_SESSION["usuario"])){
+                        if(isset($_SESSION["veterinario"])){
                             echo
                             '<tr>
-                                <td><label>'.$_SESSION["usuario"].'</label></td>
+                                <td><label>'.$_SESSION["veterinario"].'</label></td>
                                 <td><input type="submit" value="Cerrar Sesion" name="btnCerrarSesion"></td>
                             </tr>';
                         }else{
@@ -57,26 +57,23 @@ function refresh() {
                     if(isset($_POST['btnLogin'])){
                         $usuario = $_POST['Usuario'];
                         $contrasena = $_POST['Contrasena'];
-                        $idUser;
-                        $sql = "SELECT * FROM usuario WHERE Nombre = '".$usuario."'";
+                        $idVeterinario;
+                        $sql = "SELECT * FROM veterinario WHERE Nombre = '".$usuario."'";
                         $result = $conn->query($sql);
                         if($result ->num_rows > 0){
                             while($row = $result -> fetch_assoc()){
-                                $contrasenaB = $row["Contrasena"];
+                                $contrasenaB = $row["clave"];
                                 $usuarioB = $row["Nombre"];
-                                $idUser = $row["idUsuario"];
+                                $idVeterinario = $row["idVeterinario"];
                             }
                             mysqli_close($conn);
                         }        
-                        
-                        
                         if($usuario == $usuarioB && $contrasena == $contrasenaB){
-                            $_SESSION["usuario"] = $idUser;
+                            $_SESSION["veterinario"] = $idVeterinario;
                             echo '<script>login()</script>';
                         }else{
                             echo '<script>alert("Usuario o contraseña incorrectos")</script>';
                         }
-                        
                     }
                     
                     if(isset($_POST['btnCerrarSesion'])){
@@ -84,7 +81,7 @@ function refresh() {
                         echo '<script>refresh()</script>';
                     }
                 ?>
-            </div>
+        </div>
 
             <div class="contenedor-arriba">
 
@@ -100,7 +97,7 @@ function refresh() {
                 <div class="anuncioI"></div>
                 <div class="anuncioI"></div>
             </div>
-            <div class="contenedor-medio-usuario">
+            <div class="contenedor-medio-vete">
                 <div class="contenido">
                     <div class="Menu-Medio">
                         <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home"
@@ -131,17 +128,30 @@ function refresh() {
                                     <td class="tdDatosComprar">
                                         <table class="tablaDatos">
                                             <tr class="trComprar">
-                                                <td class="tdTipoComprarVer">
+                                                <td class="tdTipoComprar">
                                                     <?php
                                                         $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
                                                         $result = $conn->query($sql);
                                                         if($result ->num_rows > 0){
                                                             while($row = $result -> fetch_assoc()){
                                                                 echo '<input type="hidden" name="animal" value="'.$row['idAnimal'].'"/>';
-                                                                echo "<label class='lblver' value='".$row['Nombre']."'>Nombre: ".$row['Nombre']." / </label>";
-                                                                echo "<label class='lblver' value='".$row['Edad']."'>Edad: ".$row['Edad']." / </label>";
-                                                                echo "<label class='lblver' value='".$row['Tamanio']."'>Tamaño: ".$row['Tamanio']."/ </label>";
-                                                                echo "<label class='lblver' value='".$row['Peso']."'>Peso: ".$row['Peso']."</label>";                                                     
+                                                                echo "<label value='".$row['Nombre']."'>Nombre: ".$row['Nombre']." / </label>";
+                                                                echo "<label value='".$row['Edad']."'>Edad: ".$row['Edad']." / </label>";
+                                                                echo "<label value='".$row['Tamanio']."'>Tamaño: ".$row['Tamanio']."/ </label>";
+                                                                echo "<label value='".$row['Peso']."'>Peso: ".$row['Peso']."</label>";                                                     
+                                                            }
+                                                        }
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <tr class="trComprar">
+                                                <td class="tdPrecioComprar">
+                                                    <?php
+                                                        $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
+                                                        $result = $conn->query($sql);
+                                                        if($result ->num_rows > 0){
+                                                            while($row = $result -> fetch_assoc()){
+                                                                echo "<label value='".$row['Nombre']."'>Precio: ".$row['Precio']."</label>";                                                    
                                                             }
                                                         }
                                                     ?>
@@ -149,8 +159,18 @@ function refresh() {
                                             </tr>
                                             <tr class="trComprar">
                                                 <td class="tdPagoComprar">
-                                                   <input class="btn_ComprarVer" type="submit" name="Chequeo" value="Ver Chequeo Medico">
-                                                   <input class="btn_ComprarVer" type="submit" name="Comprar" value="Comprar alimento">
+                                                    <strong>Metodo de pago</strong>
+                                                    <select class="selectComprar" name="metodo" id="metodo">
+                                                        <?php
+                                                       $sql = "SELECT * FROM metodopago";
+                                                       $result = $conn->query($sql);
+                                                       if($result ->num_rows > 0){
+                                                           while($row = $result -> fetch_assoc()){
+                                                               echo "<option value=".$row['idMetodoPago'].">".$row['Tipo']."</option>";                                                   
+                                                           }
+                                                        } 
+                                                    ?>
+                                                    </select>
                                                 </td>
                                             </tr>
                                         </table>
@@ -158,9 +178,9 @@ function refresh() {
 
                                 </tr>
                                 <tr class="trComprar">
-                                    <td class="tdDescripcionComprar"><strong></strong></td>
+                                    <td class="tdDescripcionComprar"><strong>Descripcion del animal</strong></td>
                                     <td class="tdBotonesComprar"><input class="btn_Comprar" type="submit"
-                                            value="Volver"> 
+                                            value="Volver"> <input class="btn_Comprar" type="submit" name="Comprar" value="Comprar">
                                     </td>
                                 </tr>
                         </form>
@@ -171,8 +191,9 @@ function refresh() {
                                     if($_SESSION["usuario"] == null){
                                         echo "<script>window.location = 'index.php'</script>";
                                     }else{
-                                        echo "<script type='text/javascript'> window.location = 'UComprarAlimento.php?animal=".$animal."&metodo=".$metodo."'</script>";
-                                    } 
+                                        echo "<script type='text/javascript'> window.location = 'UCompraExitosa.php?animal=".$animal."&metodo=".$metodo."'</script>";
+                                    }
+                                    
                                 }
                             ?>
                         </table>

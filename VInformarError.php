@@ -79,7 +79,7 @@ function refresh() {
                         echo '<script>refresh()</script>';
                     }
                 ?>
-            </div>
+        </div>
             
             <div class="contenedor-arriba">
 

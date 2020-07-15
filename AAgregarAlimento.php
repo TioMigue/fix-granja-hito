@@ -146,7 +146,6 @@ function refresh() {
                                 $nombre = $_POST['txtNombre'];
                                 $precio = $_POST['txtPrecio'];
                                 $peso = $_POST['txtPeso'];
-                                
                                 $tipo = $_POST['tipo'];
 
                                 for ($i=0; $i <count($tipo); $i++) { 

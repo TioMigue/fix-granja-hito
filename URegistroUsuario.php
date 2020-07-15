@@ -23,7 +23,7 @@ function refresh() {
         <!-- Seccion arriba -->
         <div class="arriba">
         <div class="login">
-                <form action="index.php" method="POST">
+                <form action="URegistroUsuario.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["usuario"])){

@@ -87,9 +87,7 @@ function refresh() {
 
             </div>
         </div>
-        <div class="contenedor-arriba">
 
-        </div>
     </div>
     <!-- Seccion media -->
     <div class="medio">
@@ -139,7 +137,18 @@ function refresh() {
                             <tr class="trAnimales">
                                 <?php
                                 if(!isset($_POST['filtrarTipos'])){
-                                    $sql = "SELECT * FROM animal";
+                                    $idVeterinario = $_SESSION["veterinario"];
+                                    $idGranja;
+                                    $sql = "SELECT * FROM veterinario WHERE idVeterinario = '".$idVeterinario."'";
+                                    $result = $conn->query($sql);
+
+                                    if($result ->num_rows > 0){
+                                        while($row = $result -> fetch_assoc()){
+                                            
+                                            $idGranja = $row["Granja_idGranja"];
+                                        }
+                                    } 
+                                    $sql = "SELECT * FROM animal WHERE (Granja_idGranja='$idGranja')and(Estado='Vendido')";
                                     $result = $conn->query($sql);
                                     if($result ->num_rows > 0){
                                     while($row = $result -> fetch_assoc()){
@@ -161,13 +170,24 @@ function refresh() {
                                     */ 
                                 }if(isset($_POST['filtrarTipos'])){
 
+                                    $idVeterinario = $_SESSION["veterinario"];
+                                    $idGranja;
+                                    $sql = "SELECT * FROM veterinario WHERE idVeterinario = '".$idVeterinario."'";
+                                    $result = $conn->query($sql);
+                                    if($result ->num_rows > 0){
+                                        while($row = $result -> fetch_assoc()){
+                                            
+                                            $idGranja = $row["Granja_idGranja"];
+                                        }
+                                    } 
+
                                     $tipo = $_POST['tipo'];
                                     for ($i=0; $i <count($tipo); $i++) { 
                                         $tipoS = $tipo[$i];
                                     }
 
                                     if($tipoS == 'todo'){
-                                        $sql = "SELECT * FROM animal";
+                                        $sql = "SELECT * FROM animal WHERE (idTipo='$tipoS')and(Granja_idGranja='$idGranja')and(Estado='Vendido')";
                                         $result = $conn->query($sql);
                                         if($result ->num_rows > 0){
                                         while($row = $result -> fetch_assoc()){
@@ -176,7 +196,7 @@ function refresh() {
                                         }
                                     }
                                     }else{
-                                        $sql = "SELECT * FROM animal WHERE idTipo ='".$tipoS."'";
+                                        $sql = "SELECT * FROM animal WHERE (idTipo='$tipoS')and(Granja_idGranja='$idGranja')and(Estado='Vendido')";
                                         $result = $conn->query($sql);
                                         if($result ->num_rows > 0){
                                         while($row = $result -> fetch_assoc()){
