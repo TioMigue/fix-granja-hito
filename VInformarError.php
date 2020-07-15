@@ -97,20 +97,14 @@ function refresh() {
             </div>
             <div class="contenedor-medio-vete">
                 <div class="contenido">
-                    <form action="" method="POST">
                     <div class="Menu-Medio">
-                        <input type="submit" class="btn_MenuVete" name="btn_Home" value="Home"
-                            onclick="window.location.href='VCatalogo.php'">
-                        <input type="submit" class="btn_MenuVete" name="btn_Catalogo" value="Catalogo"
-                            onclick="window.location.href='VCatalogo.php'">
                         <input type="submit" class="btn_MenuVete" name="btn_Animales" value="Chequear Animales"
-                            onclick="window.location.href='VChequearAnimales.php'" style=" width: 200px; ">
+                            onclick="window.location.href='VCatalogo.php'" style=" width: 200px; ">
                         <input type="submit" class="btn_MenuVete" name="btn_Checar" value="Informar"
-                            onclick="window.location.href='VInformar.php'">
+                            onclick="window.location.href='VInformarError.php'">
                         <input type="submit" class="btn_Report" name="btn_Error" value="Error"
-                            onclick="window.location.href='VCatalogo.php'">
+                            onclick="window.location.href='VInformarError.php'">
                     </div>
-                    </form>
                     <div class="Datos-Pag2">
                     <form action="" method="POST">
                     <table class="tablaErroresVete">
@@ -150,21 +144,15 @@ function refresh() {
                     <?php
                         if(isset($_POST['Enviar']))
                         {
-                            $usuario = $_SESSION["usuario"];
-                            $idUsuario;
-                            $sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
-                            $result = $conn->query($sql);
-                            if($result ->num_rows > 0){
-                                while($row = $result -> fetch_assoc()){
-                                    $idUsuario = $row["idUsuario"];
-                                }
-                            }    
+                            $idVeterinario = $_SESSION["veterinario"];
+                            
+                                
                                 
                             $tipo = $_POST['tipoError'];
                             $asunto = $_POST['asunto'];
                             $desc = $_POST['Desc'];
 
-                            $sql2 = "INSERT INTO reporteerrores (tipoError,asunto,descripcionError,usuario_idUsuario) VALUES ('".$tipo."','".$asunto."','".$desc."','".$idUsuario."')";
+                            $sql2 = "INSERT INTO reporteerrores (tipoError,asunto,descripcionError,veterinario_idVeterinario) VALUES ('".$tipo."','".$asunto."','".$desc."','".$idVeterinario."')";
                             if (mysqli_query($conn, $sql2)) {
                                 echo '<script type="text/javascript">alert("Error registrado")</script>';
                                 mysqli_close($conn);

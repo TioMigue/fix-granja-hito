@@ -7,7 +7,7 @@ function login() {
     window.location = "";
 }
 function refresh() {
-    window.location = "";
+    window.location = "VCatalogo.php";
 }
 </script>
 <!DOCTYPE html>
@@ -99,23 +99,18 @@ function refresh() {
             </div>
             <div class="contenedor-medio-vete">
                 <div class="contenido">
-                    <div class="Menu-Medio">
-                        <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home"
-                            onclick="window.location.href='index.php'">
-                        <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo"
-                            onclick="window.location.href='UCatalogo.php'">
-                        <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales"
-                            onclick="window.location.href='UAnimalesUsuario.php'">
-                        <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia">
-                        <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial"
-                            onclick="window.location.href='UHistorialUsuario.php'">
+                <div class="Menu-Medio">
+                        <input type="submit" class="btn_MenuVete" name="btn_Animales" value="Chequear Animales"
+                            onclick="window.location.href='VCatalogo.php'" style=" width: 200px; ">
+                        <input type="submit" class="btn_MenuVete" name="btn_Checar" value="Informar"
+                            onclick="window.location.href='VInformarError.php'">
                         <input type="submit" class="btn_Report" name="btn_Error" value="Error"
-                            onclick="window.location.href='UInformarError.php'">
+                            onclick="window.location.href='VInformarError.php'">
                     </div>
                     <div class="Datos-Pag2">
                         <form action="" method="POST">
-                            <table class="tablaComprar">
-                                <tr class="trComprar">
+                            <table class="tablaChequeo">
+                                <tr class="trChequeo">
                                     <?php
                                         $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
                                         $result = $conn->query($sql);
@@ -125,10 +120,10 @@ function refresh() {
                                             }
                                         }    
                                     ?>
-                                    <td class="tdDatosComprar">
-                                        <table class="tablaDatos">
-                                            <tr class="trComprar">
-                                                <td class="tdTipoComprar">
+                                    <td class="tdDatosChequeo">
+                                        <table class="tablaDatosC">
+                                            <tr class="trComprarC">
+                                                <td class="tdTipoComprarC">
                                                     <?php
                                                         $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
                                                         $result = $conn->query($sql);
@@ -144,54 +139,51 @@ function refresh() {
                                                     ?>
                                                 </td>
                                             </tr>
-                                            <tr class="trComprar">
-                                                <td class="tdPrecioComprar">
-                                                    <?php
-                                                        $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
-                                                        $result = $conn->query($sql);
-                                                        if($result ->num_rows > 0){
-                                                            while($row = $result -> fetch_assoc()){
-                                                                echo "<label value='".$row['Nombre']."'>Precio: ".$row['Precio']."</label>";                                                    
-                                                            }
-                                                        }
-                                                    ?>
+                                            <tr class="trComprarC">
+                                                <td class="tdPrecioComprarC">
+                                                    <strong>Asunto : </strong> <input type="text" name="asunto" class="txtAsunto">
                                                 </td>
                                             </tr>
-                                            <tr class="trComprar">
-                                                <td class="tdPagoComprar">
-                                                    <strong>Metodo de pago</strong>
-                                                    <select class="selectComprar" name="metodo" id="metodo">
-                                                        <?php
-                                                       $sql = "SELECT * FROM metodopago";
-                                                       $result = $conn->query($sql);
-                                                       if($result ->num_rows > 0){
-                                                           while($row = $result -> fetch_assoc()){
-                                                               echo "<option value=".$row['idMetodoPago'].">".$row['Tipo']."</option>";                                                   
-                                                           }
-                                                        } 
-                                                    ?>
-                                                    </select>
+                                            <tr class="trComprarC">
+                                                <td class="tdPagoComprarC">
+                                                    <label class="Comentario">Comentario</label>
+                                                    <textarea name="Comentario"  cols="40" rows="10" class="taComentario"></textarea>
                                                 </td>
+                                                
                                             </tr>
+                                            
                                         </table>
                                     </td>
 
                                 </tr>
                                 <tr class="trComprar">
                                     <td class="tdDescripcionComprar"><strong>Descripcion del animal</strong></td>
-                                    <td class="tdBotonesComprar"><input class="btn_Comprar" type="submit"
-                                            value="Volver"> <input class="btn_Comprar" type="submit" name="Comprar" value="Comprar">
+                                    <td class="tdBotonesComprar"><input class="btn_ComprarC" type="submit"
+                                            value="Volver"> <input class="btn_ComprarC" type="submit" name="Ingresar" value="Ingresar">
                                     </td>
                                 </tr>
                         </form>
                             <?php
-                                if(isset($_POST["Comprar"])){
-                                    $animal = $_POST["animal"];
-                                    $metodo = $_REQUEST["metodo"];
-                                    if($_SESSION["usuario"] == null){
-                                        echo "<script>window.location = 'index.php'</script>";
+                                if(isset($_POST["Ingresar"])){
+                                    $idAnimal = $_POST["animal"];
+                                    $idVeterinario = $_SESSION["veterinario"];
+                                    $asunto = $_POST["asunto"];
+                                    $comentario = $_POST["Comentario"];
+
+                                    if($_SESSION["veterinario"] == null){
+                                        echo "<script>window.location = 'VIngresarChequeo.php'</script>";
                                     }else{
-                                        echo "<script type='text/javascript'> window.location = 'UCompraExitosa.php?animal=".$animal."&metodo=".$metodo."'</script>";
+
+                                        $sql="INSERT INTO historialmedico (Asunto, Comentario, animal_idAnimal, veterinario_idVeterinario) VALUES ('".$asunto."','".$comentario."','".$idAnimal."','".$idVeterinario."') ";
+                                        if (mysqli_query($conn, $sql)) {
+                                            echo "<script> alert('Se Ingreso Correctamente') </script>";
+                                            mysqli_close($conn);
+                                        }else{
+                                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                        }
+                                        
+
+                                        
                                     }
                                     
                                 }

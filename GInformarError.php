@@ -93,25 +93,26 @@ function refresh() {
                 <div class="anuncioI"></div>
                 <div class="anuncioI"></div>
             </div>
-            <div class="contenedor-medio-usuario">
+            <div class="contenedor-medio-vete">
                 <div class="contenido">
-                    <form action="" method="POST">
-                        <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home" onclick>
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial">
-                            <input type="submit" class="btn_Report" name="btn_Error" value="Error">
-                        </div>
+                <form action="" method="POST">
+                    <div class="Menu-Medio">
+                        <input type="submit" class="btn_MenuVete" name="btn_Home" value="Home"
+                            onclick="window.location.href='VCatalogo.php'">
+                        <input type="submit" class="btn_MenuVete" name="btn_Catalogo" value="Informar"
+                            onclick="window.location.href='GInformarError.php'">
+                        
+                        <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                            onclick="window.location.href='VCatalogo.php'">
+                    </div>
                     </form>
                     <div class="Datos-Pag2">
                     <form action="" method="POST">
-                    <table class="tablaErrores">
+                    <table class="tablaErroresVete">
                     
-                        <tr class="trTablaErrores">
+                        <tr class="trTablaErroresVete">
                         
-                            <td class="tdTablaErrores"><label class="labelErrores">Tipo de error : </label><Select name="tipoError" id="error" required>
+                            <td class="tdTablaErroresVete"><label class="labelErrores">Tipo de error : </label><Select name="tipoError" id="error" required>
                                     <option value="Error 1">Error 1</option>
                                     <option value="Error 2">Error 2</option>
                                     <option value="Error 3">Error 3</option>
@@ -121,22 +122,22 @@ function refresh() {
 
                                 </Select></td>
                             
-                            <td class="tdTablaErrores"><label class="labelErrores">Asunto :</label><input type="text" name="asunto" required></td>
+                            <td class="tdTablaErroresVete"><label class="labelErrores">Asunto :</label><input type="text" name="asunto" required></td>
 
                         </tr>
-                        <tr class="trTablaErrores">
+                        <tr class="trTablaErroresVete">
                         
-                            <td class="tdTablaErrores"><label class="labelErrores">Descripcion : </label></td>
+                            <td class="tdTablaErroresVete"><label class="labelErrores">Descripcion : </label></td>
 
                         </tr > 
-                        <tr class="trTablaErrores">
+                        <tr class="trTablaErroresVete">
                         
-                            <td class="tdTablaErrores"><textarea class="areaErrores" name="Desc" id="" cols="60" rows="15" required></textarea></td>   
+                            <td class="tdTablaErroresVete"><textarea class="areaErrores" name="Desc" id="" cols="60" rows="15" required></textarea></td>   
 
                         </tr>
-                        <tr class="trTablaErrores">
+                        <tr class="trTablaErroresVete">
                         
-                            <td class="tdTablaErrores"><input class="btn_Errores" type="submit" name="Volver" value="Volver"> <input class="btn_Errores" type="submit" name="Enviar" value="Enviar"></td>
+                            <td class="tdTablaErroresVete"><input class="btn_Errores" type="submit" name="Volver" value="Volver"> <input class="btn_Errores" type="submit" name="Enviar" value="Enviar"></td>
                         
                         </tr>
                     </table>
@@ -144,22 +145,13 @@ function refresh() {
                     <?php
                         if(isset($_POST['Enviar']))
                         {
-                            $idUser = $_SESSION["usuario"];
-                            /*$usuario = $_SESSION["usuario"];
-                            $idUsuario;
-                            $sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
-                            $result = $conn->query($sql);
-                            if($result ->num_rows > 0){
-                                while($row = $result -> fetch_assoc()){
-                                    $idUsuario = $row["idUsuario"];
-                                }
-                            }*/    
-                                
+                            $idGranjero = $_SESSION["granjero"];
+                           
                             $tipo = $_POST['tipoError'];
                             $asunto = $_POST['asunto'];
                             $desc = $_POST['Desc'];
 
-                            $sql2 = "INSERT INTO reporteerrores (tipoError,asunto,descripcionError,usuario_idUsuario) VALUES ('".$tipo."','".$asunto."','".$desc."','".$idUser."')";
+                            $sql2 = "INSERT INTO reporteerrores (tipoError,asunto,descripcionError,granjero_idGranjero) VALUES ('".$tipo."','".$asunto."','".$desc."','".$idGranjero."')";
                             if (mysqli_query($conn, $sql2)) {
                                 echo '<script type="text/javascript">alert("Error registrado")</script>';
                                 mysqli_close($conn);

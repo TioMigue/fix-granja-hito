@@ -102,16 +102,12 @@ function refresh() {
         <div class="contenedor-medio-vete">
             <div class="contenido">
                 <div class="Menu-Medio">
-                    <input type="submit" class="btn_MenuVete" name="btn_Home" value="Home"
-                        onclick="window.location.href='VCatalogo.php'">
-                    <input type="submit" class="btn_MenuVete" name="btn_Catalogo" value="Catalogo"
-                        onclick="window.location.href='VCatalogo.php'">
                     <input type="submit" class="btn_MenuVete" name="btn_Animales" value="Chequear Animales"
-                        onclick="window.location.href='VChequearAnimales.php'" style=" width: 200px; ">
+                        onclick="window.location.href='VCatalogo.php'" style=" width: 200px; ">
                     <input type="submit" class="btn_MenuVete" name="btn_Checar" value="Informar"
-                        onclick="window.location.href='VInformar.php'">
+                        onclick="window.location.href='VInformarError.php'">
                     <input type="submit" class="btn_Report" name="btn_Error" value="Error"
-                        onclick="window.location.href='VCatalogo.php'">
+                        onclick="window.location.href='VInformarError.php'">
                 </div>
                 <div class="Datos-Pag1">
                     <form action="" method="POST">
@@ -137,6 +133,7 @@ function refresh() {
                             <tr class="trAnimales">
                                 <?php
                                 if(!isset($_POST['filtrarTipos'])){
+                                    
                                     $idVeterinario = $_SESSION["veterinario"];
                                     $idGranja;
                                     $sql = "SELECT * FROM veterinario WHERE idVeterinario = '".$idVeterinario."'";
@@ -152,7 +149,7 @@ function refresh() {
                                     $result = $conn->query($sql);
                                     if($result ->num_rows > 0){
                                     while($row = $result -> fetch_assoc()){
-                                        echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['Nombre']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";     
+                                        echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['idAnimal']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";     
                                                                                         
                                         }
                                     }
@@ -191,7 +188,7 @@ function refresh() {
                                         $result = $conn->query($sql);
                                         if($result ->num_rows > 0){
                                         while($row = $result -> fetch_assoc()){
-                                            echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['Nombre']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";       
+                                            echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['idAnimal']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";       
                                                                                      
                                         }
                                     }
@@ -200,7 +197,7 @@ function refresh() {
                                         $result = $conn->query($sql);
                                         if($result ->num_rows > 0){
                                         while($row = $result -> fetch_assoc()){
-                                            echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['Nombre']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";      
+                                            echo "<td class='tdAnimales'><input type='submit' name='animal' value='".$row['idAnimal']."' style='background: url(img/".$row['Nombre'].".jpg); background-size: 100% 100%; background-repeat: no-repeat;  width: 200px; height: 100px;color: rgba(0,0,0,0)'></td>";      
                                                                                  
                                         }
                                     }
@@ -218,10 +215,9 @@ function refresh() {
                                 if(isset($_POST["animal"])){
                                     $animal = $_POST["animal"];
                                     $_SESSION["animal"] = $animal;
-                                echo "<script type='text/javascript'> window.location = 'UComprarAnimal.php '</script>";
-
+                                    echo "<script> window.location = 'VIngresarChequeo.php?animal=".$animal."'</script>";
                                 }
-                            ?>
+                        ?>
                     </tr>
                     </table>
 

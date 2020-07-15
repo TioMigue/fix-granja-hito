@@ -1,5 +1,8 @@
 
-
+<?php
+require 'conexion.php';
+session_start();
+?>
 <script>
 function login() {
     window.location = "";
@@ -113,7 +116,7 @@ function refresh() {
                                 onclick="window.location.href='UInformarError.php'">   
                         </div>                 
                     <div class="Datos-Pag2">
-                        <form action="">
+                        <form action="" method="POST">
                             <table class="tablaComprar">
                             <tr class="trComprar">
                                 <td class="tdImgComprar"><img class="testImg" src="img/pedigree.jpg" alt=""></td>
@@ -121,24 +124,78 @@ function refresh() {
                                             <table class="tablaDatos">
                                                 <tr class="trComprar">
                                                     <td class="tdTipoComprar">
-                                                        <strong>Tipo/</strong>
-                                                        <strong>Nombre/</strong>
-                                                        <strong>Peso</strong>
+                                                        <?php
+                                                             $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
+                                                             $result = $conn->query($sql);
+                                                             if($result ->num_rows > 0){
+                                                                 while($row = $result -> fetch_assoc()){
+
+                                                                    $sql2 = "SELECT * FROM alimento WHERE idTipo ='".$row["idTipo"]."'";
+                                                                     $result1 = $conn-> query($sql2);
+                                                                     if($result1 -> num_rows > 0)
+                                                                     {
+                                                                         while($row = $result1 -> fetch_assoc())
+                                                                         {
+                                                                            echo '<input  type="hidden" name="idalimento" value="'.$row["idAlimento"].'"></input>';
+                                                                            echo "<input type='hidden' name='money' value'".$row["Precio"]."' value=".$row["Precio"]."></input>";
+                                                                            echo '<label name="nombreali">  '.$row['Nombre'].'  </label';
+
+                                                                            $sql3 = "SELECT * FROM tipos WHERE idTipo ='".$row["idTipo"]."'";
+                                                                            $result2 = $conn-> query($sql3);
+                                                                            if($result2 -> num_rows > 0)
+                                                                            {
+                                                                                while($row = $result2 -> fetch_assoc())
+                                                                                {
+                                                                                    echo '<label> / '.$row['Tipo'].'  </label';
+                                                                                }
+                                                                            }
+                                                                         }
+                                                                     }
+      
+                                                                 }
+                                                             }
+
+                                                        
+                                                        ?>
                                                     </td>
                                                 </tr>
                                                 <tr class="trComprar">
                                                     <td class="tdPrecioComprar">
-                                                        <strong>Precio/</strong>
-                                                        <strong>Añadido</strong>
+                                                             <?php
+                                                                $sql = "SELECT * FROM animal WHERE idAnimal ='".$_GET["animal"]."'";
+                                                                $result = $conn->query($sql);
+                                                                if($result ->num_rows > 0){
+                                                                    while($row = $result -> fetch_assoc()){
+                                                                        echo '<input  type="hidden" name="idanimal" value="'.$row["idAnimal"].'"></input>';
+                                                                        $sql2 = "SELECT * FROM alimento WHERE idTipo ='".$row["idTipo"]."'";
+                                                                        $result1 = $conn-> query($sql2);
+                                                                        if($result1 -> num_rows > 0)
+                                                                        {
+                                                                            while($row = $result1 -> fetch_assoc())
+                                                                            {
+                                                                                echo '<label name="precio"> Precio:'.$row["Precio"].'</label';
+                                                                               
+                                                                            }
+                                                                        }
+        
+                                                                    }
+                                                                }
+                                                             ?>
                                                     </td>
                                                 </tr>
                                                 <tr class="trComprar">
                                                     <td class="tdPagoComprar">
                                                         <strong>Metodo de pago</strong>
-                                                        <select class="selectComprar"name="" id="">
-                                                            <option value="">Efectivo</option>
-                                                            <option value="">WebPay</option>
-                                                            <option value="">PayPal</option>
+                                                        <select class="selectComprar" name="metodo" id="metodo">
+                                                            <?php
+                                                        $sql = "SELECT * FROM metodopago";
+                                                        $result = $conn->query($sql);
+                                                        if($result ->num_rows > 0){
+                                                            while($row = $result -> fetch_assoc()){
+                                                                echo "<option value=".$row['idMetodoPago'].">".$row['Tipo']."</option>";                                                   
+                                                            }
+                                                            } 
+                                                        ?>
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -146,11 +203,59 @@ function refresh() {
 
                                     </tr>
                                     <tr class="trComprar">
-                                        <td class="tdDescripcionComprar"><strong>Descripcion del animal</strong></td>
-                                        <td class="tdBotonesComprar"><input class="btn_Comprar" type="submit" value="Volver"> <input class="btn_Comprar" type="submit" value="Comprar"></td>
+                                        <td class="tdDescripcionComprar"><strong></strong></td>
+                                        <td class="tdBotonesComprar"><input class="btn_Comprar" type="submit" value="Volver"> 
+                                        <input class="btn_Comprar" type="submit" value="Comprar" name="Comprar"></td>
                                     </tr>                                    
                             </table>    
                         </form>
+                            <?php
+                                if(isset($_POST["Comprar"])){
+                                    $monto = $_POST["money"];
+                                    $animal = $_POST["idanimal"];
+                                    $idUser =$_SESSION["usuario"];
+                                    $idmetodo = $_POST["metodo"];
+                                    $idalim = $_POST["idalimento"];
+                                    $prec = $_POST["Precio"];
+                                    $idCompra;
+                                    if($_SESSION["usuario"] == null){
+                                        echo "<script>window.location = 'index.php'</script>";
+                                    }else{
+                                        
+                                        $sql = "INSERT INTO compra (Monto, MetodoPago_idMetodoPago, Usuario_idUsuario, Alimento_idAlimento) VALUES ('".$monto."','".$idmetodo."','".$idUser."','".$idalim."')";
+                                        if (mysqli_query($conn, $sql)) {
+                                            
+                                            }else{
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                            }
+                                            
+                                        $sql2 = "UPDATE animal SET estadoAlimento ='Excelente' WHERE idAnimal = '".$animal."'";
+                                        if (mysqli_query($conn, $sql2)) {
+                                            echo '<script type="text/javascript">alert("Alimento Comprado exitosamente")</script>';
+                                            //mysqli_close($conn);
+                                            }else{
+                                            echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
+                                        }
+                                        $sql4 = "SELECT * FROM compra WHERE Usuario_idUsuario ='".$idUser."'";
+                                        $result = $conn->query($sql4);
+                                        if($result ->num_rows > 0)
+                                        {
+                                            while($row = $result -> fetch_assoc()){
+                                                $idCompra = $row["idCompra"];
+                                            }
+                                        }    
+                                        //Insertar compra en el historial del usuario
+                                        $sql3 = "INSERT INTO historialusuario (usuario_idusuario, compra_idCompra) VALUES ('".$idUser."','".$idCompra."')";
+                                        if (mysqli_query($conn, $sql3)) {
+                                        mysqli_close($conn);
+                                        }else{
+                                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                        }        
+                                        
+                                    }
+                                    
+                                }
+                            ?>
                     </div>
                 </div>
             </div>           

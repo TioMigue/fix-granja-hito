@@ -141,9 +141,7 @@ function refresh() {
                                                                 echo "<label class='lblver' value='".$row['Nombre']."'>Nombre: ".$row['Nombre']." / </label>";
                                                                 echo "<label class='lblver' value='".$row['Edad']."'>Edad: ".$row['Edad']." / </label>";
                                                                 echo "<label class='lblver' value='".$row['Tamanio']."'>Tamaño: ".$row['Tamanio']."/ </label>";
-                                                                echo "<label class='lblver' value='".$row['Peso']."'>Peso: ".$row['Peso']."</label>";   
-                                                                echo '<input type="hidden" name="estadoComida" value="'.$row['estadoAlimento'].'"/>';  
-                                                                $_SESSION["algo"] = $row["estadoAlimento"];                                          
+                                                                echo "<label class='lblver' value='".$row['Peso']."'>Peso: ".$row['Peso']."</label>";                                                     
                                                             }
                                                         }
                                                     ?>
@@ -160,32 +158,7 @@ function refresh() {
 
                                 </tr>
                                 <tr class="trComprar">
-                                    <td class="tdDescripcionComprar"><strong>
-                                    <?php
-                                        if(!isset($_POST["random"]))
-                                        {
-                                            echo "Estado comida  ";
-                                            $valueC;
-                                            if($_SESSION["algo"] == null){
-
-                                            }else{
-                                                $estadoComidas = $_SESSION["algo"]; 
-                                                if($estadoComidas == "Excelente"){
-                                                    $valueC = 100;
-                                                }
-                                                if($estadoComidas == "Bueno"){
-                                                    $valueC = 50;
-                                                }
-                                                if($estadoComidas == "Malo"){
-                                                    $valueC = 10;
-                                                }
-                                                echo '<progress value="'.$valueC.'" max="100"></progress>';
-                                            }
-                                            
-                                        }
-                                        
-                                                                        
-                                    ?></strong></td>
+                                    <td class="tdDescripcionComprar"><strong></strong></td>
                                     <td class="tdBotonesComprar"><input class="btn_Comprar" type="submit"
                                             value="Volver"> 
                                     </td>
@@ -196,10 +169,8 @@ function refresh() {
                                     $animal = $_POST["animal"];
                                     if($_SESSION["usuario"] == null){
                                         echo "<script>window.location = 'index.php'</script>";
-                                        $_SESSION["algo"] = null;
                                     }else{
                                         echo "<script>window.location = 'UComprarAlimento.php?animal=".$animal."'</script>";
-                                        $_SESSION["algo"] = null;
                                     } 
                                 }
                             ?>

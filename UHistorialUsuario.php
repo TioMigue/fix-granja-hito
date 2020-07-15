@@ -136,17 +136,32 @@ function refresh() {
                                                 <strong> id Compra: '.$row["compra_idCompra"].'';
                                             $idCompra = $row["compra_idCompra"];
                                             
+
+                                            //WHERE (idTipo='$tipoS')and(Granja_idGranja='$idGranja')and(Estado='Vendido')"
+
                                             //select id compra
                                             $sql2 = "SELECT * FROM compra WHERE idCompra = '".$row["compra_idCompra"]."'";
                                             $result2 = $conn->query($sql2);
                                             if($result2 ->num_rows > 0){
                                                 while($row = $result2 -> fetch_assoc()){ 
                                                     $idAnimal = $row["Animal_idAnimal"]; 
+                                                    $idAlimento = $row["Alimento_idAlimento"];
                                                     //select id animal
                                                     $sql3 = "SELECT * FROM animal WHERE idAnimal = '".$row["Animal_idAnimal"]."'";
                                                     $result3 = $conn->query($sql3);
                                                     if($result3 ->num_rows > 0){
                                                         while($row = $result3 -> fetch_assoc()){  
+                                                            echo 
+                                                            '   Nombre: '.$row["Nombre"].' / Precio: '.$row["Precio"].'</strong>
+                                                                </td>
+                                                            </tr>';
+                                                        }
+                                                    }
+
+                                                    $sql4 = "SELECT * FROM alimento WHERE idAlimento = '".$row["Alimento_idAlimento"]."'";
+                                                    $result4 = $conn->query($sql4);
+                                                    if($result4 ->num_rows > 0){
+                                                        while($row = $result4 -> fetch_assoc()){  
                                                             echo 
                                                             '   Nombre: '.$row["Nombre"].' / Precio: '.$row["Precio"].'</strong>
                                                                 </td>
