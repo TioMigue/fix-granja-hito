@@ -88,7 +88,7 @@ function refresh() {
             </div>
         </div>
         <!-- Seccion media -->
-        <div class="medio">
+        <div class="medio-granja">
             <div class="anunciosD">
                 <div class="anuncioD"></div>
                 <div class="anuncioD"></div>
@@ -99,7 +99,7 @@ function refresh() {
             </div>
             <div class="contenedor-medio-vete">
                 <div class="contenido">
-                <div class="Menu-Medio">
+                <div class="Menu-Medio-granja">
                         <input type="submit" class="btn_MenuVete" name="btn_Animales" value="Chequear Animales"
                             onclick="window.location.href='VCatalogo.php'" style=" width: 200px; ">
                         <input type="submit" class="btn_MenuVete" name="btn_Checar" value="Informar"
@@ -107,7 +107,7 @@ function refresh() {
                         <input type="submit" class="btn_Report" name="btn_Error" value="Error"
                             onclick="window.location.href='VInformarError.php'">
                     </div>
-                    <div class="Datos-Pag2">
+                    <div class="Datos-Pag3">
                         <form action="" method="POST">
                             <table class="tablaChequeo">
                                 <tr class="trChequeo">

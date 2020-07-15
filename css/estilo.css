@@ -96,16 +96,20 @@ body{
 /*Seccion media----------------------------------------------------------------------------------*/
 .medio{
     height: 700px;
-    background: green;
+    background: #d3f0d2;
 }
 .medio-admin{
     height: 700px;
     background: #d8edf3;
 }
+.medio-granja{
+    height: 700px;
+    background: #fce9d4;
+}
 .contenedor-medio-usuario{
     width: 70%;
     height: 700px;
-    background: lightgreen;
+    background: #d3f0d2;
     margin: auto;
     float: right;
 }
@@ -113,7 +117,7 @@ body{
 .contenedor-medio-vete{
     width: 70%;
     height: 700px;
-    background: orangered;
+    background: #fce9d4;
     margin: auto;
     float: right;
 }
@@ -158,7 +162,16 @@ body{
 .Menu-Medio{
     width: 70%;
     height: 150px;
-    background: orange;
+    background: #a7e0a5;
+    position: absolute;
+    top: 175px;
+    display: flex;
+    justify-content: space-around;
+}
+.Menu-Medio-granja{
+    width: 70%;
+    height: 150px;
+    background: #fad1a9;
     position: absolute;
     top: 175px;
     display: flex;
@@ -183,7 +196,7 @@ body{
     font-size: 20px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    background: lightgreen;
+    background: #54c242;
 }
 
 .btn_MenuVete{
@@ -195,7 +208,7 @@ body{
     font-size: 20px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    background: orangered;
+    background: #f5a44d;
 }
 
 .btn_MenuAdmin{
@@ -259,6 +272,17 @@ body{
     border: solid 1px;
     border-radius: 15px;
     border-color: blue;
+}
+.Datos-Pag3{
+    width: 90%;
+    height: 500px;
+    margin-top: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    border: solid 1px;
+    border-radius: 15px;
+    border-color: orange;
 }
 .tabla{
     width: 90%;
@@ -952,3 +976,7 @@ body{
     border: 1px solid lightgreen;
     border-radius: 10px; 
 }
+.imgAnuncios{
+    width: 180px;
+    height: 250px;
+  }

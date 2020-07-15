@@ -90,18 +90,18 @@ function refresh() {
 
     </div>
     <!-- Seccion media -->
-    <div class="medio">
-        <div class="anunciosD">
-            <div class="anuncioD"></div>
-            <div class="anuncioD"></div>
+    <div class="medio-granja">
+    <div class="anunciosD">
+            <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio3.jpg" alt=""></div>
+            <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio4.jpg" alt=""></div>
         </div>
         <div class="anunciosI">
-            <div class="anuncioI"></div>
-            <div class="anuncioI"></div>
+            <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio2.png" alt=""></div>
+            <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio1.png" alt=""></div>
         </div>
         <div class="contenedor-medio-vete">
             <div class="contenido">
-                <div class="Menu-Medio">
+                <div class="Menu-Medio-granja">
                     <input type="submit" class="btn_MenuVete" name="btn_Animales" value="Chequear Animales"
                         onclick="window.location.href='VCatalogo.php'" style=" width: 200px; ">
                     <input type="submit" class="btn_MenuVete" name="btn_Checar" value="Informar"
@@ -109,7 +109,7 @@ function refresh() {
                     <input type="submit" class="btn_Report" name="btn_Error" value="Error"
                         onclick="window.location.href='VInformarError.php'">
                 </div>
-                <div class="Datos-Pag1">
+                <div class="Datos-Pag3">
                     <form action="" method="POST">
                         <table class="Animales">
                             <tr class="trAnimales">

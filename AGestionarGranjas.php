@@ -91,12 +91,12 @@ function refresh() {
         <!-- Seccion media -->
         <div class="medio-admin">
             <div class="anunciosD">
-                <div class="anuncioD"></div>
-                <div class="anuncioD"></div>
+                <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio3.jpg" alt=""></div>
+                <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio4.jpg" alt=""></div>
             </div>
             <div class="anunciosI">
-                <div class="anuncioI"></div>
-                <div class="anuncioI"></div>
+                <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio2.png" alt=""></div>
+                <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio1.png" alt=""></div>
             </div>
             <div class="contenedor-medio-administrador">
                 <div class="contenido">
@@ -192,9 +192,8 @@ function refresh() {
                                 </td>
                             </tr>
                             <tr class="trGestionGranjas">
-                                <td class="tdBtnsGestionGranjas"><input type="submit" value="Volver" class="btn_AccionesGestion">
+                                <td class="tdBtnsGestionGranjas"><input type="submit" value="Volver" class="btn_AccionesGestion" onclick="javascript:history.go(-1)">
                                                             <input type="submit" value="Ver granjas" class="btn_AccionesGestion" onclick="window.location.href='AVerGranjas.php'">
-                                                            <input type="submit" value="Ingresar" class="btn_AccionesGestion">
                             </td>
                             </tr>
                         </table>

@@ -92,12 +92,12 @@ function refresh() {
     <!-- Seccion media -->
     <div class="medio-admin">
         <div class="anunciosD">
-            <div class="anuncioD"></div>
-            <div class="anuncioD"></div>
+            <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio3.jpg" alt=""></div>
+            <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio4.jpg" alt=""></div>
         </div>
         <div class="anunciosI">
-            <div class="anuncioI"></div>
-            <div class="anuncioI"></div>
+            <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio2.png" alt=""></div>
+            <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio1.png" alt=""></div>
         </div>
         <div class="contenedor-medio-administrador">
             <div class="contenidoAdmin">
@@ -144,7 +144,7 @@ function refresh() {
                             </tr>
                             <tr class="trFormularioAdmin">
                                 <td class="tdFormAdmin"> </td>
-                                <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" value="Volver">
+                                <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" value="Volver" onclick="javascript:history.go(-1)">
                                 </td>
                                 <td class="tdFormAdmin"> </td>
                                 <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit"

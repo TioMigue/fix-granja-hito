@@ -84,19 +84,19 @@ function refresh() {
             </div>
         </div>
         <!-- Seccion media -->
-        <div class="medio">
+        <div class="medio-granja">
             <div class="anunciosD">
-                <div class="anuncioD"></div>
-                <div class="anuncioD"></div>
+                <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio3.jpg" alt=""></div>
+                <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio4.jpg" alt=""></div>
             </div>
             <div class="anunciosI">
-                <div class="anuncioI"></div>
-                <div class="anuncioI"></div>
+                <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio2.png" alt=""></div>
+                <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio1.png" alt=""></div>
             </div>
             <div class="contenedor-medio-vete">
                 <div class="contenido">
                 <form action="" method="POST">
-                    <div class="Menu-Medio">
+                    <div class="Menu-Medio-granja">
                         <input type="submit" class="btn_MenuVete" name="btn_Home" value="Home"
                             onclick="window.location.href='VCatalogo.php'">
                         <input type="submit" class="btn_MenuVete" name="btn_Catalogo" value="Informar"
@@ -106,7 +106,7 @@ function refresh() {
                             onclick="window.location.href='VCatalogo.php'">
                     </div>
                     </form>
-                    <div class="Datos-Pag2">
+                    <div class="Datos-Pag3">
                     <form action="" method="POST">
                     <table class="tablaErroresVete">
                     

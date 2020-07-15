@@ -102,12 +102,12 @@ function refresh() {
         <!-- Seccion media -->
         <div class="medio">
             <div class="anunciosD">
-                <div class="anuncioD"></div>
-                <div class="anuncioD"></div>
+                <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio3.jpg" alt=""></div>
+                <div class="anuncioD"><img class="imgAnuncios"src="img/anuncio4.jpg" alt=""></div>
             </div>
             <div class="anunciosI">
-                <div class="anuncioI"></div>
-                <div class="anuncioI"></div>
+                <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio2.png" alt=""></div>
+                <div class="anuncioI"><img class="imgAnuncios"src="img/anuncio1.png" alt=""></div>
             </div>
             <div class="contenedor-medio-usuario">
                 <div class="contenido">
