@@ -160,6 +160,16 @@ body{
     display: flex;
     justify-content: space-around;
 }
+
+.Menu-Medio-Admin{
+    width: 70%;
+    height: 150px;
+    background: lightblue;
+    position: absolute;
+    top: 175px;
+    display: flex;
+    justify-content: space-around;
+}
 .btn_MenuUsuario{
     width: 12%;
     height: 80px;
@@ -185,7 +195,8 @@ body{
 }
 
 .btn_MenuAdmin{
-    width: 12%;
+    display: inline;
+    width: 19%;
     height: 80px;
     margin-top: 30px;
     border: none;

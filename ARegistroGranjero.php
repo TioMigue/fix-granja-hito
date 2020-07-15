@@ -98,7 +98,7 @@ function refresh() {
         </div>
         <div class="contenedor-medio-administrador">
             <div class="contenidoAdmin">
-                <div class="Menu-Medio">
+                <div class="Menu-Medio-Admin">
                     <input type="submit" class="btn_MenuAdmin" name="btn_Home" value="Home"
                         onclick="window.location.href='index.php'">
                     <input type="submit" class="btn_MenuAdmin" name="btn_Catalogo" value="Catalogo"

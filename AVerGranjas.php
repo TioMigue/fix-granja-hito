@@ -104,7 +104,7 @@ function verGranja() {
             <div class="contenedor-medio-administrador">
                 <div class="contenido">
                     <form action="" method="POST">
-                        <div class="Menu-Medio">
+                        <div class="Menu-Medio-Admin">
                             <input type="submit" class="btn_MenuAdmin" name="btn_Home" value="Home">
                             <input type="submit" class="btn_MenuAdmin" name="btn_Catalogo" value="Catalogo">
                             <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Animales">

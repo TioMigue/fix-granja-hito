@@ -6,6 +6,9 @@
 function login() {
     window.location = "";
 }
+/**
+ * @return [type]
+ */
 function refresh() {
     window.location = "";
 }
@@ -95,12 +98,11 @@ function refresh() {
             <div class="contenedor-medio-administrador">
                 <div class="contenidoAdmin">
                     <form action="" method="POST">
-                        <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Home" value="Home">
+                        <div class="Menu-Medio-Admin">
                             <input type="submit" class="btn_MenuAdmin" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Multimedia" value="Multimedia">
-                            <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Historial">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Animales" value="Ingresar Animales">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Multimedia" value="Ingresar Alimento">
+                            <input type="submit" class="btn_MenuAdmin" name="btn_Historial" value="Gestionar Granjas">
                             <input type="submit" class="btn_Report" name="btn_Error" value="Error">   
                         </div>
                         
