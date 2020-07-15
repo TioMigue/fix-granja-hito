@@ -121,15 +121,7 @@
                                     $result = $conn->query($sql);
                                     if($result ->num_rows > 0){
                                         while($row = $result -> fetch_assoc()){
-                                            $sql2 = "SELECT * FROM compra WHERE usuario_idUsuario = '".$idUser."'";
-                                            $result = $conn->query($sql2);
-                                            if($result ->num_rows > 0){
-                                                while($row = $result -> fetch_assoc()){
-
-                                                    echo '<td class="tdHistorialCompra"><strong></strong></td>';
-                                                }
-                                                mysqli_close($conn);
-                                            }       
+                                            
                                             echo '<td class="tdHistorialCompra"><strong></strong></td>';
                                         }
                                         mysqli_close($conn);
