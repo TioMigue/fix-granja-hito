@@ -170,7 +170,6 @@ function refresh() {
                             <tr class="trGestionGranjas">
                                 <td class="tdBtnsGestionGranjas"><input type="submit" value="Volver" class="btn_AccionesGestion">
                                                                 <input type="submit" value="Ver granjas" class="btn_AccionesGestion">
-                                                                <input type="submit" value="Ingresar" class="btn_AccionesGestion">
                             </td>
                             </tr>
                         </table>
