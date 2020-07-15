@@ -1,10 +1,15 @@
 <?php
     require 'conexion.php';
-    if(isset($_GET['Granja 1'])){
-        
-    }
+    session_start();
 ?>
-
+<script>
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +22,8 @@
     <div class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
-        <div class="login2">
-            <form action="index.php" method="POST">
+            <div class="login2">
+                <form action="ADatosGranja.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["admini"])){
@@ -73,7 +78,7 @@
                         echo '<script>refresh()</script>';
                     }
                 ?>
-            
+                </div>
             <div class="contenedor-arriba">
 
             </div>

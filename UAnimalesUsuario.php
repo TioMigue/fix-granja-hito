@@ -2,6 +2,14 @@
     require 'conexion.php';
     session_start();
 ?>
+<script>
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +25,7 @@
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
-                <form action="index.php" method="POST">
+                <form action="UAnimalesUsuario.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["usuario"])){
@@ -149,7 +157,7 @@
                         <?php
                                 if(isset($_POST["animal"])){
                                     $animal = $_POST["animal"];
-                                echo "<script type='text/javascript'> window.location = 'UComprarAnimal.php?animal=".$animal."'</script>";
+                                echo "<script type='text/javascript'> window.location = 'UVerAnimal.php?animal=".$animal."'</script>";
                                 }
                             ?>
                         </tr>

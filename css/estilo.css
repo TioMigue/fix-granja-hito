@@ -53,6 +53,17 @@ body{
     border-color: blue;
     border-style: solid;
 }
+.login3{
+    width: 17%;
+    height: 120px;
+    margin-top: 35px;
+    background: orange;
+    float: right;
+    margin-right: 5px;
+    border-radius: 10px;
+    border-color: orangered;
+    border-style: solid;
+}
 
 .textLogin
 {

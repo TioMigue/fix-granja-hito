@@ -1,5 +1,14 @@
 
 
+<script>
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +22,7 @@
         <!-- Seccion arriba -->
         <div class="arriba">
         <div class="login">
-                <form action="index.php" method="POST">
+                <form action="UComprarAlimento.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["usuario"])){

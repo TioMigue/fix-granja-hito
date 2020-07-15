@@ -1,7 +1,15 @@
 <?php
     require 'conexion.php';
+    session_start();
 ?>
-
+<script>
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +23,7 @@
         <!-- Seccion arriba -->
         <div class="arriba">
         <div class="login2">
-            <form action="index.php" method="POST">
+            <form action="AGestionarGranja.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["admini"])){
@@ -70,7 +78,7 @@
                         echo '<script>refresh()</script>';
                     }
                 ?>
-            
+            </div>
             <div class="contenedor-arriba">
 
             </div>

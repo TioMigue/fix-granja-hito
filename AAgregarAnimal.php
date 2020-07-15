@@ -2,21 +2,30 @@
     require 'conexion.php';
     session_start();
 ?>
-
+<script>
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="arribaUsuario"  class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
         <div class="login2">
-            <form action="index.php" method="POST">
+            <form action="AAgregarAnimal.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["admini"])){
@@ -71,7 +80,6 @@
                         echo '<script>refresh()</script>';
                     }
                 ?>
-            
             </div>
         </div>
         <!-- Seccion media -->

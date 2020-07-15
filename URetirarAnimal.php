@@ -1,5 +1,15 @@
-
-
+<?php
+require 'conexion.php';
+session_start();
+?>
+<script>
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>

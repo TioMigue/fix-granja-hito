@@ -2,6 +2,15 @@
 require 'conexion.php';
 session_start();
 ?>
+
+<script>
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,14 +23,14 @@ session_start();
     <div class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
-        <div class="login">
-            <form action="index.php" method="POST">
+        <div class="login3">
+                <form action="GInformarError.php" method="POST">
                     <table>
                         <?php
-                        if(isset($_SESSION["usuario"])){
+                        if(isset($_SESSION["granjero"])){
                             echo
                             '<tr>
-                                <td><label>'.$_SESSION["usuario"].'</label></td>
+                                <td><label>'.$_SESSION["granjero"].'</label></td>
                                 <td><input type="submit" value="Cerrar Sesion" name="btnCerrarSesion"></td>
                             </tr>';
                         }else{
@@ -35,9 +44,6 @@ session_start();
                                     <td><input class="inputLogin"  type="text" name="Contrasena" placeholder="Contraseña" required></td>
                                     <td><input class="btnLogin"type="submit" value="Login" name="btnLogin"></td>
                                 </tr>
-                                <tr>
-                                    <td><a href="URegistroUsuario.php">Registrate Aqui</a></td>                         
-                                </tr>
                             ';
                         }
                     ?>
@@ -47,17 +53,19 @@ session_start();
                     if(isset($_POST['btnLogin'])){
                         $usuario = $_POST['Usuario'];
                         $contrasena = $_POST['Contrasena'];
-                        $sql = "SELECT * FROM usuario";
+                        $idGranjero;
+                        $sql = "SELECT * FROM granjero WHERE Nombre = '".$usuario."'";
                         $result = $conn->query($sql);
                         if($result ->num_rows > 0){
                             while($row = $result -> fetch_assoc()){
-                                $contrasenaB = $row["Contrasena"];
+                                $contrasenaB = $row["clave"];
                                 $usuarioB = $row["Nombre"];
+                                $idGranjero = $row["idGranjero"];
                             }
                             mysqli_close($conn);
                         }        
                         if($usuario == $usuarioB && $contrasena == $contrasenaB){
-                            $_SESSION["usuario"] = $usuario;
+                            $_SESSION["granjero"] = $idGranjero;
                             echo '<script>login()</script>';
                         }else{
                             echo '<script>alert("Usuario o contraseña incorrectos")</script>';

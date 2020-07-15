@@ -2,6 +2,14 @@
     require 'conexion.php';
     session_start();
 ?>
+<script>
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,14 +24,14 @@
     <div class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
-            <div class="login">
-                <form action="index.php" method="POST">
+            <div class="login3">
+                <form action="vCatalogo.php" method="POST">
                     <table>
                         <?php
-                        if(isset($_SESSION["usuario"])){
+                        if(isset($_SESSION["veterinario"])){
                             echo
                             '<tr>
-                                <td><label>'.$_SESSION["usuario"].'</label></td>
+                                <td><label>'.$_SESSION["veterinario"].'</label></td>
                                 <td><input type="submit" value="Cerrar Sesion" name="btnCerrarSesion"></td>
                             </tr>';
                         }else{
@@ -49,24 +57,23 @@
                     if(isset($_POST['btnLogin'])){
                         $usuario = $_POST['Usuario'];
                         $contrasena = $_POST['Contrasena'];
-                        $sql = "SELECT * FROM usuario WHERE Nombre = '".$usuario."'";
+                        $idVeterinario;
+                        $sql = "SELECT * FROM veterinario WHERE Nombre = '".$usuario."'";
                         $result = $conn->query($sql);
                         if($result ->num_rows > 0){
                             while($row = $result -> fetch_assoc()){
-                                $contrasenaB = $row["Contrasena"];
+                                $contrasenaB = $row["clave"];
                                 $usuarioB = $row["Nombre"];
+                                $idVeterinario = $row["idVeterinario"];
                             }
                             mysqli_close($conn);
                         }        
-                        
-                        
                         if($usuario == $usuarioB && $contrasena == $contrasenaB){
-                            $_SESSION["usuario"] = $usuario;
+                            $_SESSION["veterinario"] = $idVeterinario;
                             echo '<script>login()</script>';
                         }else{
                             echo '<script>alert("Usuario o contraseña incorrectos")</script>';
                         }
-                        
                     }
                     
                     if(isset($_POST['btnCerrarSesion'])){
@@ -75,42 +82,47 @@
                     }
                 ?>
             </div>
+
             <div class="contenedor-arriba">
 
             </div>
         </div>
-        <!-- Seccion media -->
-        <div class="medio">
-            <div class="anunciosD">
-                <div class="anuncioD"></div>
-                <div class="anuncioD"></div>
-            </div>
-            <div class="anunciosI">
-                <div class="anuncioI"></div>
-                <div class="anuncioI"></div>
-            </div>
-            <div class="contenedor-medio-vete">
-                <div class="contenido">
-                    <div class="Menu-Medio">
-                        <input type="submit" class="btn_MenuVete" name="btn_Home" value="Home"
-                            onclick="window.location.href='VCatalogo.php'">
-                        <input type="submit" class="btn_MenuVete" name="btn_Catalogo" value="Catalogo"
-                            onclick="window.location.href='VCatalogo.php'">
-                        <input type="submit" class="btn_MenuVete" name="btn_Animales" value="Chequear Animales"
-                            onclick="window.location.href='VChequearAnimales.php'" style=" width: 200px; ">
-                        <input type="submit" class="btn_MenuVete" name="btn_Checar" value="Informar"
-                            onclick="window.location.href='VInformar.php'">
-                        <input type="submit" class="btn_Report" name="btn_Error" value="Error"
-                            onclick="window.location.href='VCatalogo.php'">
-                    </div>
-                    <div class="Datos-Pag1">
-                        <form action="" method="POST">
-                            <table class="Animales">
-                                <tr class="trAnimales">
-                                    <td class="filtrarTipo"><strong>Tipo de animal</strong>
-                                        <select name="tipo[]" id="">
-                                            <option value="nada">Seleciona tipo</option>
-                                            <?php
+        <div class="contenedor-arriba">
+
+        </div>
+    </div>
+    <!-- Seccion media -->
+    <div class="medio">
+        <div class="anunciosD">
+            <div class="anuncioD"></div>
+            <div class="anuncioD"></div>
+        </div>
+        <div class="anunciosI">
+            <div class="anuncioI"></div>
+            <div class="anuncioI"></div>
+        </div>
+        <div class="contenedor-medio-vete">
+            <div class="contenido">
+                <div class="Menu-Medio">
+                    <input type="submit" class="btn_MenuVete" name="btn_Home" value="Home"
+                        onclick="window.location.href='VCatalogo.php'">
+                    <input type="submit" class="btn_MenuVete" name="btn_Catalogo" value="Catalogo"
+                        onclick="window.location.href='VCatalogo.php'">
+                    <input type="submit" class="btn_MenuVete" name="btn_Animales" value="Chequear Animales"
+                        onclick="window.location.href='VChequearAnimales.php'" style=" width: 200px; ">
+                    <input type="submit" class="btn_MenuVete" name="btn_Checar" value="Informar"
+                        onclick="window.location.href='VInformar.php'">
+                    <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                        onclick="window.location.href='VCatalogo.php'">
+                </div>
+                <div class="Datos-Pag1">
+                    <form action="" method="POST">
+                        <table class="Animales">
+                            <tr class="trAnimales">
+                                <td class="filtrarTipo"><strong>Tipo de animal</strong>
+                                    <select name="tipo[]" id="">
+                                        <option value="nada">Seleciona tipo</option>
+                                        <?php
                                             $sql = "SELECT * FROM tipos";
                                             $result = $conn->query($sql);
                                             if($result ->num_rows > 0){
@@ -120,12 +132,12 @@
                                                 }
                                             }
                                         ?>
-                                        </select>
-                                        <input type="submit" name="filtrarTipos" value="Filtrar">
-                                    </td>
-                                </tr>
-                                <tr class="trAnimales">
-                                    <?php
+                                    </select>
+                                    <input type="submit" name="filtrarTipos" value="Filtrar">
+                                </td>
+                            </tr>
+                            <tr class="trAnimales">
+                                <?php
                                 if(!isset($_POST['filtrarTipos'])){
                                     $sql = "SELECT * FROM animal";
                                     $result = $conn->query($sql);
@@ -178,11 +190,11 @@
 
                                 
                                 ?>
-                                </tr>
-                            </table>
-                        </form>
+                            </tr>
+                        </table>
+                    </form>
 
-                        <?php
+                    <?php
                                 if(isset($_POST["animal"])){
                                     $animal = $_POST["animal"];
                                     $_SESSION["animal"] = $animal;
@@ -190,14 +202,14 @@
 
                                 }
                             ?>
-                        </tr>
-                        </table>
+                    </tr>
+                    </table>
 
-                    </div>
                 </div>
             </div>
         </div>
-        <!-- Seccion abajo -->
+    </div>
+    <!-- Seccion abajo -->
     </div>
 </body>
 

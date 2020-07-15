@@ -2,6 +2,14 @@
     require 'conexion.php';
     session_start();
 ?>
+<script>
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +25,7 @@
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
-                <form action="index.php" method="POST">
+                <form action="UHistorialUsuario.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["usuario"])){
@@ -114,31 +122,45 @@
                             <tr class="trHistorialCompra">
                                 <td class="tdHistorialCompra"><strong>Historial Compras</strong></td>
                             </tr>
-                            <tr class="trHistorialCompra">
-                                <?php
+                            <?php
                                     $idUser = $_SESSION["usuario"];
+                                    $idCompra;
+                                    //Select compra del historial
                                     $sql = "SELECT * FROM historialusuario WHERE usuario_idUsuario = '".$idUser."'";
                                     $result = $conn->query($sql);
                                     if($result ->num_rows > 0){
-                                        while($row = $result -> fetch_assoc()){
+                                        while($row = $result -> fetch_assoc()){   
+                                            echo 
+                                            '<tr class="trHistorialCompra">
+                                                <td class="tdHistorialCompra">
+                                                <strong> id Compra: '.$row["compra_idCompra"].'';
+                                            $idCompra = $row["compra_idCompra"];
                                             
-                                            echo '<td class="tdHistorialCompra"><strong></strong></td>';
+                                            //select id compra
+                                            $sql2 = "SELECT * FROM compra WHERE idCompra = '".$row["compra_idCompra"]."'";
+                                            $result2 = $conn->query($sql2);
+                                            if($result2 ->num_rows > 0){
+                                                while($row = $result2 -> fetch_assoc()){ 
+                                                    $idAnimal = $row["Animal_idAnimal"]; 
+                                                    //select id animal
+                                                    $sql3 = "SELECT * FROM animal WHERE idAnimal = '".$row["Animal_idAnimal"]."'";
+                                                    $result3 = $conn->query($sql3);
+                                                    if($result3 ->num_rows > 0){
+                                                        while($row = $result3 -> fetch_assoc()){  
+                                                            echo 
+                                                            '   Nombre: '.$row["Nombre"].' / Precio: '.$row["Precio"].'</strong>
+                                                                </td>
+                                                            </tr>';
+                                                        }
+                                                    }
+
+                                                }   
+                                            }
                                         }
-                                        mysqli_close($conn);
                                     }        
-                                    
+
                                 ?>
-
-                            </tr>
-                            <tr class="trHistorialCompra">
-                                <td class="tdBtnsHistorialCompra"><input type="submit" value="Volver"
-                                        class="btn_HistorialCompra">
-                                    <input type="submit" value="Ver granjas" class="btn_HistorialCompra">
-                                    <input type="submit" value="Ingresar" class="btn_HistorialCompra">
-                                </td>
-                            </tr>
                         </table>
-
                     </div>
                 </div>
             </div>
@@ -146,5 +168,88 @@
         <!-- Seccion abajo -->
     </div>
 </body>
+</html>
 
-</html>i
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,16 @@
+
 <?php
     require 'conexion.php';
     session_start();
 ?>
-
+<script>
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +24,7 @@
         <!-- Seccion arriba -->
         <div class="arriba">
         <div class="login2">
-            <form action="index.php" method="POST">
+            <form action="ARegistroVeterinario.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["admini"])){
@@ -71,6 +79,7 @@
                         echo '<script>refresh()</script>';
                     }
                 ?>
+            </div>
             <div class="contenedor-arriba">
             
             </div>
@@ -143,8 +152,6 @@
                                 <tr class="trFormularioAdmin">
                                     <td class="tdFormAdmin"> <label class="labelForm" for="">Contraseña: </label>  </td>
                                     <td class="tdFormAdmin"> <input class="inputFormAdmin" type="password" name="txtContrasena" required></td>
-                                    <td class="tdFormAdmin"> <label class="labelForm" for="">Repetir Contraseña: </label> </td>
-                                    <td class="tdFormAdmin"> <input class="inputFormAdmin" type="password" name="txtContrasena" required></td>
                                 
                                 </tr>
                                 <tr class="trFormularioAdmin">
@@ -163,6 +170,7 @@
                                 $edad = $_POST['txtEdad'];
                                 $direccion = $_POST['txtDireccion'];
                                 $telefono = $_POST['txtTelefono'];
+                                $clave = $_POST['txtContrasena'];
                                 
                                 $granja = $_POST['granja'];
 
@@ -171,7 +179,7 @@
                                     $granjaS = $granja[$i];
                                 }
 
-                                $sql = "INSERT INTO veterinario (Nombre, Apellido, Rut, Edad, Direccion, Telefono, Granja_idGranja) VALUES ('".$nombre."','".$apellido."','".$rut."','".$edad."','".$direccion."','".$telefono."','".$granjaS."')";
+                                $sql = "INSERT INTO veterinario (Nombre, Apellido, Rut, Edad, Direccion, Telefono, Granja_idGranja, clave) VALUES ('".$nombre."','".$apellido."','".$rut."','".$edad."','".$direccion."','".$telefono."','".$granjaS."','".$clave."')";
                                 if (mysqli_query($conn, $sql)) {
                                     echo '<script type="text/javascript">alert("Granjero ingresado correctamente")</script>';
                                     mysqli_close($conn);

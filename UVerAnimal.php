@@ -25,7 +25,7 @@ function refresh() {
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login">
-                <form action="UComprarAnimal.php" method="POST">
+                <form action="index.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["usuario"])){
@@ -186,7 +186,17 @@ function refresh() {
                                             value="Volver"> <input class="btn_Comprar" type="submit" name="Comprar" value="Comprar">
                                     </td>
                                 </tr>
-                        </form>
+                                    <td class="tdDescripcionComprar"><strong>Descripcion del animal</strong></td>
+                                    <td class="tdBotonesComprar"><input class="btn_Comprar" type="submit"
+                                            value="Volver"> <input class="btn_Comprar" type="submit" name="Comprar" value="Comprar">
+                                    </td>
+                                </tr>
+                                    <td class="tdDescripcionComprar"><strong>Descripcion del animal</strong></td>
+                                    <td class="tdBotonesComprar"><input class="btn_Comprar" type="submit"
+                                            value="Volver"> <input class="btn_Comprar" type="submit" name="Comprar" value="Comprar">
+                                    </td>
+                                </tr>
+  </form>
                             <?php
                                 if(isset($_POST["Comprar"])){
                                     $animal = $_POST["animal"];

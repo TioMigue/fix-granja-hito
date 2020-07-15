@@ -1,25 +1,36 @@
 <?php
     require 'conexion.php';
+    session_start();
 ?>
 <script>
-    function verGranja(){
-        window.location = "ADatosGranja.php";
-    }
+function login() {
+    window.location = "";
+}
+function refresh() {
+    window.location = "";
+}
+</script>
+<script>
+function verGranja() {
+    window.location = "ADatosGranja.php";
+}
 </script>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
-        <div class="login2">
-            <form action="index.php" method="POST">
+            <div class="login2">
+                <form action="AVerGranjas.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["admini"])){
@@ -71,10 +82,11 @@
                     }
                     if(isset($_POST['btnCerrarSesion'])){
                         session_destroy();
-                        echo '<script>refresh()</script>';
+                        echo '<script>refresh()</script>';          
                     }
                 ?>
-            
+            </div>
+
             <div class="contenedor-arriba">
 
             </div>
@@ -108,11 +120,11 @@
                         <table class="tablaGestionGranjas">
                             <tr class="trEmpleadosGranjas">
                                 <form action="" method="POST">
-                                <td class="tdGestionGranjas"><strong>Granjas</strong></td>
-                                <td class="tdGestionGranjas"><strong>Filtrar Granja</strong>
-                                <select name="granja[]" id="">
-                                    <option value="todo">Selecionar granja</option>
-                                    <?php
+                                    <td class="tdGestionGranjas"><strong>Granjas</strong></td>
+                                    <td class="tdGestionGranjas"><strong>Filtrar Granja</strong>
+                                        <select name="granja[]" id="">
+                                            <option value="todo">Selecionar granja</option>
+                                            <?php
                                     $sql = "SELECT * FROM granja";
                                     $result = $conn->query($sql);
                                     if($result ->num_rows > 0){
@@ -121,10 +133,11 @@
                                         }
                                     }
                                     ?>
-                                </select>
-                                </td>
+                                        </select>
+                                    </td>
 
-                                <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="verGranja" value="Filtrar"type="submit"></td>
+                                    <td class="tdGestionGranjas"><input class="inputDatosGranjas" name="verGranja"
+                                            value="Filtrar" type="submit"></td>
                                 </form>
                                 <?php
                                    if(isset($_POST['verGranja'])){
@@ -141,7 +154,7 @@
                                         <tr class="trEmpleadosGranja">
                                             <form action="" method="POST">
                                                 <td class="tdEmpleadosGranjaCont">
-                                                <?php
+                                                    <?php
                                                     if(!isset($_POST['verGranja'])){
                                                         $sql = "SELECT * FROM granja";
                                                         $result = $conn->query($sql);
@@ -193,13 +206,14 @@
                                 </td>
                             </tr>
                             <tr class="trGestionGranjas">
-                                <td class="tdBtnsGestionGranjas"><input type="submit" value="Volver" class="btn_AccionesGestion">
-                                                                <input type="submit" value="Ver granjas" class="btn_AccionesGestion">
-                                                                <input type="submit" value="Ingresar" class="btn_AccionesGestion">
-                            </td>
+                                <td class="tdBtnsGestionGranjas"><input type="submit" value="Volver"
+                                        class="btn_AccionesGestion">
+                                    <input type="submit" value="Ver granjas" class="btn_AccionesGestion">
+                                    <input type="submit" value="Ingresar" class="btn_AccionesGestion">
+                                </td>
                             </tr>
                         </table>
-                        
+
                     </div>
                 </div>
             </div>
@@ -207,5 +221,5 @@
         <!-- Seccion abajo -->
     </div>
 </body>
-</html>
 
+</html>
