@@ -168,7 +168,7 @@ function refresh() {
                                 </td>
                             </tr>
                             <tr class="trGestionGranjas">
-                                <td class="tdBtnsGestionGranjas"><input type="submit" value="Volver" class="btn_AccionesGestion">
+                                <td class="tdBtnsGestionGranjas"><input type="submit" value="Volver" class="btn_AccionesGestion" onclick="javascript:history.go(-1)">
                                                                 <input type="submit" value="Ver granjas" class="btn_AccionesGestion">
                             </td>
                             </tr>

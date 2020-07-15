@@ -146,7 +146,7 @@ function refresh() {
                                 </tr>
                                 <tr class="trFormulario">
                                     <td class="tdForm">  </td>
-                                    <td class="tdForm"> <input class="btnAcciones" type="button" value="Volver"></td>
+                                    <td class="tdForm"> <input class="btnAcciones" type="button" value="Volver" onclick="javascript:history.go(-1)"s></td>
                                     <td class="tdForm">  </td>
                                     <td class="tdForm"> <input class="btnAcciones" type="submit" name="btnRegistrar" value="Registrar"></td>                              
                                 </tr>

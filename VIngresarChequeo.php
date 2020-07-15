@@ -159,7 +159,7 @@ function refresh() {
                                 <tr class="trComprar">
                                     <td class="tdDescripcionComprar"><strong>Descripcion del animal</strong></td>
                                     <td class="tdBotonesComprar"><input class="btn_ComprarC" type="submit"
-                                            value="Volver"> <input class="btn_ComprarC" type="submit" name="Ingresar" value="Ingresar">
+                                            value="Volver" onclick="javascript:history.go(-1)"> <input class="btn_ComprarC" type="submit" name="Ingresar" value="Ingresar">
                                     </td>
                                 </tr>
                         </form>

@@ -168,7 +168,7 @@ function refresh() {
                             <tr class="trFormularioAdmin">
                                 <td class="tdFormAdmin"> </td>
                                 <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit" value="Volver"
-                                        onclick="window.location.href='AGestionarGranjas.php'"></td>
+                                onclick="javascript:history.go(-1)"></td>
                                 <td class="tdFormAdmin"> </td>
                                 <td class="tdFormAdmin"> <input class="btnAccionesAdmin" type="submit"
                                         name="registrarGranjero" value="Registrar"></td>

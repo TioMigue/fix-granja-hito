@@ -233,9 +233,9 @@ function verGranja() {
                             </tr>
                             <tr class="trGestionGranjas">
                                 <td class="tdBtnsGestionGranjas"><input type="submit" value="Volver"
-                                        class="btn_AccionesGestion">
+                                        class="btn_AccionesGestion" onclick="javascript:history.go(-1)">
                                     <input type="submit" value="Ver granjas" class="btn_AccionesGestion">
-                                    <input type="submit" value="Ingresar" class="btn_AccionesGestion">
+                                    
                                 </td>
                             </tr>
                         </table>

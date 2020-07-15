@@ -136,7 +136,7 @@ function refresh() {
                         </tr>
                         <tr class="trTablaErroresVete">
                         
-                            <td class="tdTablaErroresVete"><input class="btn_Errores" type="submit" name="Volver" value="Volver"> <input class="btn_Errores" type="submit" name="Enviar" value="Enviar"></td>
+                            <td class="tdTablaErroresVete"><input class="btn_Errores" type="submit" name="Volver" value="Volver" onclick="javascript:history.go(-1)"> <input class="btn_Errores" type="submit" name="Enviar" value="Enviar"></td>
                         
                         </tr>
                     </table>

@@ -132,7 +132,7 @@ function refresh() {
                                 </tr>
                                 <tr class="trRetirarAnimal">
                                     <td class="tdNotaRetirarAnimal"><strong>Nota: Segun el estado financiero y las condiciones que ofrece para tener al animal en una habitad aceptable, se le enviara una confirmacion a su correo</strong></td>
-                                    <td class="tdBtnsRetirarAnimal"><input class="btn_RetirarAnimal" type="submit" value="Volver"><input class="btn_RetirarAnimal" type="submit" value="Retirar"></td>
+                                    <td class="tdBtnsRetirarAnimal"><input class="btn_RetirarAnimal" type="submit" value="Volver" onclick="javascript:history.go(-1)"><input class="btn_RetirarAnimal" type="submit" value="Retirar"></td>
                                 </tr>
                             </table>
                             
