@@ -2,24 +2,6 @@
     require 'conexion.php';
     session_start();
 ?>
-<script>
-function login() {
-    window.location = "";
-}
-
-function error() {
-    alert("Correo o contraseña incorrecta");
-    window.location = "index.php";
-}
-
-function comprarAnimal() {
-    window.location = "ComprarAnimal.php";
-}
-
-function refresh() {
-    window.location = "";
-}
-</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +23,7 @@ function refresh() {
                         if(isset($_SESSION["usuario"])){
                             echo
                             '<tr>
-                                <td><label>'.$_SESSION["usuario"].'Bienvenido </label></td>
+                                <td><label>'.$_SESSION["usuario"].'</label></td>
                                 <td><input type="submit" value="Cerrar Sesion" name="btnCerrarSesion"></td>
                             </tr>';
                         }else{
@@ -96,7 +78,6 @@ function refresh() {
                 ?>
             </div>
             <div class="contenedor-arriba">
-
             </div>
         </div>
         <!-- Seccion media -->
@@ -112,19 +93,59 @@ function refresh() {
             <div class="contenedor-medio-usuario">
                 <div class="contenido">
                     <div class="Menu-Medio">
-                        <input type="submit" id="1" class="btn_MenuUsuario" name="btn_Menu" value="Home"
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home"
                             onclick="window.location.href='index.php'">
-                        <input type="submit" id="2" class="btn_MenuUsuario" name="btn_Menu" value="Catalogo"+
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo"
                             onclick="window.location.href='UCatalogo.php'">
-                        <input type="submit" id="3" class="btn_MenuUsuario" name="btn_Menu" value="Animales"
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales"
                             onclick="window.location.href='UAnimalesUsuario.php'">
-                        <input type="submit" id="4" class="btn_MenuUsuario" name="btn_Menu" value="Multimedia">
-                        <input type="submit" id="5" class="btn_MenuUsuario" name="btn_Menu" value="Historial" 
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia"
+                            onclick="">
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial"
                             onclick="window.location.href='UHistorialUsuario.php'">
-                        <input type="submit" id="6" class="btn_Report" name="btn_Menu" value="Error"
+                        <input type="submit" class="btn_Report" name="btn_Error" value="Error"
                             onclick="window.location.href='UInformarError.php'">
                     </div>
-                    <div class="Datos-Pag">
+                    <div class="Datos-Pag1">
+                        <form action="">
+
+                        </form>
+                        <table class="tablaHistorialCompra">
+                            <tr class="trHistorialCompra">
+                                <td class="tdHistorialCompra"><strong>Historial Compras</strong></td>
+                            </tr>
+                            <tr class="trHistorialCompra">
+                                <?php
+                                    $idUser = $_SESSION["usuario"];
+                                    $sql = "SELECT * FROM historialusuario WHERE usuario_idUsuario = '".$idUser."'";
+                                    $result = $conn->query($sql);
+                                    if($result ->num_rows > 0){
+                                        while($row = $result -> fetch_assoc()){
+                                            $sql2 = "SELECT * FROM compra WHERE usuario_idUsuario = '".$idUser."'";
+                                            $result = $conn->query($sql2);
+                                            if($result ->num_rows > 0){
+                                                while($row = $result -> fetch_assoc()){
+
+                                                    echo '<td class="tdHistorialCompra"><strong></strong></td>';
+                                                }
+                                                mysqli_close($conn);
+                                            }       
+                                            echo '<td class="tdHistorialCompra"><strong></strong></td>';
+                                        }
+                                        mysqli_close($conn);
+                                    }        
+                                    
+                                ?>
+
+                            </tr>
+                            <tr class="trHistorialCompra">
+                                <td class="tdBtnsHistorialCompra"><input type="submit" value="Volver"
+                                        class="btn_HistorialCompra">
+                                    <input type="submit" value="Ver granjas" class="btn_HistorialCompra">
+                                    <input type="submit" value="Ingresar" class="btn_HistorialCompra">
+                                </td>
+                            </tr>
+                        </table>
 
                     </div>
                 </div>
@@ -134,4 +155,4 @@ function refresh() {
     </div>
 </body>
 
-</html>
+</html>i

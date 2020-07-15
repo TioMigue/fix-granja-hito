@@ -56,7 +56,7 @@
                             while($row = $result -> fetch_assoc()){
                                 $contrasenaB = $row["Contrasena"];
                                 $usuarioB = $row["Nombre"];
-                                $idUser = $row["idUsuario"]
+                                $idUser = $row["idUsuario"];
                             }
                             mysqli_close($conn);
                         }        
@@ -101,16 +101,18 @@
                         <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales"
                             onclick="window.location.href='UAnimalesUsuario.php'">
                         <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia"
-                            onclick="window.location.href='index.php'">
+                            onclick="window.location.href='UHistorialUsuario.php'">
                         <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial"
-                            onclick="window.location.href='index.php'">
-                        <input type="submit" class="btn_Report" name="btn_Error" value="Error">
+                            onclick="window.location.href='UHistorialUsuario.php'">
+                        <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                            onclick="window.location.href='UInformarError.php'">
                     </div>
                     <div class="Datos-Pag1">
                         <form action="" method="POST">
                             <table class="Animales">
                                 <tr class="trAnimales">
                                     <?php
+                                    $idUser = $_SESSION["usuario"];
                                     /*$idusuario;
                                     $sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
                                     $result = $conn->query($sql);
@@ -120,7 +122,7 @@
                                         }
                                     }*/
                                     
-                                    $sql = "SELECT * FROM animal WHERE Usuario_idUsuario ='".$idUser."'";;
+                                    $sql = "SELECT * FROM animal WHERE Usuario_idUsuario ='".$idUser."'";
                                     $result = $conn->query($sql);
                                     if($result ->num_rows > 0){
                                     while($row = $result -> fetch_assoc()){

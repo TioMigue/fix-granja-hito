@@ -14,22 +14,62 @@
     <div class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
-            <div class="login">
-                <table>
-                    <tr>
-                        
-                        <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario"></td>
-                    </tr>
+        <div class="login2">
+            <form action="index.php" method="POST">
+                    <table>
+                        <?php
+                        if(isset($_SESSION["admini"])){
+                            echo
+                            '<tr>
+                                <td><label>'.$_SESSION["admini"].'</label></td>
+                                <td><input type="submit" value="Cerrar Sesion" name="btnCerrarSesion"></td>
+                            </tr>';
+                        }else{
+                            echo '
+                                <tr>
+                                    
+                                    <td><input class="inputLogin"  type="text" name="Usuario" placeholder="Usuario" required></td>
+                                </tr>
 
-                    <tr>
-                        <td><input class="inputLogin"  type="text" name="Contraseña" placeholder="Contraseña"></td>
-                    </tr>
-                    <tr>
-                        <td> Registrarse Aqui</td>
-                        
-                    </tr>
-                </table>
-            </div>
+                                <tr>
+                                    <td><input class="inputLogin"  type="text" name="Contrasena" placeholder="Contraseña" required></td>
+                                    <td><input class="btnLogin"type="submit" value="Login" name="btnLogin"></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="URegistroUsuario.php">Registrate Aqui</a></td>                         
+                                </tr>
+                            ';
+                        }
+                    ?>
+                    </table>
+                </form>
+                <?php
+                    if(isset($_POST['btnLogin'])){
+                        $usuario = $_POST['Usuario'];
+                        $contrasena = $_POST['Contrasena'];
+                        $idAdmin;
+                        $sql = "SELECT * FROM administrador";
+                        $result = $conn->query($sql);
+                        if($result ->num_rows > 0){
+                            while($row = $result -> fetch_assoc()){
+                                $contrasenaB = $row["clave"];
+                                $usuarioB = $row["user"];
+                                $idAdmin = $row["idAdmin"];
+                            }
+                            mysqli_close($conn);
+                        }         
+                        if($usuario == $usuarioB && $contrasena == $contrasenaB){
+                            $_SESSION["admini"] = $idAdmin;
+                            echo '<script>window.location = "#" </script>';
+                        }else{
+                            echo '<script>alert("Usuario o contraseña incorrectos")</script>';
+                        }
+                    }
+                    if(isset($_POST['btnCerrarSesion'])){
+                        session_destroy();
+                        echo '<script>refresh()</script>';
+                    }
+                ?>
             
             <div class="contenedor-arriba">
 

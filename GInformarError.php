@@ -136,7 +136,8 @@ session_start();
                     <?php
                         if(isset($_POST['Enviar']))
                         {
-                            $usuario = $_SESSION["usuario"];
+                            $idUser = $_SESSION["usuario"];
+                            /*$usuario = $_SESSION["usuario"];
                             $idUsuario;
                             $sql = "SELECT * FROM usuario WHERE Nombre ='".$_SESSION["usuario"]."'";
                             $result = $conn->query($sql);
@@ -144,13 +145,13 @@ session_start();
                                 while($row = $result -> fetch_assoc()){
                                     $idUsuario = $row["idUsuario"];
                                 }
-                            }    
+                            }*/    
                                 
                             $tipo = $_POST['tipoError'];
                             $asunto = $_POST['asunto'];
                             $desc = $_POST['Desc'];
 
-                            $sql2 = "INSERT INTO reporteerrores (tipoError,asunto,descripcionError,usuario_idUsuario) VALUES ('".$tipo."','".$asunto."','".$desc."','".$idUsuario."')";
+                            $sql2 = "INSERT INTO reporteerrores (tipoError,asunto,descripcionError,usuario_idUsuario) VALUES ('".$tipo."','".$asunto."','".$desc."','".$idUser."')";
                             if (mysqli_query($conn, $sql2)) {
                                 echo '<script type="text/javascript">alert("Error registrado")</script>';
                                 mysqli_close($conn);

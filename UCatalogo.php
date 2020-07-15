@@ -56,7 +56,7 @@
                             while($row = $result -> fetch_assoc()){
                                 $contrasenaB = $row["Contrasena"];
                                 $usuarioB = $row["Nombre"];
-                                $idUser = $row["idUsuario"]
+                                $idUser = $row["idUsuario"];
                             }
                             mysqli_close($conn);
                         }        
@@ -101,8 +101,10 @@
                             onclick="window.location.href='UAnimalesUsuario.php'">
                         <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia"
                             onclick="">
-                        <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial">
-                        <input type="submit" class="btn_Report" name="btn_Error" value="Error">
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial"
+                            onclick="window.location.href='UHistorialUsuario.php'">
+                        <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                            onclick="window.location.href='UInformarError.php'">
                     </div>
                     <div class="Datos-Pag1">
                         <form action="" method="POST">
@@ -172,11 +174,8 @@
                                                                                  
                                         }
                                     }
-                                    }
-                                    
+                                    }  
                                 }
-
-                                
                                 ?>
                                 </tr>
                             </table>

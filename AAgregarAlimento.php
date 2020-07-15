@@ -15,14 +15,14 @@
     <div id="arribaUsuario"  class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
-            <div class="login">
+            <div class="login2">
             <form action="index.php" method="POST">
                     <table>
                         <?php
-                        if(isset($_SESSION["usuario"])){
+                        if(isset($_SESSION["admini"])){
                             echo
                             '<tr>
-                                <td><label>'.$_SESSION["usuario"].'</label></td>
+                                <td><label>'.$_SESSION["admini"].'</label></td>
                                 <td><input type="submit" value="Cerrar Sesion" name="btnCerrarSesion"></td>
                             </tr>';
                         }else{
@@ -48,18 +48,20 @@
                     if(isset($_POST['btnLogin'])){
                         $usuario = $_POST['Usuario'];
                         $contrasena = $_POST['Contrasena'];
-                        $sql = "SELECT * FROM usuario";
+                        $idAdmin;
+                        $sql = "SELECT * FROM administrador";
                         $result = $conn->query($sql);
                         if($result ->num_rows > 0){
                             while($row = $result -> fetch_assoc()){
-                                $contrasenaB = $row["Contrasena"];
-                                $usuarioB = $row["Nombre"];
+                                $contrasenaB = $row["clave"];
+                                $usuarioB = $row["user"];
+                                $idAdmin = $row["idAdmin"];
                             }
                             mysqli_close($conn);
                         }         
                         if($usuario == $usuarioB && $contrasena == $contrasenaB){
-                            $_SESSION["usuario"] = $usuario;
-                            echo '<script>login()</script>';
+                            $_SESSION["admini"] = $idAdmin;
+                            echo '<script>window.location = "#" </script>';
                         }else{
                             echo '<script>alert("Usuario o contraseña incorrectos")</script>';
                         }

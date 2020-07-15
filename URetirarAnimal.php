@@ -52,7 +52,7 @@
                             while($row = $result -> fetch_assoc()){
                                 $contrasenaB = $row["Contrasena"];
                                 $usuarioB = $row["Nombre"];
-                                $idUser = $row["idUsuario"]
+                                $idUser = $row["idUsuario"];
                             }
                             mysqli_close($conn);
                         }        
@@ -90,16 +90,20 @@
             </div>
             <div class="contenedor-medio-usuario">
                 <div class="contenido">
-                    <form action="" method="POST">
-                        <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial">
-                            <input type="submit" class="btn_Report" name="btn_Error" value="Error">
+                <div class="Menu-Medio">
+                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home"
+                                onclick="window.location.href='index.php'">
+                            <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo"
+                                onclick="window.location.href='UCatalogo.php'">
+                            <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales"
+                                onclick="window.location.href='UAnimalesUsuario.php'">
+                            <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia"
+                                onclick="window.location.href='UHistorialUsuario.php'">
+                            <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial"
+                                onclick="window.location.href='UHistorialUsuario.php'">
+                            <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                                onclick="window.location.href='UInformarError.php'">
                         </div>
-                    </form>
                     <div class="Datos-Pag2">
                         <form action="">
                             <table class="tablaRetirarAnimal">

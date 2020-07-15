@@ -1,18 +1,18 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="contenedor">
         <!-- Seccion arriba -->
         <div class="arriba">
-        <div class="login">
+            <div class="login">
                 <form action="index.php" method="POST">
                     <table>
                         <?php
@@ -52,7 +52,7 @@
                             while($row = $result -> fetch_assoc()){
                                 $contrasenaB = $row["Contrasena"];
                                 $usuarioB = $row["Nombre"];
-                                $idUser = $row["idUsuario"]
+                                $idUser = $row["idUsuario"];
                             }
                             mysqli_close($conn);
                         }        
@@ -89,16 +89,20 @@
             </div>
             <div class="contenedor-medio-usuario">
                 <div class="contenido">
-                    <form action="" method="POST">
-                        <div class="Menu-Medio">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia">
-                            <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial">
-                            <input type="submit" class="btn_Report" name="btn_Error" value="Error">
-                        </div>
-                    </form>
+                    <div class="Menu-Medio">
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Home" value="Home"
+                            onclick="window.location.href='index.php'">
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Catalogo" value="Catalogo"
+                            onclick="window.location.href='UCatalogo.php'">
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Animales" value="Animales"
+                            onclick="window.location.href='UAnimalesUsuario.php'">
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Multimedia" value="Multimedia"
+                            onclick="window.location.href='UHistorialUsuario.php'">
+                        <input type="submit" class="btn_MenuUsuario" name="btn_Historial" value="Historial"
+                            onclick="window.location.href='UHistorialUsuario.php'">
+                        <input type="submit" class="btn_Report" name="btn_Error" value="Error"
+                            onclick="window.location.href='UInformarError.php'">
+                    </div>
                     <div class="Datos-Pag2">
                         <form action="">
                             <table class="tablaEstado">
@@ -109,7 +113,7 @@
                                             <tr class="trEstado">
                                                 <td class="tdEstadoAlimento">
                                                     <strong>Estado comida: </strong>
-                                                    <select class="selectComida"name="" id="">
+                                                    <select class="selectComida" name="" id="">
                                                         <option value="">Efectivo</option>
                                                         <option value="">WebPay</option>
                                                         <option value="">PayPal</option>
@@ -127,7 +131,8 @@
 
                                                 </td>
                                             </tr>
-                                        </table></td>
+                                        </table>
+                                    </td>
                                 </tr>
                                 <tr class="trEstado">
                                     <td class="tdDescripcionEstado"><strong>Descripcion del animal</strong></td>
@@ -147,4 +152,5 @@
         <!-- Seccion abajo -->
     </div>
 </body>
+
 </html>
