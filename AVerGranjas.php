@@ -37,7 +37,7 @@ function verGranja() {
                         if(isset($_SESSION["admini"])){
                             echo
                             '<tr>
-                                <td><label>'.$_SESSION["admini"].'</label></td>
+                                <td><label>Bienvenido Admin :'.$_SESSION["admini"].'</label></td>
                                 <td><input type="submit" value="Cerrar Sesion" name="btnCerrarSesion"></td>
                             </tr>';
                         }else{
@@ -48,7 +48,7 @@ function verGranja() {
                                 </tr>
 
                                 <tr>
-                                    <td><input class="inputLogin"  type="text" name="Contrasena" placeholder="Contraseña" required></td>
+                                    <td><input class="inputLogin"  type="password" name="Contrasena" placeholder="Contraseña" required></td>
                                     <td><input class="btnLogin"type="submit" value="Login" name="btnLogin"></td>
                                 </tr>
                                 <tr>
@@ -76,7 +76,7 @@ function verGranja() {
                         }         
                         if($usuario == $usuarioB && $contrasena == $contrasenaB){
                             $_SESSION["admini"] = $idAdmin;
-                            echo '<script>window.location = "#" </script>';
+                            echo '<script>refresh()</script>';  
                         }else{
                             echo '<script>alert("Usuario o contraseña incorrectos")</script>';
                         }
@@ -159,6 +159,7 @@ function verGranja() {
                                         $sql = "DELETE FROM granja WHERE idGranja = '$granjaS'";
                                         if (mysqli_query($conn, $sql)) {
                                             echo '<script type="text/javascript">alert("Se ha Eliminado la granja")</script>';
+                                            echo '<script type="text/javascript">refresh()</script>';
                                             mysqli_close($conn);
                                             }else{
                                             echo "Error: " . $sql . "<br>" . mysqli_error($conn);

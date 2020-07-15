@@ -28,13 +28,13 @@ function refresh() {
         <!-- Seccion arriba -->
         <div class="arriba">
             <div class="login2">
-            <form action="AGestionarGranja.php" method="POST">
+            <form action="AGestionarGranjas.php" method="POST">
                     <table>
                         <?php
                         if(isset($_SESSION["admini"])){
                             echo
                             '<tr>
-                                <td><label>'.$_SESSION["admini"].'</label></td>
+                                <td><label>Bienvenido Admin : '.$_SESSION["admini"].'</label></td>
                                 <td><input type="submit" value="Cerrar Sesion" name="btnCerrarSesion"></td>
                             </tr>';
                         }else{
@@ -45,7 +45,7 @@ function refresh() {
                                 </tr>
 
                                 <tr>
-                                    <td><input class="inputLogin"  type="text" name="Contrasena" placeholder="Contraseña" required></td>
+                                    <td><input class="inputLogin"  type="password" name="Contrasena" placeholder="Contraseña" required></td>
                                     <td><input class="btnLogin"type="submit" value="Login" name="btnLogin"></td>
                                 </tr>
                                 <tr>
@@ -73,7 +73,7 @@ function refresh() {
                         }         
                         if($usuario == $usuarioB && $contrasena == $contrasenaB){
                             $_SESSION["admini"] = $idAdmin;
-                            echo '<script>window.location = "#" </script>';
+                            echo '<script>refresh()</script>';  
                         }else{
                             echo '<script>alert("Usuario o contraseña incorrectos")</script>';
                         }
@@ -138,6 +138,7 @@ function refresh() {
                                         $sql = "INSERT INTO granja (Nombre, Direccion, RUN, Descripcion) VALUES ('".$nombre."','".$direccion."','".$RUN."','".$descripcion."')";
                                         if (mysqli_query($conn, $sql)){
                                             echo '<script type="text/javascript">alert("Granja registrada correctamente")</script>';
+                                            echo '<script>refresh()</script>';  
                                             mysqli_close($conn);
                                             }else{
                                             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
